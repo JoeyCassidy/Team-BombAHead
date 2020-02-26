@@ -15,9 +15,6 @@ public class student {
 	}
 	
 	public void acceptordenyfriends(Boolean a, student b) {
-		DoublyLinkedList<String> a = new DoublyLinkedList();
-		a.
-		
 	}
 	
 	public void addfriends(student a) {
