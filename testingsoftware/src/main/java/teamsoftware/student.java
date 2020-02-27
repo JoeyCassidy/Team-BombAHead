@@ -2,6 +2,7 @@ package teamsoftware;
 import cs2321.HashMap;
 
 public class student {
+	String Email;
 	schedule Schedule;
 	setting Setting;
 	HashMap<String,student> friends;
@@ -10,10 +11,11 @@ public class student {
 	HashMap<String,studygroup> listofstudygroups;
 	
 	public student initstudent() {
-		return null;
+		return null; // do this with the html guys
 	}
 	
 	public void acceptordenyfriends(Boolean a, student b) {
+		
 	}
 	
 	public void addfriends(student a) {

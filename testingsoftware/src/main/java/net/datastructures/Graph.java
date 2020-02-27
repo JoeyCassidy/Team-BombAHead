@@ -26,38 +26,6 @@ public interface Graph<V,E> {
   /** Returns the edges of the graph as an iterable collection */
   Iterable<Edge<E>> edges();
 
-  /**
-   * Returns the number of edges leaving vertex v.
-   * Note that for an undirected graph, this is the same result
-   * returned by inDegree
-   * @throws IllegalArgumentException if v is not a valid vertex
-   */
-  int outDegree(Vertex<V> v) throws IllegalArgumentException;
-
-  /**
-   * Returns the number of edges for which vertex v is the destination.
-   * Note that for an undirected graph, this is the same result
-   * returned by outDegree
-   * @throws IllegalArgumentException if v is not a valid vertex
-   */
-  int inDegree(Vertex<V> v) throws IllegalArgumentException;
-
-  /**
-   * Returns an iterable collection of edges for which vertex v is the origin.
-   * Note that for an undirected graph, this is the same result
-   * returned by incomingEdges.
-   * @throws IllegalArgumentException if v is not a valid vertex
-   */
-  Iterable<Edge<E>> outgoingEdges(Vertex<V> v) throws IllegalArgumentException;
-
-  /**
-   * Returns an iterable collection of edges for which vertex v is the destination.
-   * Note that for an undirected graph, this is the same result
-   * returned by outgoingEdges.
-   * @throws IllegalArgumentException if v is not a valid vertex
-   */
-  Iterable<Edge<E>> incomingEdges(Vertex<V> v) throws IllegalArgumentException;
-
   /** Returns the edge from u to v, or null if they are not adjacent. */
   Edge<E> getEdge(Vertex<V> u, Vertex<V> v) throws IllegalArgumentException;
 

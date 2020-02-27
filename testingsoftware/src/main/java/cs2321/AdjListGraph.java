@@ -310,110 +310,6 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 	}
 
 	@Override
-	@TimeComplexity("O(deg(v))")
-	public int outDegree(Vertex<V> v) throws IllegalArgumentException {
-//		makes sure v is of the correct type
-		if(!(v instanceof vnode)) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables and where to work on
-		vnode<V,E> toout = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		does some casting to get access to methods and variables and where to start
-		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> start = toout.econnections.first.bottomright;
-//		is a counter
-		int i = 0;
-//		goes through all of the edges that the vertex is connected to and counts how many come out of the vertex
-		while(start!=null && (start != toout.econnections.last)) {
-			if(isdirected && toout == start.data.fromvertex) {
-				i++;
-			} else if(isdirected==false) {
-				i++;
-			}
-			start = start.bottomright;
-		}
-		return i;
-	}
-
-	@Override
-	@TimeComplexity("O(deg(v))")
-	public int inDegree(Vertex<V> v) throws IllegalArgumentException {
-//		makes sure v is of the correct type
-		if(!(v instanceof vnode)) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables and where to work on
-		vnode<V,E> toout = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		does some casting to get access to methods and variables and where to start
-		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> start = toout.econnections.first.bottomright;
-//		is a counter
-		int i = 0;
-//		goes through all of the edges that the vertex is connected to and counts how many come into the vertex
-		while(start != toout.econnections.last) {
-			if(isdirected && toout == start.data.tovertex) {
-				i++;
-			} else if(isdirected==false) {
-				i++;
-			}
-			start = start.bottomright;
-		}
-		return i;
-	}
-
-	@Override
-	@TimeComplexity("O(deg(v))")
-	public Iterable<Edge<E>> outgoingEdges(Vertex<V> v)
-			throws IllegalArgumentException {
-//		makes sure v is of the correct type
-		if(!(v instanceof vnode)) {
-			throw new IllegalArgumentException("");
-		}
-//		makes a arraylist to return all of the vertex's
-		ArrayList<Edge<E>> toreturn = new ArrayList<Edge<E>>(); 
-//		does some casting to get access to methods and variables and where to work on
-		vnode<V,E> toout = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		does some casting to get access to methods and variables and where to start
-		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> start = toout.econnections.first.bottomright;
-//		goes through all of the edges that the vertex is connected to and adds each that come out of the vertex to 
-//				the new arraylist
-		while(start != toout.econnections.last) {
-			if(isdirected && toout == start.data.fromvertex) {
-				toreturn.addLast((Edge<E>)start.data);
-			} else if(isdirected==false) {
-				toreturn.addLast((Edge<E>)start.data);
-			}
-			start = start.bottomright;
-		}
-		return toreturn;
-	}
-
-	@Override
-	@TimeComplexity("O(deg(v))")
-	public Iterable<Edge<E>> incomingEdges(Vertex<V> v)
-			throws IllegalArgumentException {
-//		makes sure v is of the correct type
-		if(!(v instanceof vnode)) {
-			throw new IllegalArgumentException("");
-		}
-//		makes a arraylist so its iterable and stores the info
-		ArrayList<Edge<E>> toreturn = new ArrayList<Edge<E>>(); 
-//		casts the vertex so we can use methods
-		vnode<V,E> toout = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		does some casting to get access to methods and variables and where to start
-		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> start = toout.econnections.first.bottomright;
-//		goes through all of the edges that the vertex is connected to and adds each that come into the vertex to 
-//				the new arraylist
-		while(start != toout.econnections.last) {
-			if(isdirected && toout == start.data.tovertex) {
-				toreturn.addLast((Edge<E>)start.data);
-			} else if(isdirected==false) {
-				toreturn.addLast((Edge<E>)start.data);
-			}
-			start = start.bottomright;
-		}
-		return toreturn;
-	}
-
-	@Override
 	@TimeComplexity("O(deg(u))")
 	public Edge<E> getEdge(Vertex<V> u, Vertex<V> v)
 			throws IllegalArgumentException {
@@ -439,5 +335,7 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 		}
 		return null;
 	}
-	
+
+
+
 }
