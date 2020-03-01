@@ -14,7 +14,7 @@ public class post {
 	
 	public void makepost(String a, String b, HashMap<String,post> c, student d, Date e, Boolean f) {
 		/*
-		 * what was the post[] for again?
+		 * what was the post[] for again? its for the thing to reply to
 		 */
 		
 		title = a;
