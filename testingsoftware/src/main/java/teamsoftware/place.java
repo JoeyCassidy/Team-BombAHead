@@ -1,23 +1,31 @@
 package teamsoftware;
-import java.sql.Date;
+import java.util.Calendar;
 
 public class place {
 	String name;
-	Date time;
+	Calendar time;
 	String type;
 	Boolean[] listofdays;
 	String location;
 	
+	public place(String name, Calendar time, String type, Boolean[] listofdays, String location) {
+		super();
+		this.name = name;
+		this.time = time;
+		this.type = type;
+		this.listofdays = listofdays;
+		this.location = location;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getTime() {
+	public Calendar getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(Calendar time) {
 		this.time = time;
 	}
 	public String getType() {

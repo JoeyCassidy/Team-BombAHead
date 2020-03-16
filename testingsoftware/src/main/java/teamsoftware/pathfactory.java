@@ -1,6 +1,7 @@
 package teamsoftware;
 import cs2321.DoublyLinkedList;
 import cs2321.HashMap;
+import cs2321.HeapPQ;
 import cs2321.Travel;
 import net.datastructures.Entry;
 
@@ -12,6 +13,30 @@ public class pathfactory {
 		campusMap = new Travel(a);
 	}
 	
+	
+	/**
+	 * make path from unsorted place = M P F U P
+	 * makes a path from a unsorted list of place objects
+	 * @param a
+	 * @return
+	 */
+	public String[] MPFUP(place[] a) {
+		HeapPQ<Integer, place> heappq = new HeapPQ<Integer, place>();
+		for(place e: a) {
+			heappq.insert(e.time.HOUR_OF_DAY, e);
+		}
+		String[] p = new String[a.length]; 
+		for(int i = 0; i < a.length; i++) {
+			p[i] = heappq.removeMin().getValue().location;
+		}
+		return makepath(p);
+	}
+	
+	/**
+	 * makes a path from a list of sorted strings passed on order to move to
+	 * @param a
+	 * @return
+	 */
 	public String[] makepath(String[] a) {
 		HashMap<String, Boolean> returning = new HashMap<String, Boolean>();
 		
@@ -40,6 +65,13 @@ public class pathfactory {
 		return holding;
 	}
 	
+	/**
+	 * makes a path from a to b and records it using c
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return
+	 */
 	public DoublyLinkedList<String> makesubpath(String a, String b, DoublyLinkedList<String> c) {
 		campusMap.DijkstraRoute(a, b, c);
 		return c;
