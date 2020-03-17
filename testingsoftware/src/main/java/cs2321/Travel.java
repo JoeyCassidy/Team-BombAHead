@@ -213,7 +213,7 @@ public class Travel {
 		int currentcost = 0;
 //		while there are edge to look through keep going
 		while(!pq.isEmpty()) {
-			System.out.print("*.");
+//			System.out.print("*.");
 //			get the cost of the edge
 			currentcost = pq.min().getKey();
 //			get the min cost path info
@@ -239,17 +239,20 @@ public class Travel {
 //		goes backwards through the connections and adds them to the list storing the path
 		while(comp.compare(current.data, departure)!=0) {
 			itinerary.addFirst(current.data);
-			System.out.print(current);
-			try
-			{
-			    Thread.sleep(200);
-			}
-			catch(InterruptedException ex)
-			{
-			    Thread.currentThread().interrupt();
-			}
+//			System.out.println(current.data + "__" + connectionslist.get(current.data) + "__" +
+//					((AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(current,connectionslist.get(current.data))).data 
+//					);
+//			try
+//			{
+//			    Thread.sleep(100);
+//			}
+//			catch(InterruptedException ex)
+//			{
+//			    Thread.currentThread().interrupt();
+//			}
 			current = (AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(current,connectionslist.get(current.data));
 		}
+//		System.out.println("**************************");
 //		add the departure point to the beggining of the path list
 		itinerary.addFirst(current.data);
 //		return the cost of getting to the found node

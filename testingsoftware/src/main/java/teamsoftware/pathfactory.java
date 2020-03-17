@@ -27,15 +27,25 @@ public class pathfactory {
 		for(place e: a) {
 			heappq.insert(e.time.get(Calendar.HOUR_OF_DAY), e);
 		}
+//		System.out.println("");
 		String[] p = new String[a.length]; 
 		for(int i = 0; i < a.length; i++) {
-			System.out.println("*"+heappq.min().getValue().location+"*");
+//			System.out.print("*"+heappq.min().getValue().location+"*");
 			p[i] = heappq.removeMin().getValue().location;
 		}
-		for(String e: p) {
-			System.out.println(e);
-		}
-		
+//		System.out.println("");
+//		for(String e: p) {
+//			System.out.print(e);
+//		}
+//		System.out.println("");
+//		String[] z = {"1","2","3","4","5","6","7","8","9"};
+//		for(String e: z) {
+//			System.out.print(e);
+//		}
+//		System.out.println("");
+//		for(String e : p) {
+//			int b = e.hashCode();
+//		}
 		return makepath(p);
 	}
 	

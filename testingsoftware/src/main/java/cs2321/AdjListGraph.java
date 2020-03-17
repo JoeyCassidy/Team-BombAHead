@@ -59,7 +59,7 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 	
 	public vnode<V,E> getvertex(V p) throws IllegalArgumentException {
 		DoublyLinkedList<AdjListGraph<V, E>.vnode<V, E>>.node<AdjListGraph<V, E>.vnode<V, E>> current = vnodelist.first.bottomright;
-		while(current.bottomright.getElement()!=null && current.getElement().getElement()!=p) {
+		while(current.bottomright.getElement()!=null && !current.getElement().getElement().equals(p)) {
 			current = current.bottomright;
 		}
 		if(current.getElement()==null || current.getElement().getElement()==null) {
