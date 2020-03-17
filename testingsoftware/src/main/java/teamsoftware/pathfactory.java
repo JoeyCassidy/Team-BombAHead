@@ -1,4 +1,6 @@
 package teamsoftware;
+import java.util.Calendar;
+
 import cs2321.DoublyLinkedList;
 import cs2321.HashMap;
 import cs2321.HeapPQ;
@@ -23,12 +25,17 @@ public class pathfactory {
 	public String[] MPFUP(place[] a) {
 		HeapPQ<Integer, place> heappq = new HeapPQ<Integer, place>();
 		for(place e: a) {
-			heappq.insert(e.time.HOUR_OF_DAY, e);
+			heappq.insert(e.time.get(Calendar.HOUR_OF_DAY), e);
 		}
 		String[] p = new String[a.length]; 
 		for(int i = 0; i < a.length; i++) {
+			System.out.println("*"+heappq.min().getValue().location+"*");
 			p[i] = heappq.removeMin().getValue().location;
 		}
+		for(String e: p) {
+			System.out.println(e);
+		}
+		
 		return makepath(p);
 	}
 	
@@ -51,11 +58,12 @@ public class pathfactory {
 			returning.put(place.bottomright.data, true);
 			place = place.bottomright;
 		}
-//		for(String e: writing) {
-//			System.out.println(e);
-//		}
-//		System.out.println("");
+		
+//		System.out.println("************");
 	}
+//	for(String e: writing) {
+//		System.out.println(e);
+//	}
 		String[] holding = new String[returning.size()];
 		int i = 0;
 		for(Entry<String, Boolean> e: returning.entrySet()) {
