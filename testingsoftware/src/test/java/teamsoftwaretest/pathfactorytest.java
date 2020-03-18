@@ -2,6 +2,8 @@ package teamsoftwaretest;
 import org.junit.Test;
 import teamsoftware.pathfactory;
 import teamsoftware.place;
+
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -85,7 +87,7 @@ public class pathfactorytest {
 					true
 					};
 			String e = Integer.toString(i+1);
-			q[i] = new place(a, b, c, d, e); 
+			q[i] = new place(a, b, c, d, e, null); 
 		}
 		
 //		System.out.println("");
@@ -125,6 +127,82 @@ public class pathfactorytest {
 		for(int i = 0; i < v.length; i++) {
 			assertEquals(f[i], v[i]);
 		}
+		
+	}
+	
+	@Test
+	public void testMPFUP2() {
+		pathfactory p = new pathfactory();
+		p = new pathfactory();
+		String routes[][] = {  
+//				from, to, cost
+				{"1","2","1"},
+				{"2","3","1"},
+				{"3","4","1"},
+				{"4","5","1"},
+				{"5","6","1"},
+				{"6","7","1"},
+				{"7","8","1"},
+				{"8","9","1"},
+				{"1","3","3"},
+				{"2","4","3"},
+				{"2","8","3"},
+				{"9","3","3"},
+				{"4","6","3"},
+				{"3","5","3"},
+				{"3","7","3"},
+				{"8","6","3"}
+				};
+		p.initializeMap(routes);
+		
+		place[] q = new place[9];
+		for(int i = 0; i < q.length; i++) {
+			String a = "also a banana";
+			Calendar b = Calendar.getInstance();
+			b.set(Calendar.HOUR_OF_DAY, i+1);
+			String c = "a banana";
+			Boolean[] d = {
+					true,
+					true,
+					true,
+					true,
+					true
+					};
+			String e = Integer.toString(i+1);
+			q[i] = new place(a, b, c, d, e, Integer.toString(i)); 
+		}
+		
+		String[][] f = p.pathing3(q, new Boolean[] {true,true,true,true,true});
+		
+		String[] v = {"1_2",
+				"8_9",
+				"5_6",
+				"2_3",
+				"1",
+				"2",
+				"3",
+				"4",
+				"6_7",
+				"5",
+				"6",
+				"7",
+				"3_4",
+				"8",
+				"9",
+				"7_8",
+				"4_5"};
+		for(int d = 0; d < f.length; d++) {
+//			for(int s = 0; s < f[d].length; s++) {
+//				System.out.print(f[d][s] + " * ");
+//			}
+			assertArrayEquals(f[d], v);
+//			System.out.println("");
+		}
+		
+//		
+//		for(int i = 0; i < v.length; i++) {
+//			assertEquals(f[i], v[i]);
+//		}
 		
 	}
 	

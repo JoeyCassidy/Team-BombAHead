@@ -1,6 +1,5 @@
 package teamsoftware;
 import java.util.Calendar;
-
 import cs2321.DoublyLinkedList;
 import cs2321.HashMap;
 import cs2321.HeapPQ;
@@ -17,6 +16,48 @@ public class pathfactory {
 	
 	
 	/**
+	 * accepts all of the place values and uses a boolean array to make paths for each of the days that coresponds to a true value in the boolean array
+	 * for example if b[0] is false then it will not make a path for monday as it is the first day of the week.
+	 * 		but if b[1] is true then it will make an return a schedule for tuesday
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public String[][] pathing3(place[] a, Boolean[] b) {
+		HashMap<String, place>[] holding = (HashMap<String, place>[]) new HashMap[5];
+		for(int i = 0; i < holding.length; i++) {
+			holding[i] = new HashMap<String, place>();
+		}
+		for(int i = 0; i < b.length; i++) {
+			if(b[i] == true) {
+				for(int p = 0; p < a.length; p++) {
+					if(a[p].getListofdays()[i] == true) {
+						holding[i].put(a[p].getIdentifier(), a[p]);
+					}
+				}
+			}
+		}
+		place[][] holding2 = new place[holding.length][];
+		for(int i = 0; i < b.length; i++) {
+			int c = 0;
+			for(place e: holding[i].values()) {
+				c++;
+			}
+			holding2[i] = new place[c];
+			c = 0;
+			for(place e: holding[i].values()) {
+				holding2[i][c] = e;
+				c++;
+			}
+		}
+		String[][] returning = new String[5][];
+		for(int i = 0; i < b.length; i++) {
+			returning[i] = MPFUP(holding2[i]);
+		}
+		return returning;
+	}
+		
+	/**
 	 * make path from unsorted place = M P F U P
 	 * makes a path from a unsorted list of place objects
 	 * @param a
@@ -25,13 +66,13 @@ public class pathfactory {
 	public String[] MPFUP(place[] a) {
 		HeapPQ<Integer, place> heappq = new HeapPQ<Integer, place>();
 		for(place e: a) {
-			heappq.insert(e.time.get(Calendar.HOUR_OF_DAY), e);
+			heappq.insert(e.getTime().get(Calendar.HOUR_OF_DAY), e);
 		}
 //		System.out.println("");
 		String[] p = new String[a.length]; 
 		for(int i = 0; i < a.length; i++) {
 //			System.out.print("*"+heappq.min().getValue().location+"*");
-			p[i] = heappq.removeMin().getValue().location;
+			p[i] = heappq.removeMin().getValue().getLocation();
 		}
 //		System.out.println("");
 //		for(String e: p) {

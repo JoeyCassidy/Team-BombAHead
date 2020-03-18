@@ -68,10 +68,6 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 		return current.getElement();
 	}
 	
-//	public HashMap<V,enode<V,E>> enodemap = new HashMap<V,enode<V,E>>();
-//	
-//	public HashMap<V,vnode<V,E>> vnodemap = new HashMap<V,vnode<V,E>>();
-	
 	boolean isdirected = false;
 	
 	public AdjListGraph(boolean directed) {
