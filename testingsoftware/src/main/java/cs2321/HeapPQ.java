@@ -59,9 +59,9 @@ public class HeapPQ<K,V> implements AdaptablePriorityQueue<K,V> {
 	public HeapPQ() {
 	}
 
-	public HeapPQ(Comparator<K> c) {
-		comp = c;
-	}
+//	public HeapPQ(Comparator<K> c) {
+//		comp = c;
+//	}
 
 	public void swap(int i, int j) {
 		HeapPQentry<K,V> temp = list.get(i);
@@ -71,10 +71,10 @@ public class HeapPQ<K,V> implements AdaptablePriorityQueue<K,V> {
 		list.get(j).i=j;
 	}
 	
-	@TimeComplexity("O(1)")
-	public boolean hasparent(int j) {
-		return (((j-1)/2)>=0);
-	}
+//	@TimeComplexity("O(1)")
+//	public boolean hasparent(int j) {
+//		return (((j-1)/2)>=0);
+//	}
 	
 	@TimeComplexity("O(1)")
 	public int parent(int j) {
@@ -218,80 +218,98 @@ public class HeapPQ<K,V> implements AdaptablePriorityQueue<K,V> {
 		downheap(0);
 		return answer;
 	}
-	
-	@TimeComplexity("O(log(n))")
+
 	@Override
 	public void remove(Entry<K, V> entry) throws IllegalArgumentException {
-		/* TCJ 
-		 * because it only has to compare and ho a up or down heap then 
-		 */
-		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
-//		check if the entry is null
-		if (entry == null ){
-			throw new IllegalArgumentException("");
-		}
-//		checks if the key of that entry is null
-		if (entry.getKey() == null ){
-			throw new IllegalArgumentException("");
-		}
-		if (list.isEmpty()) {
-		} else {
-			current = list.get(current.i);
-			int i2 = current.i;
-			K s = current.getKey();
-//			swaps the entry to be removed to the back 
-			swap(i2,list.size()-1);
-//			removes the last entry
-			list.remove(list.size()-1);
-//			if it needs to up heap then it will
-			upheap(i2);
-//			if it needs to down heap it will
-			downheap(i2);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
-	@TimeComplexity("O(log(n))")
 	@Override
 	public void replaceKey(Entry<K, V> entry, K key) throws IllegalArgumentException {
-		/* TCJ
-		 * this only method call is up head and down heap which are both O(log(n))
-		 */
-//		checks if the entry is null
-		if (entry == null ){
-			throw new IllegalArgumentException("");
-		}
-//		checks if the key of that entry is null
-		if (entry.getKey() == null ){
-			throw new IllegalArgumentException("");
-		}
-//		checks if the new key is null
-		if (key == null ){
-			throw new IllegalArgumentException("");
-		}
-		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
-		int i = current.i;
-		current.setkey(key);
-//		if it needs to up heap then it will
-		upheap(i);
-//		if it needs to down heap it will
-		downheap(i);
+		// TODO Auto-generated method stub
+		
 	}
 
-	@TimeComplexity("O(1)")
 	@Override
 	public void replaceValue(Entry<K, V> entry, V value) throws IllegalArgumentException {
-		if (entry == null ){
-			throw new IllegalArgumentException("");
-		}
-		if (entry.getKey() == null ){
-			throw new IllegalArgumentException("");
-		}
-		if (entry.getValue().getClass() != value.getClass()){
-			throw new IllegalArgumentException("");
-		}
-		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
-		current.setvalue(value);
+		// TODO Auto-generated method stub
+		
 	}
+	
+//	@TimeComplexity("O(log(n))")
+//	@Override
+//	public void remove(Entry<K, V> entry) throws IllegalArgumentException {
+//		/* TCJ 
+//		 * because it only has to compare and ho a up or down heap then 
+//		 */
+//		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
+////		check if the entry is null
+//		if (entry == null ){
+//			throw new IllegalArgumentException("");
+//		}
+////		checks if the key of that entry is null
+//		if (entry.getKey() == null ){
+//			throw new IllegalArgumentException("");
+//		}
+//		if (list.isEmpty()) {
+//		} else {
+//			current = list.get(current.i);
+//			int i2 = current.i;
+//			K s = current.getKey();
+////			swaps the entry to be removed to the back 
+//			swap(i2,list.size()-1);
+////			removes the last entry
+//			list.remove(list.size()-1);
+////			if it needs to up heap then it will
+//			upheap(i2);
+////			if it needs to down heap it will
+//			downheap(i2);
+//		}
+//	}
+
+//	@TimeComplexity("O(log(n))")
+//	@Override
+//	public void replaceKey(Entry<K, V> entry, K key) throws IllegalArgumentException {
+//		/* TCJ
+//		 * this only method call is up head and down heap which are both O(log(n))
+//		 */
+////		checks if the entry is null
+//		if (entry == null ){
+//			throw new IllegalArgumentException("");
+//		}
+////		checks if the key of that entry is null
+//		if (entry.getKey() == null ){
+//			throw new IllegalArgumentException("");
+//		}
+////		checks if the new key is null
+//		if (key == null ){
+//			throw new IllegalArgumentException("");
+//		}
+//		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
+//		int i = current.i;
+//		current.setkey(key);
+////		if it needs to up heap then it will
+//		upheap(i);
+////		if it needs to down heap it will
+//		downheap(i);
+//	}
+
+//	@TimeComplexity("O(1)")
+//	@Override
+//	public void replaceValue(Entry<K, V> entry, V value) throws IllegalArgumentException {
+//		if (entry == null ){
+//			throw new IllegalArgumentException("");
+//		}
+//		if (entry.getKey() == null ){
+//			throw new IllegalArgumentException("");
+//		}
+//		if (entry.getValue().getClass() != value.getClass()){
+//			throw new IllegalArgumentException("");
+//		}
+//		HeapPQentry<K,V> current = (HeapPQ<K, V>.HeapPQentry<K, V>) entry;
+//		current.setvalue(value);
+//	}
 
 
 }

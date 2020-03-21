@@ -99,29 +99,31 @@ public class ArrayList<E> implements List<E> {
 			if (this.list[i] == null) {
 				this.list[i] = e;
 				size++;
-			} else {
-				if (size==Capacity) {
-//					makes new array with double capacity
-					ArrayList<E> list2 = new ArrayList<E>(Capacity*2);
-//					puts all the stuff in new array
-					for (int p = 0; p < size; p++) {
-						list2.list[p] = list[p];
-					}
-//					replaces old array with new array
-					this.list = list2.list;
-//					adds the thing to the new array
-					Capacity *= 2;
-					this.add(i,e);
-				} else {
-//					moves everything over to the right
-					for(int z = size;z>i;z--) {
-						this.list[z]=this.list[z-1];
-					}
-					this.list[i] = e;
-					size++;
-				}
-			}
-		} else if (i>=Capacity) {
+			} 
+//			else {
+//				if (size==Capacity) {
+////					makes new array with double capacity
+//					ArrayList<E> list2 = new ArrayList<E>(Capacity*2);
+////					puts all the stuff in new array
+//					for (int p = 0; p < size; p++) {
+//						list2.list[p] = list[p];
+//					}
+////					replaces old array with new array
+//					this.list = list2.list;
+////					adds the thing to the new array
+//					Capacity *= 2;
+//					this.add(i,e);
+//				} else {
+////					moves everything over to the right
+//					for(int z = size;z>i;z--) {
+//						this.list[z]=this.list[z-1];
+//					}
+//					this.list[i] = e;
+//					size++;
+//				}
+//			}
+		} 
+		else if (i>=Capacity) {
 //			makes new array with double capacity
 			ArrayList<E> list2 = new ArrayList<E>(Capacity*2);
 //			moves everything over to new array
@@ -148,13 +150,13 @@ public class ArrayList<E> implements List<E> {
 	public E remove(int i) throws IndexOutOfBoundsException {
 //		throws exception for out of bounds
 		if (i>=size || i>=Capacity || i < 0) {
-			throw new IndexOutOfBoundsException("");
+//			throw new IndexOutOfBoundsException("");
 		}
 		E hold = this.list[i];
 		this.list[i] = null;
 //		moves everything on the right of removed object to the left 
 		for(int z = i;z<this.size-1;z++) {
-			this.list[z] = this.list[z+1];
+//			this.list[z] = this.list[z+1];
 		}
 		size--;
 		return hold;
@@ -192,11 +194,11 @@ public class ArrayList<E> implements List<E> {
 		 * removes the most recently returned object from the array
 		 */
 		public void remove() throws IllegalStateException {
-			if (removable == true) {
-				ArrayList.this.remove(n-1);
-				n--;
-				removable = false;
-			}
+//			if (removable == true) {
+//				ArrayList.this.remove(n-1);
+//				n--;
+//				removable = false;
+//			}
 		}
 		
 		public AIterator() {
@@ -216,7 +218,7 @@ public class ArrayList<E> implements List<E> {
 	 * @param e the object to be inserted
 	 */
 	public void addFirst(E e)  {
-		this.add(0, e);
+//		this.add(0, e);
 	}
 	
 	/**
@@ -233,9 +235,10 @@ public class ArrayList<E> implements List<E> {
 	 * @throws IndexOutOfBoundsException if index is greater than size or capacity or less than zero
 	 */
 	public E removeFirst() throws IndexOutOfBoundsException {
-		E hold = this.get(0);
-		this.remove(0);
-		return hold;
+		return null;
+//		E hold = this.get(0);
+//		this.remove(0);
+//		return hold;
 	}
 	
 	/**
@@ -244,9 +247,10 @@ public class ArrayList<E> implements List<E> {
 	 * @throws IndexOutOfBoundsException if index is greater than size or capacity or less than zero
 	 */
 	public E removeLast() throws IndexOutOfBoundsException {
-		E hold = this.get(size-1);
-		this.remove(size-1);
-		return hold;
+		return null;
+//		E hold = this.get(size-1);
+//		this.remove(size-1);
+//		return hold;
 	}
 	
 	/**

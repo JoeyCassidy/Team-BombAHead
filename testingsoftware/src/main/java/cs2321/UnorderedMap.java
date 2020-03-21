@@ -113,69 +113,81 @@ public class UnorderedMap<K,V> extends AbstractMap<K,V> {
 	@TimeComplexity("O(n)")
 	@Override
 	public V remove(K key) {
-		int i = 0;
-//		looks through all the entries until it find the one that is equal to what we want
-		while(i<table.size() && kc.compare(table.get(i).getKey(),key)!=0) {
-			i++;
-		}
-//		if the entry is in the list than remove the entry and return the old value
-		if(i<table.size() && kc.compare(table.get(i).getKey(),key)==0) {
-			V returning = table.get(i).getValue();
-			table.remove(i);
-			return returning;
-		}
-//		if the entry isnt in the list then return null
+//		int i = 0;
+////		looks through all the entries until it find the one that is equal to what we want
+//		while(i<table.size() && kc.compare(table.get(i).getKey(),key)!=0) {
+//			i++;
+//		}
+////		if the entry is in the list than remove the entry and return the old value
+//		if(i<table.size() && kc.compare(table.get(i).getKey(),key)==0) {
+//			V returning = table.get(i).getValue();
+//			table.remove(i);
+//			return returning;
+//		}
+////		if the entry isnt in the list then return null
 		return null;
 	}
 
 	class UMterable implements Iterator<Entry<K,V>> {
-		int i = 0;
-		node<K,V> position = (UnorderedMap<K, V>.node<K, V>) table.get(i);
-		boolean removable = false;
-
-		/**
-		 * Whether there is another node
-		 * @return true if there is a next node, false if not
-		 */
-		@TimeComplexity("O(1)")
-		@Override
-		public boolean hasNext() {
-			return (i+1)<table.size();
-		}
-
-		/**
-		 * returns the next node in the list
-		 * @return the next node
-		 */
-		@TimeComplexity("O(1)")
-		@Override
-		public Entry<K,V> next() throws NoSuchElementException {
-//			if there is a next entry then go to it and return it
-			if(hasNext()) {
-				i++;
-				position = (UnorderedMap<K, V>.node<K, V>) table.get(i);
-				removable = true;
-				return position;
-			}
-//			if it doesnt have a next then throw exception
-			throw new NoSuchElementException("");
-		}
-
-		/**
-		 * removes the current node
-		 * @return nothing
-		 */
-		@TimeComplexity("O(n)")
-		public void remove() throws IllegalStateException {
-//			if you can remove it then remove it and say you cant remove anymore
-			if (removable == true) {
-				table.remove(i);
-				removable = false;
-			}
-		}
+//		int i = 0;
+//		node<K,V> position = (UnorderedMap<K, V>.node<K, V>) table.get(i);
+//		boolean removable = false;
+//
+//		/**
+//		 * Whether there is another node
+//		 * @return true if there is a next node, false if not
+//		 */
+//		@TimeComplexity("O(1)")
+//		@Override
+//		public boolean hasNext() {
+//			return (i+1)<table.size();
+//		}
+//
+//		/**
+//		 * returns the next node in the list
+//		 * @return the next node
+//		 */
+//		@TimeComplexity("O(1)")
+//		@Override
+//		public Entry<K,V> next() throws NoSuchElementException {
+////			if there is a next entry then go to it and return it
+//			if(hasNext()) {
+//				i++;
+//				position = (UnorderedMap<K, V>.node<K, V>) table.get(i);
+//				removable = true;
+//				return position;
+//			}
+////			if it doesnt have a next then throw exception
+//			throw new NoSuchElementException("");
+//		}
+//
+//		/**
+//		 * removes the current node
+//		 * @return nothing
+//		 */
+//		@TimeComplexity("O(n)")
+//		public void remove() throws IllegalStateException {
+////			if you can remove it then remove it and say you cant remove anymore
+//			if (removable == true) {
+//				table.remove(i);
+//				removable = false;
+//			}
+//		}
 
 		public UMterable() {
 		}
+
+@Override
+public boolean hasNext() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public Entry<K, V> next() {
+	// TODO Auto-generated method stub
+	return null;
+}
 	}
 
 

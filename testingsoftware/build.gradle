@@ -32,6 +32,8 @@ dependencies {
     
     testCompile 'junit:junit:4.12'
     compile 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
 }
 
 test {
