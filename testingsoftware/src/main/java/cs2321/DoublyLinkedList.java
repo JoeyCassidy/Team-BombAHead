@@ -100,42 +100,42 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	
 	
 	/**
-	 * returns the node before the given node p
-	 * @param p the given node
-	 * @return the node before the given node p
-	 */
-	@Override
-	public Position<E> before(Position<E> p) throws IllegalArgumentException {
-//		throwing exceptions so we dont get cast problems
-		if (!(p instanceof node)){
-			throw new IllegalArgumentException("non castable to node");
-		}
-//		converts p to something usable
-		node<E> q = (DoublyLinkedList<E>.node<E>) p;
-		if (q.topleft.topleft==null) {
-			return null;
-		}
-		return q.topleft;
-	}
+//	 * returns the node before the given node p
+//	 * @param p the given node
+//	 * @return the node before the given node p
+//	 */
+//	@Override
+//	public Position<E> before(Position<E> p) throws IllegalArgumentException {
+////		throwing exceptions so we dont get cast problems
+//		if (!(p instanceof node)){
+//			throw new IllegalArgumentException("non castable to node");
+//		}
+////		converts p to something usable
+//		node<E> q = (DoublyLinkedList<E>.node<E>) p;
+//		if (q.topleft.topleft==null) {
+//			return null;
+//		}
+//		return q.topleft;
+//	}
 
 	/**
-	 * returns the node after the given node p
-	 * @param the given node p
-	 * @return the node after the given node p
-	 */
-	@Override
-	public Position<E> after(Position<E> p) throws IllegalArgumentException {
-//		throwing exceptions so we dont get cast problems
-		if (!(p instanceof node)){
-			throw new IllegalArgumentException("non castable to node");
-		}
-//		converts p to something usable
-		node<E> q = (DoublyLinkedList<E>.node<E>) p;
-		if (q.bottomright.bottomright==null) {
-			return null;
-		}
-		return q.bottomright;
-	}
+//	 * returns the node after the given node p
+//	 * @param the given node p
+//	 * @return the node after the given node p
+//	 */
+//	@Override
+//	public Position<E> after(Position<E> p) throws IllegalArgumentException {
+////		throwing exceptions so we dont get cast problems
+//		if (!(p instanceof node)){
+//			throw new IllegalArgumentException("non castable to node");
+//		}
+////		converts p to something usable
+//		node<E> q = (DoublyLinkedList<E>.node<E>) p;
+//		if (q.bottomright.bottomright==null) {
+//			return null;
+//		}
+//		return q.bottomright;
+//	}
 	
 	/**
 	 * adds a object to the beginning of the list
@@ -144,16 +144,16 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	 */
 	@Override
 	public Position<E> addFirst(E e) {
-		if (first.bottomright == null && last.topleft == null) {
-//			this deals with the case of first and last arent connected
-			node<E> hold = new node();
-			hold.data = e;
-//			this is just stitching the connections
-			hold.topleft = first;
-			first.bottomright = hold;
-			last.topleft = hold;
-			hold.bottomright = last;
-		} else {
+//		if (first.bottomright == null && last.topleft == null) {
+////			this deals with the case of first and last arent connected
+//			node<E> hold = new node();
+//			hold.data = e;
+////			this is just stitching the connections
+//			hold.topleft = first;
+//			first.bottomright = hold;
+//			last.topleft = hold;
+//			hold.bottomright = last;
+//		} else {
 			node<E> holdold = first.bottomright;
 			node<E> holdnew = new node();
 			holdnew.data = e;
@@ -162,7 +162,7 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 			holdnew.bottomright = holdold;
 			holdnew.topleft = first;
 			first.bottomright = holdnew;
-		}
+//		}
 		size++;
 		return first.bottomright;
 	}
@@ -174,16 +174,16 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	 */
 	@Override
 	public Position<E> addLast(E e) {
-		if (first.bottomright == null && last.topleft == null) {
-//			deals with the case of if the last and first arent connected
-			node<E> hold = new node();
-			hold.data = e;
-//			does all the stitching of connections
-			hold.topleft = first;
-			first.bottomright = hold;
-			last.topleft = hold;
-			hold.bottomright = last;
-		} else {
+//		if (first.bottomright == null && last.topleft == null) {
+////			deals with the case of if the last and first arent connected
+//			node<E> hold = new node();
+//			hold.data = e;
+////			does all the stitching of connections
+//			hold.topleft = first;
+//			first.bottomright = hold;
+//			last.topleft = hold;
+//			hold.bottomright = last;
+//		} else {
 			node<E> holdold = last.topleft;
 			node<E> holdnew = new node();
 			holdnew.data = e;
@@ -192,60 +192,60 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 			holdnew.topleft = holdold;
 			holdnew.bottomright = last;
 			last.topleft = holdnew;
-		}
+//		}
 		size++;
 		return last.topleft;
 	}
 
 	/**
-	 * adds a node with information e, before the given node p. and returns the new node
-	 * @param the node to add the new node before it
-	 * @return the new added node with information e
-	 */
-	@Override
-	public Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException {
-//		throws exceptions so it is castable
-		if (!(p instanceof node)){
-			throw new IllegalArgumentException("non castable to node");
-		}
-//		makes it into a usable form
-		node<E> right = (DoublyLinkedList<E>.node<E>) p;
-		node<E> left = right.topleft;
-	    node<E> center = new node<E>();
-	    center.data = e;
-//	    does all the stitching of conenctions
-		right.topleft = center;
-		center.bottomright = right;
-		left.bottomright = center;
-		center.topleft = left;
-		size++;
-		return center;
-	}
+//	 * adds a node with information e, before the given node p. and returns the new node
+//	 * @param the node to add the new node before it
+//	 * @return the new added node with information e
+//	 */
+//	@Override
+//	public Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException {
+////		throws exceptions so it is castable
+//		if (!(p instanceof node)){
+//			throw new IllegalArgumentException("non castable to node");
+//		}
+////		makes it into a usable form
+//		node<E> right = (DoublyLinkedList<E>.node<E>) p;
+//		node<E> left = right.topleft;
+//	    node<E> center = new node<E>();
+//	    center.data = e;
+////	    does all the stitching of conenctions
+//		right.topleft = center;
+//		center.bottomright = right;
+//		left.bottomright = center;
+//		center.topleft = left;
+//		size++;
+//		return center;
+//	}
 	
 	/**
-	 * adds a node with information e, after the given node p. and returns the new node
-	 * @param the node to add the new node after it
-	 * @return the new added node with information e
-	 */
-	@Override
-	public Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException {
-//		throws exceptions if p isnt castable
-		if (!(p instanceof node)){
-			throw new IllegalArgumentException("non castable to node");
-		}
-//		makes p into a useable form
-		node<E> left = (DoublyLinkedList<E>.node<E>) p;
-	    node<E> center = new node<E>();
-	    center.data = e;
-//	    does all the stitching
-	    node<E> right = left.bottomright;
-		right.topleft = center;
-		center.bottomright = right;
-		left.bottomright = center;
-		center.topleft = left;
-		size++;
-		return center;
-	}
+//	 * adds a node with information e, after the given node p. and returns the new node
+//	 * @param the node to add the new node after it
+//	 * @return the new added node with information e
+//	 */
+//	@Override
+//	public Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException {
+////		throws exceptions if p isnt castable
+//		if (!(p instanceof node)){
+//			throw new IllegalArgumentException("non castable to node");
+//		}
+////		makes p into a useable form
+//		node<E> left = (DoublyLinkedList<E>.node<E>) p;
+//	    node<E> center = new node<E>();
+//	    center.data = e;
+////	    does all the stitching
+//	    node<E> right = left.bottomright;
+//		right.topleft = center;
+//		center.bottomright = right;
+//		left.bottomright = center;
+//		center.topleft = left;
+//		size++;
+//		return center;
+//	}
 
 	/**
 	 * replaces the data of the given node p with information e and returns the value of the old data
@@ -267,25 +267,25 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	}
 
 	/**
-	 * removes the given node p from the linked list and reutns the data inside of it
-	 * @param p
-	 * @return the data inside of that node
-	 */
-	@Override
-	public E remove(Position<E> p) throws IllegalArgumentException {
-		if (!(p instanceof node)){
-			throw new IllegalArgumentException("non castable to node");
-		}
-		node<E> q = (DoublyLinkedList<E>.node<E>) p;
-		E olde = q.data;
-//		just stiching together the conenctions
-		node<E> left = q.topleft;
-		node<E> right = q.bottomright;
-		left.bottomright = right;
-		right.topleft = left;
-		size--;
-		return olde;
-	}
+//	 * removes the given node p from the linked list and reutns the data inside of it
+//	 * @param p
+//	 * @return the data inside of that node
+//	 */
+//	@Override
+//	public E remove(Position<E> p) throws IllegalArgumentException {
+//		if (!(p instanceof node)){
+//			throw new IllegalArgumentException("non castable to node");
+//		}
+//		node<E> q = (DoublyLinkedList<E>.node<E>) p;
+//		E olde = q.data;
+////		just stiching together the conenctions
+//		node<E> left = q.topleft;
+//		node<E> right = q.bottomright;
+//		left.bottomright = right;
+//		right.topleft = left;
+//		size--;
+//		return olde;
+//	}
 
 	class DLterator implements Iterator<E> {
 		node<E> position = first;
@@ -327,46 +327,58 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	}
 		
 	class DLterable implements Iterator<Position<E>> {
-			node<E> position = first;
-			boolean removable = false;
-			
-			/**
-			 * Whether there is another node
-			 * @return true if there is a next node, false if not
-			 */
-			@Override
-			public boolean hasNext() {
-				return (position.bottomright.bottomright != null);
-			}
-			
-			/**
-			 * returns the next node in the list
-			 * @return the next node
-			 */
-			@Override
-			public Position<E> next() throws NoSuchElementException {
-				position = position.bottomright;
-				removable = true;
-				return position;
-			}
-			
-			/**
-			 * removes the current node
-			 * @return nothing
-			 */
-			public void remove() throws IllegalStateException {
-				if (removable == true) {
-					node<E> left = position.topleft;
-					node<E> right = position.bottomright;
-//					this does the stitching
-					left.bottomright = right;
-					right.topleft = left;
-					removable = false;
-				}
-			}
-		
-		public DLterable() {
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
 		}
+
+		@Override
+		public Position<E> next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+//			node<E> position = first;
+//			boolean removable = false;
+//			
+//			/**
+//			 * Whether there is another node
+//			 * @return true if there is a next node, false if not
+//			 */
+//			@Override
+//			public boolean hasNext() {
+//				return (position.bottomright.bottomright != null);
+//			}
+//			
+//			/**
+//			 * returns the next node in the list
+//			 * @return the next node
+//			 */
+//			@Override
+//			public Position<E> next() throws NoSuchElementException {
+//				position = position.bottomright;
+//				removable = true;
+//				return position;
+//			}
+//			
+//			/**
+//			 * removes the current node
+//			 * @return nothing
+//			 */
+//			public void remove() throws IllegalStateException {
+//				if (removable == true) {
+//					node<E> left = position.topleft;
+//					node<E> right = position.bottomright;
+////					this does the stitching
+//					left.bottomright = right;
+//					right.topleft = left;
+//					removable = false;
+//				}
+//			}
+//		
+//		public DLterable() {
+//		}
 	}
 	
 	
@@ -403,36 +415,66 @@ public class DoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	}
 	
 	
-	/**
-	 * removes the first object in the list and returns its data
-	 * @return the data of the removed node
-	 * @throws IllegalArgumentException
-	 */
-	public E removeFirst() throws IllegalArgumentException {
-		node<E> q = first.bottomright;
-		E olde = q.data;
-		node<E> left = q.topleft;
-		node<E> right = q.bottomright;
-		left.bottomright = right;
-		right.topleft = left;
-		size--;
-		return olde;
-	}
+//	/**
+//	 * removes the first object in the list and returns its data
+//	 * @return the data of the removed node
+//	 * @throws IllegalArgumentException
+//	 */
+//	public E removeFirst() throws IllegalArgumentException {
+//		node<E> q = first.bottomright;
+//		E olde = q.data;
+//		node<E> left = q.topleft;
+//		node<E> right = q.bottomright;
+//		left.bottomright = right;
+//		right.topleft = left;
+//		size--;
+//		return olde;
+//	}
 	
-	/**
-	 * removes the last object in the list and returns its data
-	 * @return the data of the removed node
-	 * @throws IllegalArgumentException
-	 */
-	public E removeLast() throws IllegalArgumentException {
-		node<E> q = last.topleft;
-		E olde = q.data;
-		node<E> left = q.topleft;
-		node<E> right = q.bottomright;
-		left.bottomright = right;
-		right.topleft = left;
-		size--;
-		return olde;
+//	/**
+//	 * removes the last object in the list and returns its data
+//	 * @return the data of the removed node
+//	 * @throws IllegalArgumentException
+//	 */
+//	public E removeLast() throws IllegalArgumentException {
+//		node<E> q = last.topleft;
+//		E olde = q.data;
+//		node<E> left = q.topleft;
+//		node<E> right = q.bottomright;
+//		left.bottomright = right;
+//		right.topleft = left;
+//		size--;
+//		return olde;
+//	}
+
+	@Override
+	public Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public E remove(Position<E> p) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Position<E> before(Position<E> p) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Position<E> after(Position<E> p) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

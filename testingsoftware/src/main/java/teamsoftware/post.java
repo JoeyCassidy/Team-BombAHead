@@ -11,10 +11,11 @@ public class post {
 	student user;
 	Date time;
 	Boolean anonswitch;
+	String username; /// might need to fix and not yet implemented
 	
 	public void makepost(String a, String b, HashMap<String,post> c, student d, Date e, Boolean f) {
 		/*
-		 * what was the post[] for again? its for the thing to reply to
+		 * what was the post[] for again? its for the thing to reply to ...
 		 */
 		
 		title = a;

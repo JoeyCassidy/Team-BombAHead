@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import cs2321.HashMap;
 
 public class studygroup {
+	String identifier; // this has to be implemented
 	HashMap<String,student> listofstudents;
 	Boolean availability;
 	Boolean visibility;

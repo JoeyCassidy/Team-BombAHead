@@ -45,68 +45,68 @@ public class Travel {
 		}
 	}
 	
-	/**
-	 * @param departure: the departure city name 
-	 * @param destination: the destination city name
-	 * @return Return the path from departure city to destination using Depth First Search algorithm. 
-	 *         The path should be represented as ArrayList or DoublylinkedList of city names. 
-	 *         The order of city names in the list should match order of the city names in the path.  
-	 *         
-	 * @IMPORTANT_NOTE: The outgoing edges should be traversed by the order of the city names stored in
-	 *                 the opposite vertices. For example, if V has 3 outgoing edges as in the picture below,
-	 *                           V
-	 *                        /  |  \
-	 *                       /   |    \
-	 *                      B    A     F  
-	 *              your algorithm below should visit the outgoing edges of V in the order of A,B,F.
-	 *              This means you will need to create a helper function to sort the outgoing edges by 
-	 *              the opposite city names.
-	 *              	              
-	 *              See the method sortedOutgoingEdges below. 
-	 */
-	@TimeComplexity("O(n+m)")
-	public Iterable<String> DFSRoute(String departure, String destination ) {
-//		sets up the lsit we will use to record
-		DoublyLinkedList<String> paths = new DoublyLinkedList<String>();
-//		sets up the hash map so we can do fast and easy checking to prevent cycling
-		HashMap<String,Boolean> collecting = new HashMap<String,Boolean>(); 
-//		gets our starting position
-		AdjListGraph<String,Integer>.vnode<String,Integer> v = visited.getvertex(departure);
-//		gets the path
-		paths = DFSRouteG(visited,paths,v,collecting,destination);
-		return paths;
-	}
+//	/**
+//	 * @param departure: the departure city name 
+//	 * @param destination: the destination city name
+//	 * @return Return the path from departure city to destination using Depth First Search algorithm. 
+//	 *         The path should be represented as ArrayList or DoublylinkedList of city names. 
+//	 *         The order of city names in the list should match order of the city names in the path.  
+//	 *         
+//	 * @IMPORTANT_NOTE: The outgoing edges should be traversed by the order of the city names stored in
+//	 *                 the opposite vertices. For example, if V has 3 outgoing edges as in the picture below,
+//	 *                           V
+//	 *                        /  |  \
+//	 *                       /   |    \
+//	 *                      B    A     F  
+//	 *              your algorithm below should visit the outgoing edges of V in the order of A,B,F.
+//	 *              This means you will need to create a helper function to sort the outgoing edges by 
+//	 *              the opposite city names.
+//	 *              	              
+//	 *              See the method sortedOutgoingEdges below. 
+//	 */
+//	@TimeComplexity("O(n+m)")
+//	public Iterable<String> DFSRoute(String departure, String destination ) {
+////		sets up the lsit we will use to record
+//		DoublyLinkedList<String> paths = new DoublyLinkedList<String>();
+////		sets up the hash map so we can do fast and easy checking to prevent cycling
+//		HashMap<String,Boolean> collecting = new HashMap<String,Boolean>(); 
+////		gets our starting position
+//		AdjListGraph<String,Integer>.vnode<String,Integer> v = visited.getvertex(departure);
+////		gets the path
+//		paths = DFSRouteG(visited,paths,v,collecting,destination);
+//		return paths;
+//	}
 	
-	@TimeComplexity("O(n+m)")
-	public DoublyLinkedList<String> DFSRouteG(AdjListGraph<String,Integer> G,
-			DoublyLinkedList<String> paths, AdjListGraph<String,Integer>.vnode<String,Integer> v,
-			HashMap<String,Boolean> collecting, String D) {
-//		if we have found where we are post to be going then stop and start recording where we have come from
-		if(comp.compare(D, v.getElement())==0) {
-			paths.addLast(v.getElement());
-			return paths;
-		}
-//		mark that we have already visited this vertex
-		collecting.put(v.data,true);
-//		for each vertex we connect to
-		for(Edge<Integer> e : sortedOutgoingEdges(v)) {
-//			if we are on the back tracking step then dont search anymore
-			if(paths.last().getElement()!=null && comp.compare(D, paths.last().getElement())==0) {
-				break;
-			}
-//			get the vertex we are going to
-			AdjListGraph<String,Integer>.vnode<String,Integer> w = (AdjListGraph<String,Integer>.vnode<String,Integer>) G.opposite(v, e);
-//			if we havent been to the new vertex before, then search down through it
-			if(collecting.get(w.getElement()) == null) {
-				DFSRouteG(G,paths,w,collecting,D);
-			}
-		}
-//		if we are on the back tracking step then record where we are into the itinerary
-		if(comp.compare(D, paths.last().getElement())==0) {
-			paths.addFirst(v.getElement());
-		}
-		return paths;
-	}
+//	@TimeComplexity("O(n+m)")
+//	public DoublyLinkedList<String> DFSRouteG(AdjListGraph<String,Integer> G,
+//			DoublyLinkedList<String> paths, AdjListGraph<String,Integer>.vnode<String,Integer> v,
+//			HashMap<String,Boolean> collecting, String D) {
+////		if we have found where we are post to be going then stop and start recording where we have come from
+//		if(comp.compare(D, v.getElement())==0) {
+//			paths.addLast(v.getElement());
+//			return paths;
+//		}
+////		mark that we have already visited this vertex
+//		collecting.put(v.data,true);
+////		for each vertex we connect to
+//		for(Edge<Integer> e : sortedOutgoingEdges(v)) {
+////			if we are on the back tracking step then dont search anymore
+//			if(paths.last().getElement()!=null && comp.compare(D, paths.last().getElement())==0) {
+//				break;
+//			}
+////			get the vertex we are going to
+//			AdjListGraph<String,Integer>.vnode<String,Integer> w = (AdjListGraph<String,Integer>.vnode<String,Integer>) G.opposite(v, e);
+////			if we havent been to the new vertex before, then search down through it
+//			if(collecting.get(w.getElement()) == null) {
+//				DFSRouteG(G,paths,w,collecting,D);
+//			}
+//		}
+////		if we are on the back tracking step then record where we are into the itinerary
+//		if(comp.compare(D, paths.last().getElement())==0) {
+//			paths.addFirst(v.getElement());
+//		}
+//		return paths;
+//	}
 	
 	
 	/**
@@ -128,57 +128,57 @@ public class Travel {
 	 *              	             
 	 *              See the method sortedOutgoingEdges below. 
 	 */
-	@TimeComplexity("O(n+m)")
-	public Iterable<String> BFSRoute(String departure, String destination ) {
-//		maintain a hashmap to check whether we have visited vertex's
-		HashMap<String,Boolean> visit = new HashMap<String,Boolean>();
-//		maintain hash to get quick acces and search for previous connections made
-		HashMap<String,VE> forest = new HashMap<String,VE>();
-//		get the start position
-		AdjListGraph<String, Integer>.vnode<String, Integer> v = visited.getvertex(departure);
-//		creating a queue to deal with the vertex's
-		DoublyLinkedList<AdjListGraph<String, Integer>.vnode<String, Integer>> q = new DoublyLinkedList<AdjListGraph<String, Integer>.vnode<String, Integer>>();
-//		adding the start psotion to the beggining of the vertex queue
-		q.addLast(v);
-//		found is the vertex that is our destination
-		AdjListGraph<String, Integer>.vnode<String, Integer> found = null;
-//		to go through the pq of edges and stop if no more edges or if we have found the destination
-		while(q.isEmpty()!=true && found == null) {
-//			sote the vertex we will search though
-			AdjListGraph<String, Integer>.vnode<String, Integer> w = 
-					(AdjListGraph<String, Integer>.vnode<String, Integer>) q.removeFirst();
-//			goes though all of the out edges from current vertex
-			for(Edge<Integer> e : sortedOutgoingEdges(w)) {
-//				finds the vertex from w by the edge e
-				AdjListGraph<String, Integer>.vnode<String, Integer> p = 
-						(AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(w, e);
-//				if we havent met this vertex before then we add it to what we want to visit
-				if(visit.get(p.data) == null) {
-//					puts the edge connection into the connections hashmap
-					forest.put(p.data, new VE(p,e));
-//					put the vertex into the visited hashmap
-					visit.put(p.data, true);
-//					put the new vertex into the back of the the vertex queue
-					q.addLast(p);
-//					if the new vertex is the vertex we are looking for then store it into found
-					if(comp.compare(p.data, destination)==0) {
-						found = p;
-					}
-				}
-			}
-		}
-//		make a arraylist to store the path
-		ArrayList<String> table = new ArrayList<String>();
-//		goes through all of the paths backwards and adds each to the begging of the path list
-		while(comp.compare(found.data, departure)!=0) {
-			table.addFirst(found.data);
-			found = (AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(found,forest.get(found.data).E);
-		}
-//		adds the departure to the path list
-		table.addFirst(found.data);
-//		return the path list
-		return table;
-	}
+//	@TimeComplexity("O(n+m)")
+//	public Iterable<String> BFSRoute(String departure, String destination ) {
+////		maintain a hashmap to check whether we have visited vertex's
+//		HashMap<String,Boolean> visit = new HashMap<String,Boolean>();
+////		maintain hash to get quick acces and search for previous connections made
+//		HashMap<String,VE> forest = new HashMap<String,VE>();
+////		get the start position
+//		AdjListGraph<String, Integer>.vnode<String, Integer> v = visited.getvertex(departure);
+////		creating a queue to deal with the vertex's
+//		DoublyLinkedList<AdjListGraph<String, Integer>.vnode<String, Integer>> q = new DoublyLinkedList<AdjListGraph<String, Integer>.vnode<String, Integer>>();
+////		adding the start psotion to the beggining of the vertex queue
+//		q.addLast(v);
+////		found is the vertex that is our destination
+//		AdjListGraph<String, Integer>.vnode<String, Integer> found = null;
+////		to go through the pq of edges and stop if no more edges or if we have found the destination
+//		while(q.isEmpty()!=true && found == null) {
+////			sote the vertex we will search though
+//			AdjListGraph<String, Integer>.vnode<String, Integer> w = 
+//					(AdjListGraph<String, Integer>.vnode<String, Integer>) q.removeFirst();
+////			goes though all of the out edges from current vertex
+//			for(Edge<Integer> e : sortedOutgoingEdges(w)) {
+////				finds the vertex from w by the edge e
+//				AdjListGraph<String, Integer>.vnode<String, Integer> p = 
+//						(AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(w, e);
+////				if we havent met this vertex before then we add it to what we want to visit
+//				if(visit.get(p.data) == null) {
+////					puts the edge connection into the connections hashmap
+//					forest.put(p.data, new VE(p,e));
+////					put the vertex into the visited hashmap
+//					visit.put(p.data, true);
+////					put the new vertex into the back of the the vertex queue
+//					q.addLast(p);
+////					if the new vertex is the vertex we are looking for then store it into found
+//					if(comp.compare(p.data, destination)==0) {
+//						found = p;
+//					}
+//				}
+//			}
+//		}
+////		make a arraylist to store the path
+//		ArrayList<String> table = new ArrayList<String>();
+////		goes through all of the paths backwards and adds each to the begging of the path list
+//		while(comp.compare(found.data, departure)!=0) {
+//			table.addFirst(found.data);
+//			found = (AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(found,forest.get(found.data).E);
+//		}
+////		adds the departure to the path list
+//		table.addFirst(found.data);
+////		return the path list
+//		return table;
+//	}
 	
 	/**
 	 * @param departure: the departure city name 
@@ -213,6 +213,7 @@ public class Travel {
 		int currentcost = 0;
 //		while there are edge to look through keep going
 		while(!pq.isEmpty()) {
+//			System.out.print("*.");
 //			get the cost of the edge
 			currentcost = pq.min().getKey();
 //			get the min cost path info
@@ -238,8 +239,20 @@ public class Travel {
 //		goes backwards through the connections and adds them to the list storing the path
 		while(comp.compare(current.data, departure)!=0) {
 			itinerary.addFirst(current.data);
+//			System.out.println(current.data + "__" + connectionslist.get(current.data) + "__" +
+//					((AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(current,connectionslist.get(current.data))).data 
+//					);
+//			try
+//			{
+//			    Thread.sleep(100);
+//			}
+//			catch(InterruptedException ex)
+//			{
+//			    Thread.currentThread().interrupt();
+//			}
 			current = (AdjListGraph<String, Integer>.vnode<String, Integer>) visited.opposite(current,connectionslist.get(current.data));
 		}
+//		System.out.println("**************************");
 //		add the departure point to the beggining of the path list
 		itinerary.addFirst(current.data);
 //		return the cost of getting to the found node

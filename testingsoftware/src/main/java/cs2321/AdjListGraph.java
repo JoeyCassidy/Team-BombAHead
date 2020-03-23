@@ -59,7 +59,7 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 	
 	public vnode<V,E> getvertex(V p) throws IllegalArgumentException {
 		DoublyLinkedList<AdjListGraph<V, E>.vnode<V, E>>.node<AdjListGraph<V, E>.vnode<V, E>> current = vnodelist.first.bottomright;
-		while(current.bottomright.getElement()!=null && current.getElement().getElement()!=p) {
+		while(current.bottomright.getElement()!=null && !current.getElement().getElement().equals(p)) {
 			current = current.bottomright;
 		}
 		if(current.getElement()==null || current.getElement().getElement()==null) {
@@ -68,57 +68,53 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 		return current.getElement();
 	}
 	
-//	public HashMap<V,enode<V,E>> enodemap = new HashMap<V,enode<V,E>>();
-//	
-//	public HashMap<V,vnode<V,E>> vnodemap = new HashMap<V,vnode<V,E>>();
-	
 	boolean isdirected = false;
 	
-	public AdjListGraph(boolean directed) {
-		isdirected = directed;
-	}
+//	public AdjListGraph(boolean directed) {
+//		isdirected = directed;
+//	}
 
 	public AdjListGraph() {
 		
 	}
 
 
-	/* (non-Javadoc)
-	 * @see net.datastructures.Graph#edges()
-	 */
-	@TimeComplexity("O(m)")
-	public Iterable<Edge<E>> edges() {
-//		makes a arraylist to return all of the edges
-		ArrayList<Edge<E>> toreturn = new ArrayList<Edge<E>>();
-//		sets a start edge to work form
-		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> first = enodelist.first.bottomright;
-//		goes through the list and adds every edge
-		while(first != null && first != enodelist.last) {
-			toreturn.addLast(first.data);
-			first = first.bottomright;
-		}
-		return toreturn;
-	}
+//	/* (non-Javadoc)
+//	 * @see net.datastructures.Graph#edges()
+//	 */
+//	@TimeComplexity("O(m)")
+//	public Iterable<Edge<E>> edges() {
+////		makes a arraylist to return all of the edges
+//		ArrayList<Edge<E>> toreturn = new ArrayList<Edge<E>>();
+////		sets a start edge to work form
+//		DoublyLinkedList<AdjListGraph<V, E>.enode<V, E>>.node<AdjListGraph<V, E>.enode<V, E>> first = enodelist.first.bottomright;
+////		goes through the list and adds every edge
+//		while(first != null && first != enodelist.last) {
+//			toreturn.addLast(first.data);
+//			first = first.bottomright;
+//		}
+//		return toreturn;
+//	}
 
-	/* (non-Javadoc)
-	 * @see net.datastructures.Graph#endVertices(net.datastructures.Edge)
-	 */
-	@TimeComplexity("O(1)")
-	public Vertex[] endVertices(Edge<E> e) throws IllegalArgumentException {
-//		throws an error if e is of the wrong type
-		if(!(e instanceof enode)) {
-			throw new IllegalArgumentException("");
-		}
-//		makes the array to store the vertexs
-		Vertex[] toreturn = new Vertex[2];
-//		does some casting so we can use methods and variables
-		AdjListGraph<V, E>.enode<V, E> p = (enode<V,E>) e;
-//		always deals as if its the directed case since the directed case always works 
-//				as the undirected case but no the other way around
-		toreturn[0] = p.fromvertex;
-		toreturn[1] = p.tovertex;
-		return toreturn;
-	}
+//	/* (non-Javadoc)
+//	 * @see net.datastructures.Graph#endVertices(net.datastructures.Edge)
+//	 */
+//	@TimeComplexity("O(1)")
+//	public Vertex[] endVertices(Edge<E> e) throws IllegalArgumentException {
+////		throws an error if e is of the wrong type
+//		if(!(e instanceof enode)) {
+//			throw new IllegalArgumentException("");
+//		}
+////		makes the array to store the vertexs
+//		Vertex[] toreturn = new Vertex[2];
+////		does some casting so we can use methods and variables
+//		AdjListGraph<V, E>.enode<V, E> p = (enode<V,E>) e;
+////		always deals as if its the directed case since the directed case always works 
+////				as the undirected case but no the other way around
+//		toreturn[0] = p.fromvertex;
+//		toreturn[1] = p.tovertex;
+//		return toreturn;
+//	}
 
 
 	/* (non-Javadoc)
@@ -216,98 +212,98 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 		return null; //*************************************************************?????????? does it return null if it isnt either
 	}
 
-	/* (non-Javadoc)
-	 * @see net.datastructures.Graph#removeEdge(net.datastructures.Edge)
-	 */
-	@TimeComplexity("O(1)")
-	public void removeEdge(Edge<E> e) throws IllegalArgumentException {
-//		makes sure e is of the correct type
-		if(!(e instanceof enode)) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables
-		enode<V,E> toremove = (AdjListGraph<V, E>.enode<V, E>) e;
-//		removes the edge from the edge list
-		enodelist.remove(toremove.position);
-//		removes the edge from where it is in the connections of the from vertex
-		toremove.fromvertex.econnections.remove(toremove.frompositionlist);
-//		removes the edge from where it is in the connections of the to vertex
-		toremove.tovertex.econnections.remove(toremove.topositionlist);
-	}
+//	/* (non-Javadoc)
+//	 * @see net.datastructures.Graph#removeEdge(net.datastructures.Edge)
+//	 */
+//	@TimeComplexity("O(1)")
+//	public void removeEdge(Edge<E> e) throws IllegalArgumentException {
+////		makes sure e is of the correct type
+//		if(!(e instanceof enode)) {
+//			throw new IllegalArgumentException("");
+//		}
+////		does some casting to get access to methods and variables
+//		enode<V,E> toremove = (AdjListGraph<V, E>.enode<V, E>) e;
+////		removes the edge from the edge list
+//		enodelist.remove(toremove.position);
+////		removes the edge from where it is in the connections of the from vertex
+//		toremove.fromvertex.econnections.remove(toremove.frompositionlist);
+////		removes the edge from where it is in the connections of the to vertex
+//		toremove.tovertex.econnections.remove(toremove.topositionlist);
+//	}
 
-	/* (non-Javadoc)
-	 * @see net.datastructures.Graph#removeVertex(net.datastructures.Vertex)
-	 */
-	@TimeComplexity("O(deg(v))")
-	public void removeVertex(Vertex<V> v) throws IllegalArgumentException {
-//		makes sure v is of the correct type
-		if(!(v instanceof vnode)) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables
-		vnode<V,E> toremove = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		removes all the edges that connect to this vertex in any way
-		while(toremove.econnections.first.bottomright!=null && (toremove.econnections.first.bottomright != toremove.econnections.last)) {
-			removeEdge((Edge<E>)toremove.econnections.first.bottomright);
-		}
-//		removes the vertex from the vertex list
-		vnodelist.remove(toremove.position);
-	}
+//	/* (non-Javadoc)
+//	 * @see net.datastructures.Graph#removeVertex(net.datastructures.Vertex)
+//	 */
+//	@TimeComplexity("O(deg(v))")
+//	public void removeVertex(Vertex<V> v) throws IllegalArgumentException {
+////		makes sure v is of the correct type
+//		if(!(v instanceof vnode)) {
+//			throw new IllegalArgumentException("");
+//		}
+////		does some casting to get access to methods and variables
+//		vnode<V,E> toremove = (AdjListGraph<V, E>.vnode<V, E>) v;
+////		removes all the edges that connect to this vertex in any way
+//		while(toremove.econnections.first.bottomright!=null && (toremove.econnections.first.bottomright != toremove.econnections.last)) {
+//			removeEdge((Edge<E>)toremove.econnections.first.bottomright);
+//		}
+////		removes the vertex from the vertex list
+//		vnodelist.remove(toremove.position);
+//	}
 
 	/* 
-     * replace the element in edge object, return the old element
-     */
-	@TimeComplexity("O(1)")
-	public E replace(Edge<E> e, E o) throws IllegalArgumentException {
-//		makes sure o and e are of the correct types
-		if(!(e instanceof enode) || !(o.getClass() == e.getElement().getClass())) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables
-		enode<V,E> toreplace = (AdjListGraph<V, E>.enode<V, E>) e;
-//		stores the old value
-		E oldvalue = toreplace.data;
-//		puts in the new value
-		toreplace.data = o;
-//		returns the old value
-		return oldvalue;
-	}
+//     * replace the element in edge object, return the old element
+//     */
+//	@TimeComplexity("O(1)")
+//	public E replace(Edge<E> e, E o) throws IllegalArgumentException {
+////		makes sure o and e are of the correct types
+//		if(!(e instanceof enode) || !(o.getClass() == e.getElement().getClass())) {
+//			throw new IllegalArgumentException("");
+//		}
+////		does some casting to get access to methods and variables
+//		enode<V,E> toreplace = (AdjListGraph<V, E>.enode<V, E>) e;
+////		stores the old value
+//		E oldvalue = toreplace.data;
+////		puts in the new value
+//		toreplace.data = o;
+////		returns the old value
+//		return oldvalue;
+//	}
 
     /* 
-     * replace the element in vertex object, return the old element
-     */
-	@TimeComplexity("O(1)")
-	public V replace(Vertex<V> v, V o) throws IllegalArgumentException {
-//		makes sure o and v are of the correct types
-		if(!(v instanceof vnode) || !(o.getClass() == v.getElement().getClass())) {
-			throw new IllegalArgumentException("");
-		}
-//		does some casting to get access to methods and variables
-		vnode<V,E> toreplace = (AdjListGraph<V, E>.vnode<V, E>) v;
-//		stores the old value
-		V oldvalue = toreplace.data;
-//		puts in the new value
-		toreplace.data = o;
-//		returns the old value
-		return oldvalue;
-	}
+//     * replace the element in vertex object, return the old element
+//     */
+//	@TimeComplexity("O(1)")
+//	public V replace(Vertex<V> v, V o) throws IllegalArgumentException {
+////		makes sure o and v are of the correct types
+//		if(!(v instanceof vnode) || !(o.getClass() == v.getElement().getClass())) {
+//			throw new IllegalArgumentException("");
+//		}
+////		does some casting to get access to methods and variables
+//		vnode<V,E> toreplace = (AdjListGraph<V, E>.vnode<V, E>) v;
+////		stores the old value
+//		V oldvalue = toreplace.data;
+////		puts in the new value
+//		toreplace.data = o;
+////		returns the old value
+//		return oldvalue;
+//	}
 
-	/* (non-Javadoc)
-	 * @see net.datastructures.Graph#vertices()
-	 */
-	@TimeComplexity("O(n)")
-	public Iterable<Vertex<V>> vertices() {
-//		makes a arraylist to return all of the vertex's
-		ArrayList<Vertex<V>> toreturn = new ArrayList<Vertex<V>>(); 
-//		sets a start vertex to work form
-		DoublyLinkedList<AdjListGraph<V, E>.vnode<V, E>>.node<AdjListGraph<V, E>.vnode<V, E>> start = vnodelist.first.bottomright;
-//		goes through the list and adds every vertex
-		while(start != vnodelist.last) {
-			toreturn.addLast((Vertex<V>)start.data);
-			start = start.bottomright;
-		}
-		return toreturn;
-	}
+//	/* (non-Javadoc)
+//	 * @see net.datastructures.Graph#vertices()
+//	 */
+//	@TimeComplexity("O(n)")
+//	public Iterable<Vertex<V>> vertices() {
+////		makes a arraylist to return all of the vertex's
+//		ArrayList<Vertex<V>> toreturn = new ArrayList<Vertex<V>>(); 
+////		sets a start vertex to work form
+//		DoublyLinkedList<AdjListGraph<V, E>.vnode<V, E>>.node<AdjListGraph<V, E>.vnode<V, E>> start = vnodelist.first.bottomright;
+////		goes through the list and adds every vertex
+//		while(start != vnodelist.last) {
+//			toreturn.addLast((Vertex<V>)start.data);
+//			start = start.bottomright;
+//		}
+//		return toreturn;
+//	}
 
 	@Override
 	@TimeComplexity("O(deg(u))")
@@ -333,6 +329,36 @@ public class AdjListGraph<V, E> implements Graph<V, E> {
 //			then goes to the next edges
 			start = start.bottomright;
 		}
+		return null;
+	}
+
+	@Override
+	public Iterable<Edge<E>> edges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeVertex(Vertex<V> v) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeEdge(Edge<E> e) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Iterable<Vertex<V>> vertices() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vertex<V>[] endVertices(Edge<E> e) throws IllegalArgumentException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
