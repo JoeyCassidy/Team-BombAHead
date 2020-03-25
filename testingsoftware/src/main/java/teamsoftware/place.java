@@ -5,19 +5,33 @@ public class place {
 	private String name;
 	private Calendar time;
 	private String type;
-	private Boolean[] listofdays;
+	private Boolean[] listOfDays;
 	private String location;
 	private String identifier;
-	
-	public place(String name, Calendar time, String type, Boolean[] listofdays, String location, String identifier) {
+
+	/**
+	 * This method will generate a 'place' (node on the map) to help generate the path (constructor for place)
+	 * @param name - name of the place
+	 * @param time - time of the event at the place
+	 * @param type - type of place (lecture, lab, library, etc.)
+	 * @param listOfDays - lists of days that you have the event
+	 * @param location - location of the place (building, room #)
+	 * @param identifier - takes a primary key to find out which part of the building to go to
+	 */
+	public place(String name, Calendar time, String type, Boolean[] listOfDays, String location, String identifier) {
 		super();
 		this.name = name;
 		this.time = time;
 		this.type = type;
-		this.listofdays = listofdays;
+		this.listOfDays = listOfDays;
 		this.location = location;
 		this.identifier = identifier;
 	}
+
+	/**
+	 *These methods are just getters and setters for all of the variables
+	 */
+
 	public String getName() {
 		return name;
 	}
@@ -36,11 +50,11 @@ public class place {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Boolean[] getListofdays() {
-		return listofdays;
+	public Boolean[] getListOfDays() {
+		return listOfDays;
 	}
-	public void setListofdays(Boolean[] listofdays) {
-		this.listofdays = listofdays;
+	public void setlistOfDays(Boolean[] listOfDays) {
+		this.listOfDays = listOfDays;
 	}
 	public String getLocation() {
 		return location;

@@ -6,84 +6,87 @@ public class student {
 	schedule Schedule;
 	setting Setting;
 	HashMap<String,student> friends;
-	HashMap<String,student> friendsincoming;
-	HashMap<String,student> friendsoutgoing;
-	HashMap<String,studygroup> listofstudygroups;
+	HashMap<String,student> friendsIncoming;
+	HashMap<String,student> friendsOutgoing;
+	HashMap<String,studyGroup> listOfStudyGroups;
+
 	/**
-	 * dont know what this is supposed to do . i think sql server stuff
-	 * @return
+	 * don't know what this is supposed to do.. I think sql server stuff?
+	 * @return - the specified student
 	 */
-	public student initstudent() {
+	public student initStudent() {
 		return null; // do this with the html guys
 	}
 	
 	/**
-	 * if a is true then it accepts friend. if a is false it denies the friend.
-	 * @param a
-	 * @param b
+	 * This method sorts out when adding a friend will send the request
+	 * to the acceptees database, and when he accepts or declines the
+	 * friend request, the requests will clear out of both databases and the friends will be added.
+	 * @param accept - boolean that accepts friend is true, and denies friend if false
+	 * @param user - determines which student is under consideration for the friend request
 	 */
-	public void acceptordenyfriends(Boolean a, student b) {
-		if(b!=null) {
-			if(a==true) {
+	public void acceptOrDenyFriends(Boolean accept, student user) {
+		if(user!=null) {
+			if(accept==true) {
 				//			adding part
-				friends.put(b.Email, friendsincoming.get(b.Email));
+				friends.put(user.Email, friendsIncoming.get(user.Email));
 				//			deleting part
-				friendsincoming.remove(b.Email);
-				b.friendsoutgoing.remove(this.Email);
-			}else if(a==false) {
+				friendsIncoming.remove(user.Email);
+				user.friendsOutgoing.remove(this.Email);
+			}else if(accept==false) {
 				//			deleting part
-				friendsincoming.remove(b.Email);
-				b.friendsoutgoing.remove(this.Email);
+				friendsIncoming.remove(user.Email);
+				user.friendsOutgoing.remove(this.Email);
 			}
 		}
 	}
 	
 	/**
-	 * this is a friend requesnt send
-	 * @param a
+	 * This method send a friend request to another user
+	 * @param user - the friend that is receiving the friend request
 	 */
-	public void addfriends(student a) {
-		if(a != null) {
-			this.friendsoutgoing.put(a.Email, a);
-			a.friendsincoming.put(this.Email, this);
+	public void addFriends(student user)
+		if(user != null) {
+			this.friendsOutgoing.put(user.Email, user);
+			user.friendsIncoming.put(this.Email, this);
 		}
 	}
 	
 	/**
-	 * this delete the friend from this persons friend list but not the reverse
-	 * does reverse need to be added
-	 * @param a
-	 * @return
+	 * This method deletes the friend from this persons friend list but not the reverse
+	 * does reverse need to be added?
+	 * @param deletee - the user being deleted from the users friend list
+	 * @return - the deleted friend
 	 */
-	public student deletefriends(student a) {
-		if(a != null) {
-			this.friends.remove(a.Email);
+	public student deleteFriends(student deletee) {
+		if(deletee != null) {
+			this.friends.remove(deletee.Email);
 //			this can be implemented but depends on if needed and server
 //			a.friends.remove(this.Email);
 		}
-		return a;
+		return deletee;
 	}
 	
 	/**
-	 * adds the study group to this person and vice versa
-	 * @param a
+	 * This method adds the study group to this person and vice versa
+	 * @param a - the created study group
 	 */
-	public void addstudygroup(studygroup a) {
-		if(a != null) {
-			a.listofstudents.put(this.Email, this);
-			this.listofstudygroups.put(a.identifier, a);
+	public void addStudyGroup(studyGroup group) {
+		if(group != null) {
+			group.listOfStudents.put(this.Email, this);
+			this.listOfStudyGroups.put(group.identifier, group);
 		}
 	}
 	
 	/**
-	 * remove the student from the grop and the group from the student
-	 * @param a
-	 * @return
+	 * This method removes the student from the group and the group from the student
+	 * @param group - the group which the student will be deleted from
+	 * @return the deleted studyGroup / user[?]
 	 */
-	public studygroup deletestudygroup(studygroup a){
-		if(a != null) {
-			a.listofstudents.remove(this.Email);
-			this.listofstudygroups.remove(a.identifier);
+	public studyGroup deleteStudyGroup(studyGroup group){
+		if(group != null) {
+			group.listOfStudents.remove(this.Email);
+			this.listOfStudyGroups.remove(group.identifier);
 		}
 		return null;
 	}

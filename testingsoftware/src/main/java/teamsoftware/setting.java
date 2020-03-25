@@ -1,33 +1,37 @@
 package teamsoftware;
 
 public class setting {
-	Boolean friendscanseepath;
-	Boolean friendscanseeschedule;
-	Boolean friendscanseefriend;
-	Boolean lightmode;
-	
-	public Boolean getFriendscanseepath() {
-		return friendscanseepath;
+	Boolean friendsCanSeePath;
+	Boolean friendsCanSeeSchedule;
+	Boolean friendsCanSeeFriend;
+	Boolean lightMode;
+
+	/**
+	 * This class is all just getters and setters for
+	 * boolean values that are the settings that are available
+	 */
+	public Boolean getFriendsCanSeePath() {
+		return friendsCanSeePath;
 	}
-	public void setFriendscanseepath(Boolean friendscanseepath) {
-		this.friendscanseepath = friendscanseepath;
+	public void setFriendsCanSeePath(Boolean friendsCanSeePath) {
+		this.friendsCanSeePath = friendsCanSeePath;
 	}
-	public Boolean getFriendscanseeschedule() {
-		return friendscanseeschedule;
+	public Boolean getFriendsCanSeeSchedule() {
+		return friendsCanSeeSchedule;
 	}
-	public void setFriendscanseeschedule(Boolean friendscanseeschedule) {
-		this.friendscanseeschedule = friendscanseeschedule;
+	public void setFriendsCanSeeSchedule(Boolean friendsCanSeeSchedule) {
+		this.friendsCanSeeSchedule = friendsCanSeeSchedule;
 	}
-	public Boolean getFriendscanseefriend() {
-		return friendscanseefriend;
+	public Boolean getFriendsCanSeeFriend() {
+		return friendsCanSeeFriend;
 	}
-	public void setFriendscanseefriend(Boolean friendscanseefriend) {
-		this.friendscanseefriend = friendscanseefriend;
+	public void setFriendsCanSeeFriend(Boolean friendsCanSeeFriend) {
+		this.friendsCanSeeFriend = friendsCanSeeFriend;
 	}
-	public Boolean getLightmode() {
-		return lightmode;
+	public Boolean getLightMode() {
+		return lightMode;
 	}
-	public void setLightmode(Boolean lightmode) {
-		this.lightmode = lightmode;
+	public void setLightMode(Boolean lightMode) {
+		this.lightMode = lightMode;
 	}
 }

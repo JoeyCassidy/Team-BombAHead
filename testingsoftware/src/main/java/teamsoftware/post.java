@@ -7,42 +7,68 @@ import cs2321.HashMap;
 public class post {
 	String title;
 	String description;
-	HashMap<String,post> listofposts;
+	HashMap<String,post> listOfPosts;
 	student user;
 	Date time;
-	Boolean anonswitch;
+	Boolean anonSwitch;
 	String username; /// might need to fix and not yet implemented
-	
-	public void makepost(String a, String b, HashMap<String,post> c, student d, Date e, Boolean f) {
+
+	/**
+	 * This method generates a post for a specified classroom (instantiates a post from the post method)
+	 * @param title - the title of the post
+	 * @param description - the body of the post
+	 * @param listOfPosts - shows the list of all the posts
+	 * @param user - shows which user added the post
+	 * @param time - shows the time in which the post was added
+	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
+	 */
+	public void makePost(String title, String description, HashMap<String,post> listOfPosts, student user, Date time, Boolean anonSwitch) {
 		/*
 		 * what was the post[] for again? its for the thing to reply to ...
 		 */
-		
-		title = a;
-		description = b;
-		listofposts = c; // might need to fix this
-		user = d;
-		time = e;
-		anonswitch = f;
+
 	}
-	
-	public void addresponse(String a, String b, HashMap<String,post> c, student d, Date e, Boolean f) {
-		post G = new post(a,b,c,d,e,f);
-		listofposts.put(d.Email + "_" + e.toString(), G);
+
+	/**
+	 * This method generates a response for a specified post
+	 * @param title - the title of the post
+	 * @param description - the body of the post
+	 * @param listOfPosts - shows the list of all the posts
+	 * @param user - shows which user added the post
+	 * @param time - shows the time in which the post was added
+	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
+	 */
+	public void addResponse(String description, HashMap<String,post> listOfPosts, student user, Date time, Boolean anonSwitch) {
+		post newPost = new post(description, listOfPosts, user, time, anonSwitch);
+		listOfPosts.put(user.Email + "_" + time.toString(), newPost);
 	}
-	
-	public post(String title, String description, HashMap<String, post> listofposts, student user, Date time,
-			Boolean anonswitch) {
+
+	/**
+	 * This method is a constructor for posts
+	 * @param title - the title of the post
+	 * @param description - the body of the post
+	 * @param listOfPosts - shows the list of all the posts
+	 * @param user - shows which user added the post
+	 * @param time - shows the time in which the post was added
+	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
+	 */
+	public post(String title, String description, HashMap<String, post> listOfPosts, student user, Date time,
+			Boolean anonSwitch) {
 		super();
 		this.title = title;
 		this.description = description;
-		this.listofposts = listofposts;
+		this.listOfPosts = listOfPosts;
 		this.user = user;
 		this.time = time;
-		this.anonswitch = anonswitch;
+		this.anonSwitch = anonSwitch;
 	}
 
-	public post deletepost(post a) {
-		return this.listofposts.remove(a.user.Email + "_" + a.time.toString());
+	/**
+	 * This method deletes a specified post
+	 * @param delPost - specifies the post that you want to delete
+	 * @return - after deleting the post, returns the post that was deleted
+	 */
+	public post deletePost(post delPost) {
+		return this.listOfPosts.remove(delPost.user.Email + "_" + delPost.time.toString());
 	}
 }
