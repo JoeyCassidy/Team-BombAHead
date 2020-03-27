@@ -8,13 +8,14 @@ public class schedule {
 
 	/**
 	 * This method will add a place to later be added to the path[?]
-	 * @param a
-	 * @param b
-	 * @param c
-	 * @param e
-	 * @param f
+	 * @param name - name of the place
+	 * @param time - time of the event at the place
+	 * @param type - type of place (lecture, lab, library, etc.)
+	 * @param listOfDays - lists of days that you have the event
+	 * @param location - location of the place (building, room #)
+	 * @param identifier - takes a primary key to find out which part of the building to go to
 	 */
-	public void addPlace(String a, Date b, String c, Boolean[] e, String f) {
+	public void addPlace(String name, Date time, String type, Boolean[] listOfDays, String location, String identifier) {
 	}
 
 	/**
@@ -38,12 +39,13 @@ public class schedule {
 	/**
 	 *
 	 * @param editedPlace - the place that is wanting to be edited
-	 * @param a
-	 * @param b
-	 * @param c
-	 * @param e
-	 * @param f
+	 * @param name - name of the place
+	 * @param time - time of the event at the place
+	 * @param type - type of place (lecture, lab, library, etc.)
+	 * @param listOfDays - lists of days that you have the event
+	 * @param location - location of the place (building, room #)
+	 * @param identifier - takes a primary key to find out which part of the building to go to
 	 */
-	public void editPlace(place editedPlace, String a, Date b, String c, Boolean[] e, String f) {
+	public void editPlace(place editedPlace, String name, Date time, String type, Boolean[] listOfDays, String location, String identifier) {
 	}
 }
