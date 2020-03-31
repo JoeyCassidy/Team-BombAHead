@@ -6,7 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="" />
+    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/HuskyPath.com.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +81,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZDQaUN50poJ6Krm324ip3IjrFL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -88,6 +93,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -270,11 +281,24 @@
       <workItem from="1584662177236" duration="1297000" />
       <workItem from="1584715314908" duration="3704000" />
       <workItem from="1584720408138" duration="901000" />
+      <workItem from="1585681852217" duration="2516000" />
     </task>
+    <task id="LOCAL-00001" summary="Test 2 to commit all java classes">
+      <created>1585681912015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585681912015</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test 2 to commit all java classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test 2 to commit all java classes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1312" y="357" key="#Project_Structure" timestamp="1584656987621">
@@ -290,9 +314,10 @@
     </state>
     <state x="3724" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584661740738" />
     <state x="4178" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662253540" />
-    <state x="1525" y="415" key="#com.intellij.ide.util.MemberChooser" timestamp="1584656314126">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1585684200659">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585684200659" />
     <state x="1525" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584656314126" />
     <state x="1021" y="534" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1584371400577">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -384,10 +409,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="341" key="SettingsEditor/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721104001" />
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1585681849840">
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1585684403349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585681849840" />
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585684403349" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584720408431" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1080@0.0.3440.1400" timestamp="1584662182005" />
   </component>
