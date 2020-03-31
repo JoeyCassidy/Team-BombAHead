@@ -1,5 +1,5 @@
 package teamsoftware;
-import java.sql.Date;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import cs2321.HashMap;
 
@@ -16,7 +16,7 @@ public class classroom {
 	 * @param time - shows the time in which the post was added
 	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
 	 */
-	public void postQuestion(String title, String description, HashMap<String,post> listOfPosts, student user, Date time, Boolean anonSwitch) {
+	public void postQuestion(String title, String description, HashMap<String,post> listOfPosts, student user, LocalTime time, Boolean anonSwitch) {
 		post newPost = new post(title, description, new HashMap<String,post>() , user,time,anonSwitch);
 		listOfPosts.put(user.Email + "_" + time.toString(), newPost);
 		/**
@@ -34,9 +34,9 @@ public class classroom {
 	 * @param time - shows the time in which the new post was added
 	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
 	 */
-	public void answerQuestion(String description, post selPost, student user, Date time, Boolean anonSwitch) {
+	public void answerQuestion(String description, post selPost, student user, LocalTime time, Boolean anonSwitch) {
 //		might need to change due to potentially misunder standing concept
-		post newReply = new post(description, /*new HashMap<String,post>() */ new selPost,user,time,anonSwitch);
+		post newReply = new post(null,description, new HashMap<String,post>() ,user,time,anonSwitch);
 		selPost.listOfPosts.put(user.Email + "_" + time.toString(), newReply);
 	}
 }

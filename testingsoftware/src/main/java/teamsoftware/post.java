@@ -1,5 +1,5 @@
 package teamsoftware;
-import java.sql.Date;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import cs2321.HashMap;
@@ -9,7 +9,7 @@ public class post {
 	String description;
 	HashMap<String,post> listOfPosts;
 	student user;
-	Date time;
+	LocalTime time;
 	Boolean anonSwitch;
 	String username; /// might need to fix and not yet implemented
 
@@ -22,11 +22,11 @@ public class post {
 	 * @param time - shows the time in which the post was added
 	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
 	 */
-	public void makePost(String title, String description, HashMap<String,post> listOfPosts, student user, Date time, Boolean anonSwitch) {
+	public void makePost(String title, String description, HashMap<String,post> listOfPosts, student user, LocalTime time, Boolean anonSwitch) {
 		/*
 		 * what was the post[] for again? its for the thing to reply to ...
 		 */
-
+		
 	}
 
 	/**
@@ -38,8 +38,8 @@ public class post {
 	 * @param time - shows the time in which the post was added
 	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
 	 */
-	public void addResponse(String description, HashMap<String,post> listOfPosts, student user, Date time, Boolean anonSwitch) {
-		post newPost = new post(description, listOfPosts, user, time, anonSwitch);
+	public void addResponse(String description, HashMap<String,post> listOfPosts, student user, LocalTime time, Boolean anonSwitch) {
+		post newPost = new post(null, description, listOfPosts, user, time, anonSwitch);
 		listOfPosts.put(user.Email + "_" + time.toString(), newPost);
 	}
 
@@ -52,7 +52,7 @@ public class post {
 	 * @param time - shows the time in which the post was added
 	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
 	 */
-	public post(String title, String description, HashMap<String, post> listOfPosts, student user, Date time,
+	public post(String title, String description, HashMap<String, post> listOfPosts, student user, LocalTime time,
 			Boolean anonSwitch) {
 		super();
 		this.title = title;

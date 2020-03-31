@@ -7,7 +7,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Calendar;
+import java.time.LocalTime;
 import org.junit.Before;
 
 public class pathfactorytest {
@@ -76,8 +76,8 @@ public class pathfactorytest {
 		place[] q = new place[9];
 		for(int i = 0; i < q.length; i++) {
 			String a = "also a banana";
-			Calendar b = Calendar.getInstance();
-			b.set(Calendar.HOUR_OF_DAY, i+1);
+			LocalTime b = LocalTime.now();
+			b.withHour(i+1);
 			String c = "a banana";
 			Boolean[] d = {
 					true,
@@ -158,8 +158,8 @@ public class pathfactorytest {
 		place[] q = new place[9];
 		for(int i = 0; i < q.length; i++) {
 			String a = "also a banana";
-			Calendar b = Calendar.getInstance();
-			b.set(Calendar.HOUR_OF_DAY, i+1);
+			LocalTime b = LocalTime.now();
+			b.withHour(i+1);
 			String c = "a banana";
 			Boolean[] d = {
 					true,

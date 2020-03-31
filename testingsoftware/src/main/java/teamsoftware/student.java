@@ -45,7 +45,7 @@ public class student {
 	 * This method send a friend request to another user
 	 * @param user - the friend that is receiving the friend request
 	 */
-	public void addFriends(student user)
+	public void addFriends(student user) {
 		if(user != null) {
 			this.friendsOutgoing.put(user.Email, user);
 			user.friendsIncoming.put(this.Email, this);

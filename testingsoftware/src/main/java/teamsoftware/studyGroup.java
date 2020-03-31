@@ -1,6 +1,5 @@
 package teamsoftware;
 import java.util.ArrayList;
-
 import cs2321.HashMap;
 
 public class studyGroup {
@@ -16,7 +15,8 @@ public class studyGroup {
 	 * @return the new post
 	 */
 	public post addToChatLog(post newPost) {
-		return null;
+		listOfMessages.put(newPost.user.Email, newPost);
+		return newPost;
 	}
 
 	/**
@@ -25,7 +25,8 @@ public class studyGroup {
 	 * @return the new student that was added
 	 */
 	public student addStudent(student newStudent) {
-		return null;
+		listOfStudents.put(newStudent.Email, newStudent);
+		return listOfStudents.get(newStudent.Email);
 	}
 
 	/**
@@ -34,7 +35,7 @@ public class studyGroup {
 	 * @return the deleted student
 	 */
 	public student deleteStudent(student delStudent) {
-		return null;
+		return listOfStudents.remove(delStudent.Email);
 	}
 
 	/**
@@ -43,6 +44,6 @@ public class studyGroup {
 	 * @return the deleted post
 	 */
 	public post deleteChatLog(post delPost) {
-		return null;
+		return listOfMessages.remove(delPost.user.Email);
 	}
 }

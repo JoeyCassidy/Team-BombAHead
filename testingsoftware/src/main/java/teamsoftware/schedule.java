@@ -1,10 +1,18 @@
 package teamsoftware;
-import java.sql.Date;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class schedule {
 	ArrayList<String>[] listOfPaths;
-	ArrayList<place>[] listOfListOfPlaces;
+	ArrayList<place> listOfListOfPlaces = new ArrayList<place>();
+
+	public schedule() {
+		super();
+		this.listOfPaths = new ArrayList[5];
+		for(int i = 0; i < 5; i++) {
+			listOfPaths[i] = new ArrayList<String>();
+		}
+	}
 
 	/**
 	 * This method will add a place to later be added to the path[?]
@@ -15,16 +23,23 @@ public class schedule {
 	 * @param location - location of the place (building, room #)
 	 * @param identifier - takes a primary key to find out which part of the building to go to
 	 */
-	public void addPlace(String name, Date time, String type, Boolean[] listOfDays, String location, String identifier) {
+	public void addPlace(String name, LocalTime time, String type, Boolean[] listOfDays, String location, String identifier) {
+		place tobeadded = new place(name,time,type,listOfDays,location,identifier);
+		listOfListOfPlaces.add(tobeadded);
 	}
 
 	/**
 	 * This method will create the path with the specified places that were added in the above class
 	 * @param listOfPlaces - the array list of the places that want to be added to the path
+	 * @param pathing - the pathfactory to create the path on
 	 * @return the string of all of the places
 	 */
-	public String[] createPath(ArrayList<place> listOfPlaces) {
-		return null;
+	public String[] createPath(ArrayList<place> listOfPlaces, pathfactory pathing) {
+		place[] using = new place[listOfPlaces.size()];
+		for(int i = 0; i < listOfPlaces.size(); i++) {
+			using[i] = listOfPlaces.get(i);
+		}
+		return pathing.MPFUP(using);
 	}
 
 	/**
@@ -33,6 +48,11 @@ public class schedule {
 	 * @return the place that was removed
 	 */
 	public place removePlace(place delPlace) {
+		for(int i = 0; i < listOfListOfPlaces.size(); i++) {
+			if(delPlace.equals(listOfListOfPlaces.get(i)) == true) {
+				return listOfListOfPlaces.remove(i);
+			}
+		}
 		return null;
 	}
 
@@ -46,6 +66,7 @@ public class schedule {
 	 * @param location - location of the place (building, room #)
 	 * @param identifier - takes a primary key to find out which part of the building to go to
 	 */
-	public void editPlace(place editedPlace, String name, Date time, String type, Boolean[] listOfDays, String location, String identifier) {
+	public void editPlace(place editedPlace, String name, LocalTime time, String type, Boolean[] listOfDays, String location, String identifier) {
+		editedPlace = new place(name, time, type, listOfDays, location, identifier);
 	}
 }
