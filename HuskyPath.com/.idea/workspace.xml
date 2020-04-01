@@ -6,10 +6,59 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="">
+    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="Final test to commit all java classes, fixed all errors.">
       <change afterPath="$PROJECT_DIR$/.idea/HuskyPath.com.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/AbstractMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/AdjListGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/ArrayList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/DefaultComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/DoublyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/HashMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/HeapPQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/Sorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/SpaceComplexity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/TimeComplexity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/TimeComplexityAmortized.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/TimeComplexityAverage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/TimeComplexityExpected.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/Travel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs2321/UnorderedMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/AdaptablePriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/BinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/CircularQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Deque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Entry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/PositionalList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/PriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Queue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/SortedMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/datastructures/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/pathfactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/place.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/schedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/setting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftware/studyGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/classroomtest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/pathfactorytest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/placetest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/posttest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/scheduletest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/settingtest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/studenttest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teamsoftwaretest/studygrouptest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +140,7 @@
     <property name="DatabaseDriversLRU" value="h2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -282,6 +332,9 @@
       <workItem from="1584715314908" duration="3704000" />
       <workItem from="1584720408138" duration="901000" />
       <workItem from="1585681852217" duration="2516000" />
+      <workItem from="1585684403298" duration="75000" />
+      <workItem from="1585684543568" duration="68000" />
+      <workItem from="1585753175311" duration="1127000" />
     </task>
     <task id="LOCAL-00001" summary="Test 2 to commit all java classes">
       <created>1585681912015</created>
@@ -290,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585681912015</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final test to commit all java classes, fixed all errors.">
+      <created>1585684453638</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585684453638</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +358,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test 2 to commit all java classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 2 to commit all java classes" />
+    <MESSAGE value="Final test to commit all java classes, fixed all errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final test to commit all java classes, fixed all errors." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1312" y="357" key="#Project_Structure" timestamp="1584656987621">
@@ -314,10 +375,10 @@
     </state>
     <state x="3724" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584661740738" />
     <state x="4178" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662253540" />
-    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1585684200659">
+    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1585754114092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585684200659" />
+    <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585754114092" />
     <state x="1525" y="415" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584656314126" />
     <state x="1021" y="534" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1584371400577">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -335,6 +396,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1450" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584548805533" />
+    <state x="472" y="105" key="CommitChangelistDialog2" timestamp="1585754073769">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="472" y="105" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585754073769" />
     <state x="4277" y="327" key="FileChooserDialogImpl" timestamp="1584662056224">
       <screen x="3440" y="0" width="1920" height="1040" />
     </state>
@@ -409,10 +474,14 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="341" key="SettingsEditor/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721104001" />
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1585684403349">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585684462700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585684403349" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585684462700" />
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1585753178783">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585753178783" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584720408431" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1080@0.0.3440.1400" timestamp="1584662182005" />
   </component>
