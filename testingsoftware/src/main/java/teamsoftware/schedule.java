@@ -14,6 +14,11 @@ public class schedule {
 		}
 	}
 
+	public schedule intitschedule(int id) {
+		
+		return null;
+	}
+	
 	/**
 	 * This method will add a place to later be added to the path[?]
 	 * @param name - name of the place
