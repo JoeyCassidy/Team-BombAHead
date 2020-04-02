@@ -21,9 +21,9 @@ public class student {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String p = "select * "
+		String p =" select * "
 				+ " from STUDENT "
-				+ "where ID = ?";
+				+ " where ID = ?";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, studentID);
 		rs = stmt.executeQuery();
@@ -77,7 +77,7 @@ public class student {
 				+ " and STATUS = ?";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, friendid);
-		stmt.setInt(2, 0);
+		stmt.setInt(2, 1);
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			mystudent.friends.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
@@ -89,14 +89,14 @@ public class student {
 		}
 //		loads incoming for me
 		stmt.setInt(1, myid);
-		stmt.setInt(2, 1);
+		stmt.setInt(2, 2);
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			mystudent.friendsIncoming.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
 		}
 //		loads outgoing for them
 		stmt.setInt(1, friendid);
-		stmt.setInt(2, 2);
+		stmt.setInt(2, 3);
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			mystudent.friendsOutgoing.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
@@ -109,7 +109,7 @@ public class student {
 				mystudent.friendsIncoming.remove(friendstudent.Email);
 				friendstudent.friendsOutgoing.remove(this.Email);
 				p = " update FRIENDS "
-				  + " set STATUS = 0 "
+				  + " set STATUS = 1 "
 				  + " where STUDENTID = ?"
 				  + " and FRIENDID = ?";
 				stmt = conn.prepareStatement(p);
@@ -142,7 +142,187 @@ public class student {
 			user.friendsIncoming.put(this.Email, this);
 		}
 	}
-	
+
+	/**
+	 * returns the email of the user with the passed in id
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
+	public String SQLgetEmail(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select * "
+				+ " from STUDENT "
+				+ " where ID = ? ";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		rs = stmt.executeQuery();
+		return rs.getString(3);
+	}
+
+	public schedule getSchedule(int myid) throws SQLException {
+		return new schedule().SQLintitschedule(myid);
+	}
+
+	public Boolean[] SQLgetSetting(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select * "
+				+ " from SETTINGS "
+				+ " where STUDENTID = ? ";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		rs = stmt.executeQuery();
+		return new Boolean[]{rs.getBoolean(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9), rs.getBoolean(10)};
+	}
+
+	/**
+	 * returns a array of arrays that hold studentid, name, and email of the users friends all as strings
+	 * {
+	 *     {friend id, friend name, friend email}
+	 * }
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
+	public String[][] SQLgetFriends(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select count(*) "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 1);
+		rs = stmt.executeQuery();
+		String[][] holdingfriends = new String[rs.getInt(1)][3];
+		       p =" select * "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 1);
+		rs = stmt.executeQuery();
+		int i = 0;
+		while(rs.next()) {
+			holdingfriends[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3)};
+		}
+		return holdingfriends;
+	}
+
+	/**
+	 * returns a array of arrays that hold studentid, name, and email of the users incoming friends all as strings
+	 * {
+	 *     {friend id, friend name, friend email}
+	 * }
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
+	public String[][] SQLgetFriendsIncoming(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select count(*) "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 2);
+		rs = stmt.executeQuery();
+		String[][] holdingfriends = new String[rs.getInt(1)][3];
+		p =" select * "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 2);
+		rs = stmt.executeQuery();
+		int i = 0;
+		while(rs.next()) {
+			holdingfriends[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3)};
+		}
+		return holdingfriends;
+	}
+
+	/**
+	 * returns a array of arrays that hold studentid, name, and email of the users outgoing friends all as strings
+	 * {
+	 *     {friend id, friend name, friend email}
+	 * }
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
+	public String[][] SQLgetFriendsOutgoing(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select count(*) "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 1);
+		rs = stmt.executeQuery();
+		String[][] holdingfriends = new String[rs.getInt(1)][3];
+		p =" select * "
+				+ " from FRIENDS "
+				+ " where STUDENTID = ?"
+				+ " and STATUS = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		stmt.setInt(2, 1);
+		rs = stmt.executeQuery();
+		int i = 0;
+		while(rs.next()) {
+			holdingfriends[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3)};
+		}
+		return holdingfriends;
+	}
+
+	/**
+	 * returns a array of arrays that hold groupid and name of the study groups the user is in as strings
+	 * {
+	 *     {study group id, study group name}
+	 * }
+	 * @param userid
+	 * @return
+	 * @throws SQLException
+	 */
+	public String[][] SQLgetListOfStudyGroups(int userid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select count(*) "
+				+ " from STUDYGROUP "
+				+ " where STUDENTID = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		rs = stmt.executeQuery();
+		String[][] holdinggroups = new String[rs.getInt(1)][2];
+		      p = " select * "
+				+ " from STUDYGROUP "
+				+ " where STUDENTID = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, userid);
+		rs = stmt.executeQuery();
+		int i = 0;
+		while(rs.next()) {
+			holdinggroups[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2)};
+		}
+		return holdinggroups;
+	}
+
 	/**
 	 * This method send a friend request to another user
 	 * @param user - the friend that is receiving the friend request

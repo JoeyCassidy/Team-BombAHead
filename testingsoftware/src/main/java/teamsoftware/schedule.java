@@ -1,4 +1,8 @@
 package teamsoftware;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -14,9 +18,40 @@ public class schedule {
 		}
 	}
 
-	public schedule intitschedule(int id) {
-		
-		return null;
+	/**
+	 * you pass in a user id and this gets there schedule for them
+	 * @param myid
+	 * @return
+	 * @throws SQLException
+	 */
+	public schedule SQLintitschedule(int myid) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p = " select * " +
+				   " from SCHEDULE " +
+				   " where STUDENTID = ? ";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, myid);
+		rs = stmt.executeQuery();
+		while(rs.next()) {
+			Boolean[] useb = {rs.getBoolean(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9), rs.getBoolean(10)};
+			place using = new place(rs.getString(2),rs.getTime(3).toLocalTime(), null, useb, rs.getString(5), rs.getString(2));
+			listOfListOfPlaces.add(listOfListOfPlaces.size(), using);
+		}
+		place[] holdingplace = new place[listOfListOfPlaces.size()];
+		int i = 0;
+		for(place pp : listOfListOfPlaces){
+			holdingplace[i] = pp;
+			i++;
+		}
+		String[][] holdingpaths = new pathfactory().pathing3(holdingplace, new Boolean[] {true, true, true, true, true} );
+		for (int j = 0; j < 5; j++) {
+			for (String sp: holdingpaths[j]) {
+				listOfPaths[j].add(sp);
+			}
+		}
+		return this;
 	}
 	
 	/**
