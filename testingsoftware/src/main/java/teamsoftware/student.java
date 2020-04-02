@@ -32,7 +32,6 @@ public class student {
 		return this;
 	}
 	
-
 	
 	/**
 	 * This method sorts out when adding a friend will send the request
@@ -194,8 +193,6 @@ public class student {
 			stmt.execute();
 		}
 	}
-	
-	
 	/**
 	 * This method deletes the friend from this persons friend list but not the reverse
 	 * does reverse need to be added?

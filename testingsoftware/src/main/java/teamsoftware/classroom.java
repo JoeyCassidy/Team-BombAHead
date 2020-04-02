@@ -63,4 +63,19 @@ public class classroom {
 		post newReply = new post(null,description, new HashMap<String,post>() ,user,time,anonSwitch);
 		selPost.listOfPosts.put(user.Email + "_" + time.toString(), newReply);
 	}
+	
+	/**
+	 * This method will respond to an existing post (**NOTE: for all responses we deemed it unecessary to add titles to them)
+	 * @param description - the body of the new post
+	 * @param listOfPosts - shows the list of all the posts in the classroom discussion
+	 * @param user - shows which user added the new post
+	 * @param time - shows the time in which the new post was added
+	 * @param anonSwitch - boolean determines if they want to show up anonymous or not
+	 */
+	public void SQLanswerQuestion(String description, post selPost, student user, LocalTime time, Boolean anonSwitch) {
+//		might need to change due to potentially misunder standing concept
+		post newReply = new post(null,description, new HashMap<String,post>() ,user,time,anonSwitch);
+		selPost.listOfPosts.put(user.Email + "_" + time.toString(), newReply);
+	}
+	
 }
