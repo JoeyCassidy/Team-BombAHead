@@ -91,6 +91,7 @@ public class classroom {
 
 	public String[][] getListOfPosts(int groupid) {
 //		**********************************************************************************************************************************************************************************************************
+//		cannont be physcially done at this time
 		ArrayList<Integer> postidlist = new ArrayList<Integer>();
 		ArrayList<Integer> useridlist = new ArrayList<Integer>();
 		ArrayList<String> messagelist = new ArrayList<String>();

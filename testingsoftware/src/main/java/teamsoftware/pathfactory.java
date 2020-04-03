@@ -5,6 +5,9 @@ import cs2321.HeapPQ;
 import cs2321.Travel;
 import net.datastructures.Entry;
 
+import javax.tools.StandardJavaFileManager;
+import java.sql.SQLException;
+
 public class pathfactory {
 
 	public Travel campusMap;
@@ -12,8 +15,20 @@ public class pathfactory {
 	public void initializeMap(String[][] a) {
 		campusMap = new Travel(a);
 	}
+
+	public void initializeMTUMap() {
+		String[][] mtumap = new String[0][];
+		initializeMap(mtumap);
+	}
 	
-	
+	public static String[][] SQLpathing3(int myid) throws SQLException {
+		pathfactory using = new pathfactory();
+		using.initializeMTUMap();
+		schedule usingsched = new schedule();
+		usingsched.SQLintitschedule(myid);
+		return using.pathing3((place[]) usingsched.listOfListOfPlaces.toArray(), new Boolean[]{true,true,true,true,true});
+	}
+
 	/**
 	 * accepts all of the place values and uses a boolean array to make paths for each of the days that coresponds to a true value in the boolean array
 	 * for example if b[0] is false then it will not make a path for monday as it is the first day of the week.
