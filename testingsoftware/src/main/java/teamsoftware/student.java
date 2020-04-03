@@ -38,7 +38,7 @@ public class student {
 	 * @throws SQLException
 	 */
 	public String[] SQLinitStudent(int studentID) throws SQLException {
-		Connection conn = null;
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select * "

@@ -38,6 +38,7 @@ public class classroom {
 	public void SQLpostQuestion(int userid, String title, String description) throws SQLException {
 //		to make: postid, studentid, title, message, posttime
 //		post id needs to be autoincremented
+//		Connection conn = DriverManager.getConnection ("jdbc:h2:~/test", "sa","");
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
