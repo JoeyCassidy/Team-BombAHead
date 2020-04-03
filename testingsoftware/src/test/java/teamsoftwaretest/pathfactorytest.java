@@ -102,9 +102,9 @@ public class pathfactorytest {
 		
 		String[] f = p.MPFUP(q);
 		
-//		for(int i = 0 ; i < f.length; i++) {
-//			System.out.println(f[i]);
-//		}
+		for(int i = 0 ; i < f.length; i++) {
+			System.out.println(f[i]);
+		}
 		
 		String[] v = {"1_2",
 				"8_9",
@@ -173,7 +173,13 @@ public class pathfactorytest {
 		}
 		
 		String[][] f = p.pathing3(q, new Boolean[] {true,true,true,true,true});
-		
+
+		for(int i = 0 ; i < f.length; i++) {
+			for (int j = 0; j < f[i].length; j++) {
+				System.out.println(f[i][j]);
+			}
+		}
+
 		String[] v = {"1_2",
 				"8_9",
 				"5_6",
