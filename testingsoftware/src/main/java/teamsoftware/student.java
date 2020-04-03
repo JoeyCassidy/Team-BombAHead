@@ -13,7 +13,7 @@ public class student {
 	HashMap<String,studyGroup> listOfStudyGroups = new HashMap<String,studyGroup>();
 
 	/**
-	 * don't know what this is supposed to do.. I think sql server stuff?
+	 * intitalizes the student object from server using the students id
 	 * @return - the specified student
 	 * @throws SQLException 
 	 */
@@ -31,8 +31,30 @@ public class student {
 		Email = rs.getString(2);
 		return this;
 	}
-	
-	
+
+	/**
+	 * reports the studentid, name, and email
+	 * @return - the specified student
+	 * @throws SQLException
+	 */
+	public String[] SQLinitStudent(int studentID) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p =" select * "
+				+ " from STUDENT "
+				+ " where ID = ?";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, studentID);
+		rs = stmt.executeQuery();
+		String[] returning = new String[]{Integer.toString(rs.getInt(1)),
+				rs.getString(2),rs.getString(3)};
+		ID = rs.getInt(1);
+		Email = rs.getString(2);
+		return returning;
+	}
+
+
 	/**
 	 * This method sorts out when adding a friend will send the request
 	 * to the acceptees database, and when he accepts or declines the
