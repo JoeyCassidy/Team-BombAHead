@@ -44,7 +44,7 @@ public class studyGroup {
 		return newPost;
 	}
 
-	public post SQLaddToChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException {
+	public post SQLaddToChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
 		post using = new post(null, message, null, new student().initStudent(studentid), time.toLocalDateTime().toLocalTime(), null);
 		listOfMessages.put(using.user.Email, using);
 		
@@ -116,7 +116,7 @@ public class studyGroup {
 	 * @return the deleted post
 	 * @throws SQLException 
 	 */
-	public post SQLdeleteChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException {
+	public post SQLdeleteChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
 		post using = new post(null, message, null, new student().initStudent(studentid), time.toLocalDateTime().toLocalTime(), null);
 		
 		Connection conn = null;

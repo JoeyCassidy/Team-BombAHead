@@ -3,22 +3,23 @@ import cs2321.HashMap;
 import java.sql.*;
 
 public class student {
-	int ID = -1; //******************************************************************************
-	String Email;
-	schedule Schedule;
-	setting Setting;
-	HashMap<String,student> friends = new HashMap<String,student>();
-	HashMap<String,student> friendsIncoming = new HashMap<String,student>();
-	HashMap<String,student> friendsOutgoing = new HashMap<String,student>();
-	HashMap<String,studyGroup> listOfStudyGroups = new HashMap<String,studyGroup>();
+	public int ID = -1; //******************************************************************************
+	public String Email;
+	public schedule Schedule;
+	public setting Setting;
+	public HashMap<String,student> friends = new HashMap<String,student>();
+	public HashMap<String,student> friendsIncoming = new HashMap<String,student>();
+	public HashMap<String,student> friendsOutgoing = new HashMap<String,student>();
+	public HashMap<String,studyGroup> listOfStudyGroups = new HashMap<String,studyGroup>();
 
 	/**
 	 * intitalizes the student object from server using the students id
 	 * @return - the specified student
 	 * @throws SQLException 
 	 */
-	public student initStudent(int studentID) throws SQLException {
-		Connection conn = null;
+	public student initStudent(int studentID) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select * "
@@ -27,8 +28,10 @@ public class student {
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, studentID);
 		rs = stmt.executeQuery();
-		ID = rs.getInt(1);
-		Email = rs.getString(2);
+		if(rs.next()) {
+			ID = rs.getInt(1);
+			Email = rs.getString(3);
+		}
 		return this;
 	}
 
@@ -37,7 +40,8 @@ public class student {
 	 * @return - the specified student
 	 * @throws SQLException
 	 */
-	public String[] SQLinitStudent(int studentID) throws SQLException {
+	public String[] SQLinitStudent(int studentID) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -47,10 +51,13 @@ public class student {
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, studentID);
 		rs = stmt.executeQuery();
-		String[] returning = new String[]{Integer.toString(rs.getInt(1)),
-				rs.getString(2),rs.getString(3)};
-		ID = rs.getInt(1);
-		Email = rs.getString(2);
+		String[] returning = null;
+		if(rs.next()){
+			returning = new String[]{Integer.toString(rs.getInt(1)),
+					rs.getString(2),rs.getString(3)};
+			ID = rs.getInt(1);
+			Email = rs.getString(2);
+		}
 		return returning;
 	}
 
@@ -83,65 +90,31 @@ public class student {
 	 * to the acceptees database, and when he accepts or declines the
 	 * friend request, the requests will clear out of both databases and the friends will be added.
 	 * @param accept - boolean that accepts friend is true, and denies friend if false
-	 * @param user - determines which student is under consideration for the friend request
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
-	public void SQLacceptOrDenyFriends(Boolean accept, int myid, int friendid) throws SQLException {
-		student mystudent = new student().initStudent(myid);
-		student friendstudent = new student().initStudent(friendid);
+	public void SQLacceptOrDenyFriends(Boolean accept, int myid, int friendid) throws SQLException, ClassNotFoundException {
 //		loads friends
-		Connection conn = null;
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String p =" select * "
-				+ " from FRIENDS "
-				+ " where STUDENTID = ?"
-				+ " and STATUS = ?";
-		stmt = conn.prepareStatement(p);
-		stmt.setInt(1, friendid);
-		stmt.setInt(2, 1);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friends.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		stmt.setInt(1, friendid);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friends.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-//		loads incoming for me
-		stmt.setInt(1, myid);
-		stmt.setInt(2, 2);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friendsIncoming.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-//		loads outgoing for them
-		stmt.setInt(1, friendid);
-		stmt.setInt(2, 3);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friendsOutgoing.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		if(friendstudent!=null) {
+		String p;
 			if(accept==true) {
 				//			adding part
-				mystudent.friends.put(friendstudent.Email, mystudent.friendsIncoming.get(friendstudent.Email));
 				//			deleting part
-				mystudent.friendsIncoming.remove(friendstudent.Email);
-				friendstudent.friendsOutgoing.remove(this.Email);
 				p = " update FRIENDS "
-				  + " set STATUS = 1 "
+				  + " set STATUS = 0 "
 				  + " where STUDENTID = ?"
 				  + " and FRIENDID = ?";
 				stmt = conn.prepareStatement(p);
 				stmt.setInt(1, myid);
 				stmt.setInt(2, friendid);
 				stmt.executeUpdate();
+				stmt.setInt(2, myid);
+				stmt.setInt(1, friendid);
+				stmt.executeUpdate();
 			}else if(accept==false) {
 				//			deleting part
-				mystudent.friendsIncoming.remove(mystudent.Email);
-				friendstudent.friendsOutgoing.remove(this.Email);
 				p = " delete "
 				  + " from FRIENDS "
 				  + " where STUDENTID = ? "
@@ -151,18 +124,41 @@ public class student {
 				stmt.setInt(2, friendid);
 				stmt.execute();
 			}
-		}
 	}
 	
+//	/**
+//	 * This method send a friend request to another user
+//	 * @param user - the friend that is receiving the friend request
+//	 */
+//	public void addFriends(student user) {
+//		if(user != null) {
+//			this.friendsOutgoing.put(user.Email, user);
+//			user.friendsIncoming.put(this.Email, this);
+//		}
+//	}
+
 	/**
 	 * This method send a friend request to another user
-	 * @param user - the friend that is receiving the friend request
 	 */
-	public void addFriends(student user) {
-		if(user != null) {
-			this.friendsOutgoing.put(user.Email, user);
-			user.friendsIncoming.put(this.Email, this);
-		}
+	public void SQLaddFriends(int myid, int friendid) throws ClassNotFoundException, SQLException {
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p = " insert into FRIENDS " +
+				" values (?, ?, 2) ";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, myid);
+		stmt.setInt(2, friendid);
+		stmt.execute();
+
+		p = " insert into FRIENDS " +
+				" values (?, ?, 1) ";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, friendid);
+		stmt.setInt(2, myid);
+		stmt.execute();
+
 	}
 
 	/**
@@ -171,8 +167,9 @@ public class student {
 	 * @return
 	 * @throws SQLException
 	 */
-	public String SQLgetEmail(int userid) throws SQLException {
-		Connection conn = null;
+	public String SQLgetEmail(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select * "
@@ -181,15 +178,17 @@ public class student {
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, userid);
 		rs = stmt.executeQuery();
+		rs.next();
 		return rs.getString(3);
 	}
 
-	public schedule getSchedule(int myid) throws SQLException {
-		return new schedule().SQLintitschedule(myid);
-	}
+//	public schedule getSchedule(int myid) throws SQLException {
+//		return new schedule().SQLintitschedule(myid);
+//	}
 
-	public Boolean[] SQLgetSetting(int userid) throws SQLException {
-		Connection conn = null;
+	public Boolean[] SQLgetSetting(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select * "
@@ -210,8 +209,9 @@ public class student {
 	 * @return
 	 * @throws SQLException
 	 */
-	public String[][] SQLgetFriends(int userid) throws SQLException {
-		Connection conn = null;
+	public String[][] SQLgetFriends(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select count(*) "
@@ -220,20 +220,22 @@ public class student {
 				+ " and STATUS = ?";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, userid);
-		stmt.setInt(2, 1);
+		stmt.setInt(2, 0);
 		rs = stmt.executeQuery();
-		String[][] holdingfriends = new String[rs.getInt(1)][3];
-		       p =" select * "
-				+ " from FRIENDS "
-				+ " where STUDENTID = ?"
-				+ " and STATUS = ?";
+		rs.next();
+		String[][] holdingfriends = new String[rs.getInt(1)][4];
+		       p = " select * " +
+				   " from ( select FRIENDID, STATUS " +
+				   " from FRIENDS " +
+				   " where STUDENTID = ? " +
+				   " and STATUS = ? ) as ID natural join STUDENT";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, userid);
-		stmt.setInt(2, 1);
+		stmt.setInt(2, 0);
 		rs = stmt.executeQuery();
 		int i = 0;
 		while(rs.next()) {
-			holdingfriends[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3)};
+			holdingfriends[i] = new String[]{Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(4), rs.getString(5)};
 		}
 		return holdingfriends;
 	}
@@ -247,8 +249,9 @@ public class student {
 	 * @return
 	 * @throws SQLException
 	 */
-	public String[][] SQLgetFriendsIncoming(int userid) throws SQLException {
-		Connection conn = null;
+	public String[][] SQLgetFriendsIncoming(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select count(*) "
@@ -284,8 +287,9 @@ public class student {
 	 * @return
 	 * @throws SQLException
 	 */
-	public String[][] SQLgetFriendsOutgoing(int userid) throws SQLException {
-		Connection conn = null;
+	public String[][] SQLgetFriendsOutgoing(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select count(*) "
@@ -321,8 +325,9 @@ public class student {
 	 * @return
 	 * @throws SQLException
 	 */
-	public String[][] SQLgetListOfStudyGroups(int userid) throws SQLException {
-		Connection conn = null;
+	public String[][] SQLgetListOfStudyGroups(int userid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p =" select count(*) "
@@ -345,105 +350,35 @@ public class student {
 		return holdinggroups;
 	}
 
-	/**
-	 * This method send a friend request to another user
-	 * @param user - the friend that is receiving the friend request
-	 * @throws SQLException 
-	 */
-	public void SQLaddFriends(int myid, int friendid) throws SQLException {
-//		create myself
-		student mystudent = new student().initStudent(myid);
-		student friendstudent = new student().initStudent(friendid);
-//		loads friends
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		String p =" select * "
-				+ " from FRIENDS "
-				+ " where STUDENTID = ?"
-				+ " and STATUS = ?";
-		stmt = conn.prepareStatement(p);
-		stmt.setInt(1, myid);
-		stmt.setInt(2, 3);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friendsOutgoing.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		stmt.setInt(1, friendid);
-		stmt.setInt(2, 2);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			friendstudent.friendsIncoming.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		if(friendstudent.ID != -1) {
-//		add to my outgoing
-			mystudent.friendsOutgoing.put(friendstudent.Email, friendstudent);
-			friendstudent.friendsIncoming.put(mystudent.Email, mystudent);
-//		add to table
-			p = " insert ignore into FRIENDS "
-  			  + " values(?, ?, ?)";
-			stmt = conn.prepareStatement(p);
-//			adds from me to you as outgoing
-			stmt.setInt(1, myid);
-			stmt.setInt(2, friendid);
-			stmt.setInt(3, 3);
-			stmt.execute();
-//			adds from you to me as incoming
-			stmt.setInt(1, friendid);
-			stmt.setInt(2, myid);
-			stmt.setInt(3, 2);
-			stmt.execute();
-		}
-	}
-	/**
-	 * This method deletes the friend from this persons friend list but not the reverse
-	 * does reverse need to be added?
-	 * @param deletee - the user being deleted from the users friend list
-	 * @return - the deleted friend
-	 */
-	public student deleteFriends(student deletee) {
-		if(deletee != null) {
-			this.friends.remove(deletee.Email);
-//			this can be implemented but depends on if needed and server
-//			a.friends.remove(this.Email);
-		}
-		return deletee;
-	}
+//	/**
+//	 * This method deletes the friend from this persons friend list but not the reverse
+//	 * does reverse need to be added?
+//	 * @param deletee - the user being deleted from the users friend list
+//	 * @return - the deleted friend
+//	 */
+//	public student deleteFriends(student deletee) {
+//		if(deletee != null) {
+//			this.friends.remove(deletee.Email);
+////			this can be implemented but depends on if needed and server
+////			a.friends.remove(this.Email);
+//		}
+//		return deletee;
+//	}
 	
 	/**
 	 * This method deletes the friend from this persons friend list but not the reverse
 	 * does reverse need to be added?
-	 * @param deletee - the user being deleted from the users friend list
 	 * @return - the deleted friend
 	 * @throws SQLException 
 	 */
-	public student SQLdeleteFriends(int myid, int friendid) throws SQLException {
+	public void SQLdeleteFriends(int myid, int friendid) throws SQLException, ClassNotFoundException {
 		student mystudent = new student().initStudent(myid);
 		student friendstudent = new student().initStudent(friendid);
-		Connection conn = null;
+		Class.forName("org.h2.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String p =" select * "
-				+ " from FRIENDS "
-				+ " where STUDENTID = ?"
-				+ " and STATUS = ?";
-		stmt = conn.prepareStatement(p);
-		stmt.setInt(1, myid);
-		stmt.setInt(2, 1);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			mystudent.friends.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		stmt.setInt(1, friendid);
-		stmt.setInt(2, 1);
-		rs = stmt.executeQuery();
-		while(rs.next()) {
-			friendstudent.friends.put(rs.getString(2), new student().initStudent(rs.getInt(2)));
-		}
-		if(friendstudent.ID != -1) {
-			mystudent.friends.remove(friendstudent.Email);
-			friendstudent.friends.remove(this.Email);
-			p = " delete "
+		String p = " delete "
 			  + " from FRIENDS "
 			  + " where STUDENTID = ? "
 			  + " and FRIENDID = ?";
@@ -454,13 +389,10 @@ public class student {
 			stmt.setInt(1, friendid);
 			stmt.setInt(2, myid);
 			stmt.execute();
-		}
-		return friendstudent;
 	}
 	
 	/**
 	 * This method adds the study group to this person and vice versa
-	 * @param a - the created study group
 	 */
 	public void addStudyGroup(studyGroup group) {
 		if(group != null) {
@@ -493,7 +425,7 @@ public class student {
 		}
 		return null;
 	}
-	
+
 //	/**
 //	 * This method removes the student from the group and the group from the student
 //	 * @param group - the group which the student will be deleted from
