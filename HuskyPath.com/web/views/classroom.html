@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>Classroom</title>
+        <style>
+            .thumb{background-color: #ddd;}
+            html, body{
+                height: 100%;
+            }
+            .bbbbb{
+                background: url(https://cdn.pixabay.com/photo/2016/01/05/11/20/pattern-1122314_960_720.jpg) no-repeat center center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            html, body{
+                height:100%;
+            }
+        </style>
+    </head>
+    <body class="bbbbb" style="height: 100%;">
+       <div class="container-fluid mt-100">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <div class="media flex-wrap w-100 align-items-center">
+                            </div>
+                            <h4 class="card-title">Question with today's lecture.. (Advanced Intro To Programming)</h4>
+
+                            <div class="media-body ml-3">   <a href="javascript:void(0)" data-abc="true">Anonymous</a>
+                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="30px" width="30px" style="margin-left: 20px;" class="rounded"> <div class="text-muted small">2 days ago</div>
+                            </div>
+                            <div class="text-muted small ml-3">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p> Did anybody know what the professor was talking about when he was talking about generic doubly linked lists? I was lost within the first 5 minutes...
+                            </p>
+                            <p> I tried looking in the textbook on pages 35-50 and that didn't quite answer the question I was asking, if anyone can get onto a discord server later and I can talk you through the problem I'm having that would be really appreciated.
+                            </p>
+                        </div>
+
+                        <!-- This is for the reply bar -->
+                        <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                            <div class="info">
+                                <p> </p>
+                                <label for="example">Reply
+                                </label>
+                                <input id="example" type="text"
+                                       name="Ntext" size="100">
+                                <input id="sent" type="submit"
+                                       value="Send">
+                            </div>
+                            <p id="para">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+       <!-- Another post in another class -->
+
+       <div class="container-fluid mt-100">
+           <div class="row">
+               <div class="col-md-12">
+                   <div class="card mb-4">
+                       <div class="card-header">
+                           <div class="media flex-wrap w-100 align-items-center">
+                           </div>
+                           <h4 class="card-title">Homework 7 Help (Calculus 2)</h4>
+
+                           <div class="media-body ml-3">   <a href="javascript:void(0)" data-abc="true">Anonymous</a>
+                               <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="30px" width="30px" style="margin-left: 20px;" class="rounded"> <div class="text-muted small">6 days ago</div>
+                           </div>
+                           <div class="text-muted small ml-3">
+                           </div>
+                       </div>
+                       <div class="card-body">
+                           <p> For chapter 5 section 3 problem 7, how did you guys go about solving this problem? I have an answer but I don't think it's right.
+                           </p>
+                           <p> Does anyoone want to compare answers so someone can see exactly what I did wrong, or if I'm going about this the right way and just made a calculation error?
+                           </p>
+                       </div>
+
+                       <!-- Reply bar -->
+                       <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                           <div class="info">
+                               <p> </p>
+                               <label for="example">Reply
+                               </label>
+                               <input id="example2" type="text"
+                                      name="Ntext" size="100">
+                               <input id="sent2" type="submit"
+                                      value="Send">
+                           </div>
+                           <p id="para2">
+                           </p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+    <script>
+        window.onclick = function(e)
+        {   var id =  e.target.id;
+            if (id === 'sent')
+            { var txt = document.getElementById('example').value
+                $( "#para" ).empty().append( txt );
+            }
+        }
+    </script>
+
+</html>
