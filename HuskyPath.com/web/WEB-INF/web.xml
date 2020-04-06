@@ -46,4 +46,16 @@
         <servlet-name>settings</servlet-name>
         <url-pattern>/settings</url-pattern>
     </servlet-mapping>
+
+    <!-- Classroom servlet -->
+    <servlet>
+        <servlet-name>classroom</servlet-name>
+        <servlet-class>app.servlets.ClassroomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>classroom</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
+
 </web-app>
