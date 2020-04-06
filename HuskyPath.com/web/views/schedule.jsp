@@ -48,7 +48,7 @@
                             <a class="nav-link" onclick="location.href='/settings'">Settings<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" onclick="location.href='/schedule'">Schedule<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" onclick="location.href='/profile'">Profile<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#!"></a>
