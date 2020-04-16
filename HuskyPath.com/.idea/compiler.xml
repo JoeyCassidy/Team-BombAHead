@@ -10,4 +10,9 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HuskyPath.com" options="--add-exports java.xml/com.sun.org.apache.xalan.internal.xsltc.compiler=ALL-UNNAMED --add-exports jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>
