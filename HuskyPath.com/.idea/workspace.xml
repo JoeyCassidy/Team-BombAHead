@@ -6,25 +6,30 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="added sign out function and some template files">
-      <change afterPath="$PROJECT_DIR$/web/views/getProfileInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/views/javaConverter.js" afterDir="false" />
+    <list default="true" id="b3f0a984-0208-41b3-bc6b-ab64bbdfaa71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/servlets/IndexServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/googleSecret/client_secret_293465252453-2ugca6mu50pm9ki42l0cmjcgiua53jlr.apps.googleusercontent.com.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/views/javascript/getProfileInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/views/javascript/javaConverter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/56c17980-127a-4836-84db-3b36557a4c8c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56c17980-127a-4836-84db-3b36557a4c8c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56c17980-127a-4836-84db-3b36557a4c8c/storage_v2/_src_/database/TEST.kjwnAA/schema/PUBLIC.aaZQjQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56c17980-127a-4836-84db-3b36557a4c8c/storage_v2/_src_/database/TEST.kjwnAA/schema/PUBLIC.aaZQjQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/AddServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/AddServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/ListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/ListServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/ProfileServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/ProfileServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/SettingsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/classes/app/servlets/SettingsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/views/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/views/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/views/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HuskyPath_com_war_exploded/views/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/HuskyPath.com.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/getProfileInfo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/javaConverter.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/views/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/views/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +75,32 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="CLASSROOMPOST: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test" type="feb32156:DbDataSourceImpl" />
+        <item name="TEST: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="STUDYGROUP: table" type="818c1b4a:H2ImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -78,8 +109,8 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -122,18 +153,21 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joeyb\IdeaProjects\HuskyPath.com\web" />
-      <recent name="C:\Users\joeyb\IdeaProjects\HuskyPath.com\web\views" />
+      <recent name="C:\Users\caboo\Documents\Team-BombAHead\HuskyPath.com\src\main\java\teamsoftware" />
+      <recent name="C:\Users\caboo\Documents\Team-BombAHead\HuskyPath.com\web\googleSecret" />
+      <recent name="C:\Users\caboo\Documents\Team-BombAHead\HuskyPath.com\web\views" />
+      <recent name="C:\Users\caboo\Documents\Team-BombAHead\HuskyPath.com\web\javascript" />
+      <recent name="C:\Users\caboo\Documents\Team-BombAHead\HuskyPath.com\web" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.index.html">
     <configuration name="Tomcat 9.0.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -270,6 +304,85 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="index.html" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.html" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="HuskyPath.com:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/HuskyPath_com_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_HuskyPath_com" />
+        <option name="HTTP_PORT" value="8080" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52424" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="HuskyPath.com:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Tomcat Server.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -285,6 +398,10 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="test: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -313,7 +430,13 @@
       <workItem from="1585848146912" duration="1196000" />
       <workItem from="1585927635903" duration="22000" />
       <workItem from="1585929527623" duration="1900000" />
-      <workItem from="1586027719107" duration="6336000" />
+      <workItem from="1586027719107" duration="11700000" />
+      <workItem from="1586134460655" duration="18828000" />
+      <workItem from="1586357211193" duration="3306000" />
+      <workItem from="1586474796015" duration="6474000" />
+      <workItem from="1586530935843" duration="2098000" />
+      <workItem from="1586745007016" duration="3473000" />
+      <workItem from="1587000113040" duration="8063000" />
     </task>
     <task id="LOCAL-00001" summary="Test 2 to commit all java classes">
       <created>1585681912015</created>
@@ -322,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585681912015</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added sign out function and some template files">
+      <created>1586037912896</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586037912896</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,6 +477,10 @@
     </state>
     <state x="3724" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584661740738" />
     <state x="4178" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662253540" />
+    <state x="701" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586135877886">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="701" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586135877886" />
     <state x="851" y="308" key="#com.intellij.ide.util.MemberChooser" timestamp="1585684200659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -364,90 +498,98 @@
       <screen x="3440" y="0" width="1920" height="1040" />
     </state>
     <state x="4065" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662762959" />
+    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1586042939224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1586042939224" />
     <state x="1450" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584548805533">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1450" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584548805533" />
-    <state x="721" y="218" key="CommitChangelistDialog2" timestamp="1586037884607">
+    <state x="215" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1586531626977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="721" y="218" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884607" />
+    <state x="215" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586531626977" />
+    <state x="721" y="218" key="CommitChangelistDialog2" timestamp="1587060889233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="218" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587060889233" />
     <state x="1292" y="293" key="CommitChangelistDialog2/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1585753894874" />
     <state x="4277" y="327" key="FileChooserDialogImpl" timestamp="1584662056224">
       <screen x="3440" y="0" width="1920" height="1040" />
     </state>
     <state x="1500" y="440" key="FileChooserDialogImpl/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584372677530" />
     <state x="4277" y="327" key="FileChooserDialogImpl/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662056224" />
-    <state width="626" height="69" key="GridCell.Tab.0.bottom" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.0.bottom" timestamp="1587060604008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587060604008" />
     <state width="1165" height="536" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="371" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662693081" />
-    <state width="626" height="69" key="GridCell.Tab.0.center" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.0.center" timestamp="1587060604008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587060604008" />
     <state width="1165" height="536" key="GridCell.Tab.0.center/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="371" key="GridCell.Tab.0.center/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662693080" />
-    <state width="626" height="69" key="GridCell.Tab.0.left" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.0.left" timestamp="1587060604008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587060604008" />
     <state width="1165" height="536" key="GridCell.Tab.0.left/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="371" key="GridCell.Tab.0.left/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662693080" />
-    <state width="626" height="69" key="GridCell.Tab.0.right" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.0.right" timestamp="1587060604008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587060604008" />
     <state width="1165" height="536" key="GridCell.Tab.0.right/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="371" key="GridCell.Tab.0.right/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584662693081" />
-    <state width="626" height="69" key="GridCell.Tab.1.bottom" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.1.bottom" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.1.center" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.1.center" timestamp="1587060603893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603893" />
     <state width="1165" height="536" key="GridCell.Tab.1.center/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.1.center/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.1.left" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.1.left" timestamp="1587060603893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603893" />
     <state width="1165" height="536" key="GridCell.Tab.1.left/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.1.left/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.1.right" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.1.right" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.1.right/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.1.right/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.2.bottom" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.2.bottom" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.2.bottom/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.2.bottom/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813522" />
-    <state width="626" height="69" key="GridCell.Tab.2.center" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.2.center" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.2.center/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.2.center/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.2.left" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.2.left" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.2.left/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.2.left/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813521" />
-    <state width="626" height="69" key="GridCell.Tab.2.right" timestamp="1586037884659">
+    <state width="631" height="286" key="GridCell.Tab.2.right" timestamp="1587060603894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="626" height="69" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586037884659" />
+    <state width="631" height="286" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587060603894" />
     <state width="1165" height="536" key="GridCell.Tab.2.right/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721309372" />
     <state width="635" height="40" key="GridCell.Tab.2.right/0.0.3440.1400/3440.0.1920.1040@3440.0.1920.1040" timestamp="1584661813522" />
     <state width="352" height="616" key="HiddenNamespacesPopup" timestamp="1584717977101">
@@ -459,24 +601,32 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1432" y="415" key="MultipleFileMergeDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1585754398821" />
-    <state x="611" y="110" key="SettingsEditor" timestamp="1585849230594">
+    <state x="611" y="110" key="SettingsEditor" timestamp="1586532419012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="611" y="110" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585849230594" />
+    <state x="611" y="110" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586532419012" />
     <state x="1221" y="341" key="SettingsEditor/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584721104001" />
     <state x="1312" y="432" key="Vcs.Push.Dialog.v2" timestamp="1585754529890">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1312" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1585754529890" />
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1586027734967">
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1587000116809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586027734967" />
+    <state x="790" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587000116809" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1584720408431" />
     <state x="1416" y="522" key="com.intellij.ide.util.TipDialog/0.0.3440.1400/3440.0.1920.1080@0.0.3440.1400" timestamp="1584662182005" />
     <state x="1529" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585754384976">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1529" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1585754384976" />
+    <state x="686" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587060914527">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="686" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587060914527" />
+    <state x="616" y="242" key="run.anything.popup" timestamp="1586037947709">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586037947709" />
   </component>
 </project>
