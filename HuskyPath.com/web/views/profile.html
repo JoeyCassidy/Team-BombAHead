@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -43,16 +44,8 @@
 							<a class="nav-link" onclick="location.href='/settings'">Settings<span class="sr-only">(current)</span></a>
 						  </li>
 						  <li class="nav-item">
-							  <a class="nav-link" onclick="location.href='/index'; signOut();">logout<span class="sr-only">(current)</span></a>
+							  <a class="nav-link" onclick="location.href='/index'" onclick="signOut()">logout<span class="sr-only">(current)</span></a>
 						  </li>
-							<script>
-								function signOut() {
-									var auth2 = gapi.auth2.getAuthInstance();
-									auth2.signOut().then(function () {
-										console.log('User signed out.');
-									});
-								}
-							</script>
 						</ul>
 					  </div>
 					</nav>
@@ -66,11 +59,11 @@
 					<div class="jumbotron rounded">
 						<div class="row">
 							<div class="col-lg-2">
-								<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="200px" width="200px" style="margin-left: 20px;" class="rounded">
+
 							</div>
 							<div class="col-lg-3">
-								<h1 style="margin-left: 40px;">Your Name</h1>
-								<h3 style="margin-left: 40px;">Other info</h3>
+								<h1 style="margin-left: 40px;" id="name"> </h1>
+								<h3 style="margin-left: 40px;">info</h3>
 							</div>
 							<div class="col-lg-2"></div>
 							<div class="col-lg-1">

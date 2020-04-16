@@ -25,6 +25,17 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
 
+    <!-- index/logout servlet -->
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <servlet-class>app.servlets.IndexServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
     <!-- Profile servlet -->
     <servlet>
         <servlet-name>profile</servlet-name>
