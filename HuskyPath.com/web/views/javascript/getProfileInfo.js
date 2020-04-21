@@ -1,4 +1,4 @@
-
+//this is outdated but not deleted in case it is useful later for google
 
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();

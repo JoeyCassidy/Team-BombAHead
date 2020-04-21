@@ -6,13 +6,40 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<title>Login</title>
+		<!-- **********************************************
+     * TODO(DEVELOPER): Use your Client ID below. *
+     ********************************************** -->
+		<meta name="google-signin-client_id" content="16768770059-c1bv57iquerqp5rd6bnjt3ode21ffome.apps.googleusercontent.com">
+		<meta name="google-signin-cookiepolicy" content="single_host_origin">
+		<meta name="google-signin-scope" content="profile email">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="google-signin-client_id" content="293465252453-2ugca6mu50pm9ki42l0cmjcgiua53jlr.apps.googleusercontent.com">
+		<!--google-->
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<!-- firebase-->
 		<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
 		<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+		<!--absolutely doesnt work (google sign in with firebase script)
 		<script type="text/javascript">
 			// FirebaseUI config.
+			var provider = new firebase.auth.GoogleAuthProvider();
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+				// This gives you a Google Access Token. You can use it to access the Google API.
+				var token = result.credential.accessToken;
+				// The signed-in user info.
+				var user = result.user;
+				// ...
+			}).catch(function(error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// The email of the user's account used.
+				var email = error.email;
+				// The firebase.auth.AuthCredential type that was used.
+				var credential = error.credential;
+				// ...
+			});
 			var uiConfig = {
 				callbacks: {
 					signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -83,13 +110,38 @@
 					window.location.assign('localhost:8080/web/views/profile.html');
 				}
 			};
-
+			function onSignIn(googleUser) {
+				console.log('Google Auth Response', googleUser);
+				// We need to register an Observer on Firebase Auth to make sure auth is initialized.
+				var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
+					unsubscribe();
+					// Check if we are already signed-in Firebase with the correct user.
+					if (!isUserEqual(googleUser, firebaseUser)) {
+						// Build Firebase credential with the Google ID token.
+						var credential = firebase.auth.GoogleAuthProvider.credential(
+								googleUser.getAuthResponse().id_token);
+						// Sign in with credential from the Google user.
+						firebase.auth().signInWithCredential(credential).catch(function(error) {
+							// Handle Errors here.
+							var errorCode = error.code;
+							var errorMessage = error.message;
+							// The email of the user's account used.
+							var email = error.email;
+							// The firebase.auth.AuthCredential type that was used.
+							var credential = error.credential;
+							// ...
+						});
+					} else {
+						console.log('User already signed-in Firebase.');
+					}
+				});
+			}
 			// Initialize the FirebaseUI Widget using Firebase.
 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
 			// The start method will wait until the DOM is loaded.
 			ui.start('#firebaseui-auth-container', uiConfig);
 		</script>
-
+		-->
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -131,14 +183,82 @@
 								<!-- Add where you want your sign-in button to render -->
 								<!-- Use an image that follows the branding guidelines in a real app -->
 								<!--<button id="signinButton">Sign in with Google</button>-->
-								<div id="firebaseui-auth-container"></div>
+
+								<div id="firebaseui-auth-container">
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signIn">sign in</button>
+									<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signUp">sign up</button>
+
+									<button type="button" onclick="location.href='/result'">this</button>
+									<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+								</div>
 							</div>
 						</div>
 						<div class="col-lg-3"></div>
 					</div>
 				</div>
-			</div>	
+			</div>
+			<!-- login modal -->
+			<div id="signUp" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Sign up</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Don't forget to make your password secure!</p>
+							<form id="signUpForm">
+								<div class="form-group">
+									<label for="emailInput-signUp">Email address</label>
+									<input type="email" class="form-control" id="emailInput-signUp" placeholder="example@site.com" required/>
+								</div>
+								<div class="form-group">
+									<label for="passwordInput-signUp">Choose a password</label>
+									<input type="password" class="form-control" id="passwordInput-signUp" placeholder="password" required/>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" onclick="signUp()">Sign up</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signUpForm')">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="signIn" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Sign in</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Welcome back!</p>
+							<form id="signInForm">
+								<div class="form-group">
+									<label for="emailInput-signIn">Your email address</label>
+									<input type="email" class="form-control" id="emailInput-signIn" placeholder="example@site.com" required>
+								</div>
+								<div class="form-group">
+									<label for="passwordInput-signIn">Your password</label>
+									<input type="password" class="form-control" id="passwordInput-signIn" placeholder="password" required>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" onclick="signIn()">Sign in</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signInForm')">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
 
@@ -151,25 +271,11 @@
 		<!-- Add Firebase products that you want to use -->
 		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
-
-		<script>
-			// Your web app's Firebase configuration
-			var firebaseConfig = {
-				apiKey: "AIzaSyDB5SGi03D_BSH5d9gHG7cWr2GQ8VakDRg",
-				authDomain: "huskypath.firebaseapp.com",
-				databaseURL: "https://huskypath.firebaseio.com",
-				projectId: "huskypath",
-				storageBucket: "huskypath.appspot.com",
-				messagingSenderId: "16768770059",
-				appId: "1:16768770059:web:4c333d399489f7c7e6e70e"
-			};
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-		</script>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="views/javascript/auth.js"></script>
 	</body>
 </html>
