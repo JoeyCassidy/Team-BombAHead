@@ -3,7 +3,14 @@
   <component name="dataSourceStorageLocal">
     <data-source name="test" uuid="56c17980-127a-4836-84db-3b36557a4c8c">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" exact-version="0" />
-      <schema-mapping />
+      <user-name>sa</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="TEST">
+            <node kind="schema" negative="1" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>

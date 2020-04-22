@@ -63,40 +63,40 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 thumb">
-            <form>
+            <form method="post">
             <div class="form-group row">
                 <label for="class"> Class Name</label>
-                <input type="text" class="form-control" id="class">
+                <input type="text" class="form-control" name="class" id="class">
             </div>
                 <div class="form-group row">
                     <label for="starttime"> Start Time</label>
-                    <input type="datetime-local" class="form-control" id="starttime">
+                    <input type="datetime-local" class="form-control" name="starttime" id="starttime">
                     <label for="endtime"> End Time</label>
-                    <input type="datetime-local" class="form-control" id="endtime">
+                    <input type="datetime-local" class="form-control" name="endtime" id="endtime">
                 </div>
             <div class="form-check form-check-inline">
             <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="" id="monday"> Monday
+                <input class="form-check-input" name="days[]" type="checkbox" value="monday"> Monday
             </label>
             </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="" id="tuesday"> Tuesday
+                    <input class="form-check-input" name="days[]" type="checkbox" value="tuesday" > Tuesday
                 </label>
             </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="" id="wednesday"> Wednesday
+                    <input class="form-check-input" name="days[]" type="checkbox" value="wednesday" > Wednesday
                 </label>
             </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="" id="thursday"> Thursday
+                    <input class="form-check-input" name="days[]" type="checkbox" value="thursday" > Thursday
                 </label>
             </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="" id="friday"> Friday
+                    <input class="form-check-input" name="days[]" type="checkbox" value="friday" > Friday
                 </label>
             </div>
 

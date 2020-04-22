@@ -15,7 +15,15 @@ public class ScheduleServlet extends HttpServlet {
         String classname = request.getParameter("class");
         String startTime = request.getParameter("starttime");
         String endTime = request.getParameter("endtime");
-
+        String[] days = request.getParameterValues("days[]");
+        System.out.println(classname);
+        System.out.println(startTime);
+        System.out.println(endTime);
+        for(int i = 0; i < days.length; i++)
+        {
+            System.out.println(days[i]);
+        }
+        doGet(request, response);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
