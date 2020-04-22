@@ -25,6 +25,28 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
 
+    <!-- result servlet -->
+    <servlet>
+        <servlet-name>result</servlet-name>
+        <servlet-class>app.servlets.TestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>result</servlet-name>
+        <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+
+    <!-- index/logout servlet -->
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <servlet-class>app.servlets.IndexServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
     <!-- Profile servlet -->
     <servlet>
         <servlet-name>profile</servlet-name>

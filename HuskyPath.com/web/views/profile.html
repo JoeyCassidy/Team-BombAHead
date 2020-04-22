@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,6 +8,9 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!--firebase-->
+		<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
 
 		<title>profile</title>
 		<style>
@@ -49,7 +53,7 @@
 								<a class="nav-link" onclick="location.href='/classroom'">Classrooms<span class="sr-only">(current)</span></a>
 							</li>
 						  <li class="nav-item">
-							<a class="nav-link" href="#!"></a>
+							  <a class="nav-link" onclick="location.href='/index'" onclick="signOut()">logout<span class="sr-only">(current)</span></a>
 						  </li>
 						</ul>
 					  </div>
@@ -64,11 +68,11 @@
 					<div class="jumbotron rounded">
 						<div class="row">
 							<div class="col-lg-2">
-								<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="200px" width="200px" style="margin-left: 20px;" class="rounded">
+
 							</div>
 							<div class="col-lg-3">
-								<h1 style="margin-left: 40px;">Your Name</h1>
-								<h3 style="margin-left: 40px;">Other info</h3>
+								<h1 style="margin-left: 40px;" id="name"> </h1>
+								<h3 style="margin-left: 40px;">info</h3>
 							</div>
 							<div class="col-lg-2"></div>
 							<div class="col-lg-1">
@@ -152,10 +156,23 @@
 				<div class="col-lg-2"></div>
 			</div>
 		</div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+		<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+
+		<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+		<!-- Add Firebase products that you want to use -->
+		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="views/javascript/auth.js"></script>
 	</body>
 </html>
