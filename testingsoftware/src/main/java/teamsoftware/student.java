@@ -13,6 +13,25 @@ public class student {
 	public HashMap<String,studyGroup> listOfStudyGroups = new HashMap<String,studyGroup>();
 
 	/**
+	 * reports the studentid, name, and email
+	 * @return - the specified student
+	 * @throws SQLException
+	 */
+	public void SQLaddStudent(int studentID, String studentName, String studentEmail) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p = " insert into STUDENT values (? , ? , ?)";
+		stmt = conn.prepareStatement(p);
+		stmt.setInt(1, studentID);
+		stmt.setString(2, studentName);
+		stmt.setString(3, studentEmail);
+		stmt.execute();
+
+	}
+
+	/**
 	 * intitalizes the student object from server using the students id
 	 * @return - the specified student
 	 * @throws SQLException 
