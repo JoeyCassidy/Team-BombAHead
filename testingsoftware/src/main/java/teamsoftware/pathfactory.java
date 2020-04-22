@@ -21,7 +21,7 @@ public class pathfactory {
 		initializeMap(mtumap);
 	}
 	
-	public static String[][] SQLpathing3(int myid) throws SQLException {
+	public static String[][] SQLpathing3(String myid) throws SQLException {
 		pathfactory using = new pathfactory();
 		using.initializeMTUMap();
 		schedule usingsched = new schedule();
@@ -111,7 +111,7 @@ public class pathfactory {
 	 */
 	public String[] makepath(String[] a) {
 		HashMap<String, Boolean> returning = new HashMap<String, Boolean>();
-		
+		DoublyLinkedList<String> returning2 = new DoublyLinkedList<String>();
 		DoublyLinkedList<String> writing = new DoublyLinkedList<String>();
 		
 	for(int i = 0; i < a.length-1; i++) {
@@ -121,6 +121,11 @@ public class pathfactory {
 			returning.put(place.data, true);
 			returning.put(place.data + "_" + place.bottomright.data, true);
 			returning.put(place.bottomright.data, true);
+			if (place.topleft!=null && place.topleft.data!=null &&!place.topleft.data.equals(place.data)) {
+				returning2.addLast(place.data);
+			}
+			returning2.addLast(place.data + "_" + place.bottomright.data);
+			returning2.addLast(place.bottomright.data);
 			place = place.bottomright;
 		}
 		
@@ -129,12 +134,21 @@ public class pathfactory {
 //	for(String e: writing) {
 //		System.out.println(e);
 //	}
-		String[] holding = new String[returning.size()];
+//		String[] holding = new String[returning.size()];
+//		int i = 0;
+//		for(Entry<String, Boolean> e: returning.entrySet()) {
+//			holding[i] = e.getKey();
+//			i++;
+//		}
+		String[] holding = new String[returning2.size()];
 		int i = 0;
-		for(Entry<String, Boolean> e: returning.entrySet()) {
-			holding[i] = e.getKey();
+		for(String s: returning2) {
+			holding[i] = s;
 			i++;
 		}
+//		for(String s: returning2){
+//			System.out.println("***"+s+"***");
+//		}
 		return holding;
 	}
 	
@@ -147,6 +161,13 @@ public class pathfactory {
 	 */
 	public DoublyLinkedList<String> makesubpath(String a, String b, DoublyLinkedList<String> c) {
 		campusMap.DijkstraRoute(a, b, c);
+//		System.out.println("***"+a+"***");
+//		System.out.println("***"+b+"***");
+////		System.out.println("***");
+//		for (String s: c) {
+//			System.out.println("***"+s+"***");
+//		}
+//		System.out.println("***"+"***");
 		return c;
 	}
 }

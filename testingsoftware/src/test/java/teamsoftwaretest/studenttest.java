@@ -71,9 +71,9 @@ public class studenttest {
         stmt.execute();
 
         student using = new student();
-        using.initStudent(111);
+        using.initStudent("111");
 //        System.out.printf("%d %s \n", using.ID, using.Email);
-        assertEquals(using.ID, 111);
+        assertEquals(using.ID, "111");
         assertEquals(using.Email, "gmwalker@mtu.edu");
     }
 
@@ -88,7 +88,7 @@ public class studenttest {
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        String[] using = new student().SQLinitStudent(111);
+        String[] using = new student().SQLinitStudent("111");
 //        System.out.printf("%d %s \n", using.ID, using.Email);
         assertEquals(using[0], "111");
         assertEquals(using[1], "grant walker");
@@ -102,37 +102,37 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
         p = " insert into FRIENDS " +
-                " values (111, 123 , 1 ) ";
+                " values ('111', '123' , 1 ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
         p = " insert into FRIENDS " +
-                " values (123, 111 , 2 ) ";
+                " values ('123', '111' , 2 ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        new student().SQLacceptOrDenyFriends(true,111,123);
+        new student().SQLacceptOrDenyFriends(true,"111","123");
 
         p = " select * " +
                 " from FRIENDS " +
-                " where STUDENTID = 111 " +
-                " and FRIENDID = 123 ";
+                " where STUDENTID = '111' " +
+                " and FRIENDID = '123' ";
         stmt = conn.prepareStatement(p);
         rs = stmt.executeQuery();
 
         rs.next();
 //        System.out.printf("%d %d %s \n", rs.getInt(1), rs.getInt(2), rs.getString(3));
-        assertEquals(rs.getInt(1),111);
-        assertEquals(rs.getInt(2),123);
+        assertEquals(rs.getString(1),"111");
+        assertEquals(rs.getString(2),"123");
         assertEquals(rs.getString(3),"friend");
 
     }
@@ -144,30 +144,30 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
         p = " insert into FRIENDS " +
-                " values (111, 123 , 1 ) ";
+                " values ('111', '123' , 1 ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
         p = " insert into FRIENDS " +
-                " values (123, 111 , 2 ) ";
+                " values ('123', '111' , 2 ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        new student().SQLacceptOrDenyFriends(false,111,123);
+        new student().SQLacceptOrDenyFriends(false,"111","123");
 
         p = " select * " +
                 " from FRIENDS " +
-                " where STUDENTID = 111 " +
-                " and FRIENDID = 123 ";
+                " where STUDENTID = '111' " +
+                " and FRIENDID = '123' ";
         stmt = conn.prepareStatement(p);
         rs = stmt.executeQuery();
 
@@ -182,36 +182,36 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        new student().SQLaddFriends(111,123);
+        new student().SQLaddFriends("111","123");
 //        System.out.printf("%d %s \n", using.ID, using.Email);
 
         p = " select * " +
                 " from FRIENDS " +
-                " where STUDENTID = 111 " +
-                " and FRIENDID = 123 ";
+                " where STUDENTID = '111' " +
+                " and FRIENDID = '123' ";
         stmt = conn.prepareStatement(p);
         rs = stmt.executeQuery();
         rs.next();
-        assertEquals(rs.getInt(1), 111);
-        assertEquals(rs.getInt(2), 123);
+        assertEquals(rs.getString(1), "111");
+        assertEquals(rs.getString(2), "123");
         assertEquals(rs.getInt(3), 2);
         p = " select * " +
                 " from FRIENDS " +
-                " where STUDENTID = 123 " +
-                " and FRIENDID = 111 ";
+                " where STUDENTID = '123' " +
+                " and FRIENDID = '111' ";
         stmt = conn.prepareStatement(p);
         rs = stmt.executeQuery();
         rs.next();
-        assertEquals(rs.getInt(1), 123);
-        assertEquals(rs.getInt(2), 111);
+        assertEquals(rs.getString(1), "123");
+        assertEquals(rs.getString(2), "111");
         assertEquals(rs.getInt(3), 1);
     }
 
@@ -222,14 +222,14 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
-        assertEquals(new student().SQLgetEmail(111),"gmwalker@mtu.edu");
+        assertEquals(new student().SQLgetEmail("111"),"gmwalker@mtu.edu");
     }
 
     @Test
@@ -239,19 +239,19 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        new student().SQLaddFriends(111,123);
+        new student().SQLaddFriends("111","123");
 
-        new student().SQLacceptOrDenyFriends(true,111,123);
+        new student().SQLacceptOrDenyFriends(true,"111","123");
 
-        new student().SQLdeleteFriends(111,123);
+        new student().SQLdeleteFriends("111","123");
 
         p = " select * " +
                 " from FRIENDS ";
@@ -269,19 +269,19 @@ public class studenttest {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String p = " insert into STUDENT " +
-                " values (111, 'grant walker' , 'gmwalker@mtu.edu' ) ";
+                " values ('111', 'grant walker' , 'gmwalker@mtu.edu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
         p = " insert into STUDENT " +
-                " values (123, 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
+                " values ('123', 'mike bloomberg' , 'randomass@yahoo.gnu' ) ";
         stmt = conn.prepareStatement(p);
         stmt.execute();
 
-        new student().SQLaddFriends(111,123);
+        new student().SQLaddFriends("111","123");
 
-        new student().SQLacceptOrDenyFriends(true,111,123);
+        new student().SQLacceptOrDenyFriends(true,"111","123");
 
-        String[][] using = new student().SQLgetFriends(111);
+        String[][] using = new student().SQLgetFriends("111");
 
         assertEquals(using[0][0], "123");
         assertEquals(using[0][1], "friend");

@@ -29,15 +29,20 @@ public class pathfactorytest {
 
 		String[] a = {"A","B","C","D"};
 		String[] b = p.makepath(a);
-		String[] c = {"D", "B_C", "A_B", "C_D", "A", "B", "C"};
+		String[] c = {"A_B",
+				"B",
+				"B_C",
+				"C",
+				"C_D",
+				"D"};
 //		System.out.println("**************************");
-//		System.out.println("");
+		System.out.println("");
 //		for(int i = 0; i < b.length; i++) {
 //			System.out.println(b[i]);
 //		}
-//		for(int i = 0; i < b.length; i++) {
-//			assertEquals(b[i], c[i]);
-//		}
+		for(int i = 0; i < b.length; i++) {
+			assertEquals(b[i], c[i]);
+		}
 	}
 
 	@Test
@@ -77,7 +82,7 @@ public class pathfactorytest {
 		for(int i = 0; i < q.length; i++) {
 			String a = "also a banana";
 			LocalTime b = LocalTime.now();
-			b.withHour(i+1);
+			b = b.withHour(i+1);
 			String c = "a banana";
 			Boolean[] d = {
 					true,
@@ -89,44 +94,43 @@ public class pathfactorytest {
 			String e = Integer.toString(i+1);
 			q[i] = new place(a, b, c, d, e, null);
 		}
-
+//
 //		System.out.println("");
-
+//
 //		for(int i = 0; i < q.length; i++) {
 //			place e = q[i];
 //			System.out.print(e.getLocation() +" _ "+ e.getName() +" _ "+ e.getType());
-//			System.out.print(" _ "+ e.getListofdays()[0] + " " + e.getListofdays()[1] + " " + e.getListofdays()[2] + " " + e.getListofdays()[3] + " " + e.getListofdays()[4] +" _ " + e.getTime().getTime());
+//			System.out.print(" _ "+ e.getListOfDays()[0] + " " + e.getListOfDays()[1] + " " + e.getListOfDays()[2] + " " + e.getListOfDays()[3] + " " + e.getListOfDays()[4] +" _ " + e.getTime().getHour());
 //			System.out.println();
 //			System.out.println("");
 //		}
 
 		String[] f = p.MPFUP(q);
 
-		for(int i = 0 ; i < f.length; i++) {
-			System.out.println(f[i]);
-		}
+//		for(int i = 0 ; i < f.length; i++) {
+//			System.out.println(f[i]);
+//		}
 
 		String[] v = {"1_2",
-				"8_9",
-				"5_6",
-				"2_3",
-				"1",
 				"2",
+				"2_3",
 				"3",
-				"4",
-				"6_7",
-				"5",
-				"6",
-				"7",
 				"3_4",
-				"8",
-				"9",
+				"4",
+				"4_5",
+				"5",
+				"5_6",
+				"6",
+				"6_7",
+				"7",
 				"7_8",
-				"4_5"};
+				"8",
+				"8_9",
+				"9"};
 
-//		for(int i = 0; i < v.length; i++) {
-//			assertEquals(f[i], v[i]);
-//		}
+		for(int i = 0; i < v.length; i++) {
+			assertEquals(f[i], v[i]);
+		}
 
 	}
 
@@ -159,7 +163,7 @@ public class pathfactorytest {
 		for(int i = 0; i < q.length; i++) {
 			String a = "also a banana";
 			LocalTime b = LocalTime.now();
-			b.withHour(i+1);
+			b = b.withHour(i+1);
 			String c = "a banana";
 			Boolean[] d = {
 					true,
@@ -167,36 +171,35 @@ public class pathfactorytest {
 					true,
 					true,
 					true
-					};
+			};
 			String e = Integer.toString(i+1);
 			q[i] = new place(a, b, c, d, e, Integer.toString(i));
 		}
 
 		String[][] f = p.pathing3(q, new Boolean[] {true,true,true,true,true});
 
-		for(int i = 0 ; i < f.length; i++) {
-			for (int j = 0; j < f[i].length; j++) {
-				System.out.println(f[i][j]);
-			}
-		}
+//		for(int i = 0 ; i < f.length; i++) {
+//			for (int j = 0; j < f[i].length; j++) {
+//				System.out.println(f[i][j]);
+//			}
+//		}
 
 		String[] v = {"1_2",
-				"8_9",
-				"5_6",
-				"2_3",
-				"1",
 				"2",
+				"2_3",
 				"3",
-				"4",
-				"6_7",
-				"5",
-				"6",
-				"7",
 				"3_4",
-				"8",
-				"9",
+				"4",
+				"4_5",
+				"5",
+				"5_6",
+				"6",
+				"6_7",
+				"7",
 				"7_8",
-				"4_5"};
+				"8",
+				"8_9",
+				"9"};
 //		for(int d = 0; d < f.length; d++) {
 ////			for(int s = 0; s < f[d].length; s++) {
 ////				System.out.print(f[d][s] + " * ");
@@ -206,9 +209,9 @@ public class pathfactorytest {
 //		}
 
 //
-//		for(int i = 0; i < v.length; i++) {
-//			assertEquals(f[i], v[i]);
-//		}
+		for(int i = 0; i < f.length; i++) {
+			assertEquals(f[i], v);
+		}
 
 	}
 	

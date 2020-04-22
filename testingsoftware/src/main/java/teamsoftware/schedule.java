@@ -1,8 +1,5 @@
 package teamsoftware;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -24,7 +21,7 @@ public class schedule {
 	 * @return
 	 * @throws SQLException
 	 */
-	public schedule SQLintitschedule(int myid) throws SQLException {
+	public schedule SQLintitschedule(String myid) throws SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -32,7 +29,7 @@ public class schedule {
 				   " from SCHEDULE " +
 				   " where STUDENTID = ? ";
 		stmt = conn.prepareStatement(p);
-		stmt.setInt(1, myid);
+		stmt.setString(1, myid);
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			Boolean[] useb = {rs.getBoolean(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9), rs.getBoolean(10)};
@@ -66,6 +63,37 @@ public class schedule {
 	public void addPlace(String name, LocalTime time, String type, Boolean[] listOfDays, String location, String identifier) {
 		place tobeadded = new place(name,time,type,listOfDays,location,identifier);
 		listOfListOfPlaces.add(tobeadded);
+	}
+
+	/**
+	 *
+	 * @param userid
+	 * @param classname
+	 * @param starttime
+	 * @param endtime
+	 * @param location
+	 * @param isday
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void SQLaddPlace(String userid, String classname, Timestamp starttime, Timestamp endtime, String location, Boolean[] isday) throws ClassNotFoundException, SQLException {
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p = " insert into SCHEDULE values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		stmt = conn.prepareStatement(p);
+		stmt.setString(1, userid);
+		stmt.setString(2, classname);
+		stmt.setTimestamp(3, starttime);
+		stmt.setTimestamp(4, endtime);
+		stmt.setString(4, location);
+		stmt.setBoolean(4, isday[0]);
+		stmt.setBoolean(4, isday[1]);
+		stmt.setBoolean(4, isday[2]);
+		stmt.setBoolean(4, isday[3]);
+		stmt.setBoolean(4, isday[4]);
+		stmt.execute();
 	}
 
 	/**

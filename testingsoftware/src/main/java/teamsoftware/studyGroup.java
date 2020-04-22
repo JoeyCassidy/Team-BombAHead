@@ -14,7 +14,7 @@ public class studyGroup {
 	Boolean visibility;
 	HashMap<String,post> listOfMessages;
 	
-	public studyGroup SQLinitstudygroup(int groupid, int studentid) throws SQLException {
+	public studyGroup SQLinitstudygroup(int groupid, String studentid) throws SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -24,7 +24,7 @@ public class studyGroup {
 				+ " and STUDENTID = ?";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, groupid);
-		stmt.setInt(2, studentid);
+		stmt.setString(2, studentid);
 		rs = stmt.executeQuery();
 		while(rs.next()){
 			post using = new post(null, rs.getString(2), null, null, rs.getTimestamp(4).toLocalDateTime().toLocalTime(), null); 
@@ -44,7 +44,7 @@ public class studyGroup {
 		return newPost;
 	}
 
-	public post SQLaddToChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
+	public post SQLaddToChatLog(int groupid, String studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
 		post using = new post(null, message, null, new student().initStudent(studentid), time.toLocalDateTime().toLocalTime(), null);
 		listOfMessages.put(using.user.Email, using);
 		
@@ -55,7 +55,7 @@ public class studyGroup {
 	  			 + " values(?, ?, ?, ?)";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, groupid);
-		stmt.setInt(2, studentid);
+		stmt.setString(2, studentid);
 		stmt.setString(3, message);
 		stmt.setTimestamp(4, time);
 		return using;
@@ -112,11 +112,10 @@ public class studyGroup {
 	
 	/**
 	 * This method deletes a specified post from a chat log
-	 * @param delPost - the post being deleted from the chat log
 	 * @return the deleted post
 	 * @throws SQLException 
 	 */
-	public post SQLdeleteChatLog(int groupid, int studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
+	public post SQLdeleteChatLog(int groupid, String studentid, String message, Timestamp time) throws SQLException, ClassNotFoundException {
 		post using = new post(null, message, null, new student().initStudent(studentid), time.toLocalDateTime().toLocalTime(), null);
 		
 		Connection conn = null;
@@ -130,7 +129,7 @@ public class studyGroup {
 				 + " TIMECREATED = ? ";
 		stmt = conn.prepareStatement(p);
 		stmt.setInt(1, groupid);
-		stmt.setInt(2, studentid);
+		stmt.setString(2, studentid);
 		stmt.setString(3, message);
 		stmt.setTimestamp(4, time);
 		return listOfMessages.remove(using.user.Email);
