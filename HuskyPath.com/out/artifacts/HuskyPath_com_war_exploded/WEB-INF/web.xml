@@ -59,6 +59,17 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
+    <!-- schedule servlet -->
+    <servlet>
+        <servlet-name>schedule</servlet-name>
+        <servlet-class>app.servlets.ScheduleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>schedule</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+
     <!-- Settings servlet -->
     <servlet>
         <servlet-name>settings</servlet-name>
@@ -69,4 +80,16 @@
         <servlet-name>settings</servlet-name>
         <url-pattern>/settings</url-pattern>
     </servlet-mapping>
+
+    <!-- Classroom servlet -->
+    <servlet>
+        <servlet-name>classroom</servlet-name>
+        <servlet-class>app.servlets.ClassroomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>classroom</servlet-name>
+        <url-pattern>/classroom</url-pattern>
+    </servlet-mapping>
+
 </web-app>
