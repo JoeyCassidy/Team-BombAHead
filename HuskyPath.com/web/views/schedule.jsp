@@ -63,6 +63,7 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 thumb">
+            <form>
             <div class="form-group row">
                 <label for="class"> Class Name</label>
                 <input type="text" class="form-control" id="class">
@@ -98,10 +99,11 @@
                     <input class="form-check-input" type="checkbox" value="" id="friday"> Friday
                 </label>
             </div>
-            </form>
+
             <div class="form-group row">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+            </form>
             </div>
         </div>
         <div class="col-lg-2"></div>

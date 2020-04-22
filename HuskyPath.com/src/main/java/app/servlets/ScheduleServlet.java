@@ -12,6 +12,9 @@ import java.io.IOException;
 public class ScheduleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String classname = request.getParameter("class");
+        String startTime = request.getParameter("starttime");
+        String endTime = request.getParameter("endtime");
 
     }
     @Override
