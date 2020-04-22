@@ -15,6 +15,7 @@ public class ScheduleServlet extends HttpServlet {
         String classname = request.getParameter("class");
         String startTime = request.getParameter("starttime");
         String endTime = request.getParameter("endtime");
+        String location = request.getParameter("location");
         String[] days = request.getParameterValues("days[]");
         System.out.println(classname);
         System.out.println(startTime);

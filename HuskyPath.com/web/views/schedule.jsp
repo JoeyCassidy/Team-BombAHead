@@ -73,6 +73,8 @@
                     <input type="datetime-local" class="form-control" name="starttime" id="starttime">
                     <label for="endtime"> End Time</label>
                     <input type="datetime-local" class="form-control" name="endtime" id="endtime">
+                    <label for="location"> Location</label>
+                    <input type="text" class="form-control" name="location" id="location">
                 </div>
             <div class="form-check form-check-inline">
             <label class="form-check-label">
