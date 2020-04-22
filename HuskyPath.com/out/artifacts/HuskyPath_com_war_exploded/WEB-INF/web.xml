@@ -25,6 +25,7 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
 
+
     <!-- result servlet -->
     <servlet>
         <servlet-name>result</servlet-name>
