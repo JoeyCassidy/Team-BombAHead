@@ -191,32 +191,32 @@
       <AutoCreated>1</AutoCreated>
     </sequence>
     <table id="166" parent="4" name="CLASSROOMPOST">
-      <ObjectId>18</ObjectId>
-    </table>
-    <table id="167" parent="4" name="CLASSROOMREPLY">
-      <ObjectId>20</ObjectId>
-    </table>
-    <table id="168" parent="4" name="FRIENDS">
       <ObjectId>6</ObjectId>
     </table>
-    <table id="169" parent="4" name="SCHEDULE">
-      <ObjectId>12</ObjectId>
+    <table id="167" parent="4" name="CLASSROOMREPLY">
+      <ObjectId>16</ObjectId>
     </table>
-    <table id="170" parent="4" name="SETTINGS">
+    <table id="168" parent="4" name="FRIENDS">
       <ObjectId>9</ObjectId>
     </table>
+    <table id="169" parent="4" name="SCHEDULE">
+      <ObjectId>19</ObjectId>
+    </table>
+    <table id="170" parent="4" name="SETTINGS">
+      <ObjectId>12</ObjectId>
+    </table>
     <table id="171" parent="4" name="STUDENT">
-      <ObjectId>3</ObjectId>
+      <ObjectId>23</ObjectId>
     </table>
     <table id="172" parent="4" name="STUDYGROUP">
-      <ObjectId>33</ObjectId>
+      <ObjectId>30</ObjectId>
     </table>
     <table id="173" parent="4" name="STUDYGROUPLOG">
-      <ObjectId>30</ObjectId>
+      <ObjectId>26</ObjectId>
     </table>
     <column id="174" parent="166" name="STUDENTID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="175" parent="166" name="TITLE">
       <Position>2</Position>
@@ -237,8 +237,8 @@
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <index id="179" parent="166" name="PRIMARY_KEY_E">
-      <ObjectId>16</ObjectId>
+    <index id="179" parent="166" name="PRIMARY_KEY_B">
+      <ObjectId>7</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>81</SourceTextLength>
       <ColNames>POSTID</ColNames>
@@ -246,7 +246,7 @@
       <AutoCreated>1</AutoCreated>
     </index>
     <index id="180" parent="166" name="CONSTRAINT_ED_INDEX_B">
-      <ObjectId>19</ObjectId>
+      <ObjectId>11</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>86</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
@@ -261,7 +261,7 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
@@ -272,7 +272,7 @@
     </column>
     <column id="184" parent="167" name="STUDENTID">
       <Position>2</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="185" parent="167" name="MESSAGE">
       <Position>3</Position>
@@ -282,10 +282,10 @@
       <Position>4</Position>
       <DataType>DATETIME|0s</DataType>
     </column>
-    <index id="187" parent="167" name="CONSTRAINT_INDEX_C">
-      <ObjectId>21</ObjectId>
+    <index id="187" parent="167" name="CONSTRAINT_C_INDEX_1">
+      <ObjectId>17</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>84</SourceTextLength>
+      <SourceTextLength>86</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -293,29 +293,29 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
     </foreign-key>
     <column id="189" parent="168" name="STUDENTID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="190" parent="168" name="FRIENDID">
       <Position>2</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="191" parent="168" name="STATUS">
       <Position>3</Position>
       <DataType>ENUM(&apos;friend&apos;, &apos;incoming&apos;, &apos;outgoing&apos;)|0e</DataType>
     </column>
-    <index id="192" parent="168" name="CONSTRAINT_INDEX_7">
-      <ObjectId>7</ObjectId>
+    <index id="192" parent="168" name="CONSTRAINT_7_INDEX_7">
+      <ObjectId>10</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>77</SourceTextLength>
+      <SourceTextLength>79</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -323,14 +323,14 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
     </foreign-key>
     <column id="194" parent="169" name="STUDENTID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="195" parent="169" name="CLASSNAME">
       <Position>2</Position>
@@ -370,10 +370,10 @@
       <Position>10</Position>
       <DataType>BIT|0s</DataType>
     </column>
-    <index id="204" parent="169" name="CONSTRAINT_INDEX_5">
-      <ObjectId>13</ObjectId>
+    <index id="204" parent="169" name="CONSTRAINT_5_INDEX_6">
+      <ObjectId>20</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>78</SourceTextLength>
+      <SourceTextLength>80</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -381,14 +381,14 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
     </foreign-key>
     <column id="206" parent="170" name="STUDENTID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="207" parent="170" name="SHOWFRIENDS">
       <Position>2</Position>
@@ -414,10 +414,10 @@
       <Position>7</Position>
       <DataType>BIT|0s</DataType>
     </column>
-    <index id="213" parent="170" name="CONSTRAINT_INDEX_8">
-      <ObjectId>10</ObjectId>
+    <index id="213" parent="170" name="CONSTRAINT_8_INDEX_1">
+      <ObjectId>13</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>78</SourceTextLength>
+      <SourceTextLength>80</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -425,14 +425,14 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
     </foreign-key>
     <column id="215" parent="171" name="ID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="216" parent="171" name="NAME">
@@ -443,8 +443,8 @@
       <Position>3</Position>
       <DataType>VARCHAR(63)|0s</DataType>
     </column>
-    <index id="218" parent="171" name="PRIMARY_KEY_B">
-      <ObjectId>4</ObjectId>
+    <index id="218" parent="171" name="PRIMARY_KEY_A">
+      <ObjectId>28</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>71</SourceTextLength>
       <ColNames>ID</ColNames>
@@ -458,7 +458,7 @@
     </key>
     <column id="220" parent="172" name="STUDENTID">
       <Position>1</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="221" parent="172" name="GROUPNAME">
       <Position>2</Position>
@@ -486,27 +486,27 @@
     </column>
     <column id="226" parent="172" name="MEMBERID">
       <Position>7</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <index id="227" parent="172" name="PRIMARY_KEY_6">
-      <ObjectId>35</ObjectId>
+    <index id="227" parent="172" name="PRIMARY_KEY_50">
+      <ObjectId>31</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>79</SourceTextLength>
+      <SourceTextLength>80</SourceTextLength>
       <ColNames>GROUPID</ColNames>
       <Unique>1</Unique>
       <AutoCreated>1</AutoCreated>
     </index>
-    <index id="228" parent="172" name="CONSTRAINT_11_INDEX_6">
-      <ObjectId>37</ObjectId>
+    <index id="228" parent="172" name="CONSTRAINT_11_INDEX_5">
+      <ObjectId>40</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>83</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
-    <index id="229" parent="172" name="CONSTRAINT_INDEX_1">
-      <ObjectId>26</ObjectId>
+    <index id="229" parent="172" name="CONSTRAINT_11E_INDEX_5">
+      <ObjectId>37</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>79</SourceTextLength>
+      <SourceTextLength>83</SourceTextLength>
       <ColNames>MEMBERID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -519,7 +519,7 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
@@ -528,7 +528,7 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MEMBERID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>
@@ -539,7 +539,7 @@
     </column>
     <column id="234" parent="173" name="STUDENTID">
       <Position>2</Position>
-      <DataType>INT|0s</DataType>
+      <DataType>VARCHAR(255)|0s</DataType>
     </column>
     <column id="235" parent="173" name="MESSAGE">
       <Position>3</Position>
@@ -551,10 +551,10 @@
       <DataType>TIMESTAMP|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="237" parent="173" name="CONSTRAINT_INDEX_6">
-      <ObjectId>31</ObjectId>
+    <index id="237" parent="173" name="CONSTRAINT_6_INDEX_E">
+      <ObjectId>33</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <SourceTextLength>83</SourceTextLength>
+      <SourceTextLength>85</SourceTextLength>
       <ColNames>STUDENTID</ColNames>
       <AutoCreated>1</AutoCreated>
     </index>
@@ -562,7 +562,7 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>STUDENTID</ColNames>
       <RefTableName>STUDENT</RefTableName>
-      <RefKeyName>PRIMARY_KEY_B</RefKeyName>
+      <RefKeyName>PRIMARY_KEY_A</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>restrict</OnDelete>
       <OnUpdate>restrict</OnUpdate>

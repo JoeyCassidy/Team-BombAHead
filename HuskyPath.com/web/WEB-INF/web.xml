@@ -25,6 +25,17 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
 
+    <!-- schedule servlet -->
+    <servlet>
+        <servlet-name>schedule</servlet-name>
+        <servlet-class>app.servlets.ScheduleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>schedule</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+
     <!-- result servlet -->
     <servlet>
         <servlet-name>result</servlet-name>

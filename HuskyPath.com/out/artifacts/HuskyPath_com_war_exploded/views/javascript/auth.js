@@ -17,6 +17,8 @@ const auth = firebase.auth();
 function signUp(){
     const tempEmail = document.getElementById("emailInput-signUp");
     const tempPassword = document.getElementById("passwordInput-signUp");
+    const tempName = document.getElementById("studentName");
+    const name = tempName.value;
     const email = tempEmail.value;
     const password = tempPassword.value;
     console.log(email, password);
@@ -24,9 +26,11 @@ function signUp(){
     //sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
         console.log(cred.user);
+        const userID = cred.user.uid;
+        document.getElementById('uid').value = userID;
         //form reset
-        clearForm("signUpForm");
-        location.href='/profile';
+        //clearForm("signUpForm");
+
     })
 
 }

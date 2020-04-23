@@ -1,5 +1,5 @@
 
-<!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 	<head>
 
@@ -60,7 +60,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- login modal -->
+			<!-- signup modal -->
 			<div id="signUp" class="modal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -72,25 +72,36 @@
 						</div>
 						<div class="modal-body">
 							<p>Don't forget to make your password secure!</p>
-							<form id="signUpForm">
+							<form action="views/profile.jsp" method="post" id="signUpForm">
+								<div class="form-group">
+									<label for="studentName">Your name</label>
+									<input type="text" class="form-control" id="studentName" name="studentName" placeholder="name" required>
+								</div>
 								<div class="form-group">
 									<label for="emailInput-signUp">Email address</label>
-									<input type="email" class="form-control" id="emailInput-signUp" placeholder="example@site.com" required/>
+									<input type="email" class="form-control" id="emailInput-signUp" name="emailInput-signUp" placeholder="example@site.com" required/>
 								</div>
 								<div class="form-group">
 									<label for="passwordInput-signUp">Choose a password</label>
-									<input type="password" class="form-control" id="passwordInput-signUp" placeholder="password" required/>
+									<input type="password" class="form-control" id="passwordInput-signUp" name="passwordInput-signUp" placeholder="password" required/>
 								</div>
+								<input type="hidden" name="uid" id="uid" value=""/>
+								<button type="submit" class="btn btn-primary" value="get" onclick="signUp()">Sign up</button>
 							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" onclick="signUp()">Sign up</button>
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signUpForm')">Close</button>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onclick="signUp()">
+								<label class="form-check-label" for="defaultCheck1">
+									Confirmation
+								</label>
+							</div>
+							<button type="submit" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signUpForm')">Close</button>
 						</div>
 					</div>
 				</div>
 			</div>
-
+			<!--signin modal-->
 			<div id="signIn" class="modal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -102,7 +113,7 @@
 						</div>
 						<div class="modal-body">
 							<p>Welcome back!</p>
-							<form id="signInForm">
+							<form action="views/profile.jsp" id="signInForm">
 								<div class="form-group">
 									<label for="emailInput-signIn">Your email address</label>
 									<input type="email" class="form-control" id="emailInput-signIn" placeholder="example@site.com" required>
@@ -111,10 +122,11 @@
 									<label for="passwordInput-signIn">Your password</label>
 									<input type="password" class="form-control" id="passwordInput-signIn" placeholder="password" required>
 								</div>
+								<button type="submit" class="btn btn-primary" onclick="signIn()">Sign in</button>
 							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" onclick="signIn()">Sign in</button>
+
 							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signInForm')">Close</button>
 						</div>
 					</div>

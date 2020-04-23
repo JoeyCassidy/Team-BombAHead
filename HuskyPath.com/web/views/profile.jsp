@@ -1,4 +1,4 @@
-
+<%@ page import="teamsoftware.student" %>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -31,6 +31,24 @@
 		</style>
 	</head>
 	<body class="bbbbb" style="height: 100%;">
+	<%
+		student student = new student();
+		String userID = request.getParameter("uid");
+		System.out.println(userID);
+		String name = request.getParameter("studentName");
+		System.out.println(name);
+		String email = request.getParameter("emailInput-signUp");
+		System.out.println(email);
+		if(userID != null && name != null && email != null){
+			try{
+				student.SQLaddStudent(userID,name,email);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+
+	%>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-2"></div>
@@ -46,6 +64,9 @@
 						  <li class="nav-item active">
 							<a class="nav-link" onclick="location.href='/settings'">Settings<span class="sr-only">(current)</span></a>
 						  </li>
+							<li class="nav-item active">
+								<a class="nav-link" onclick="location.href='/schedule'">Schedule<span class="sr-only">(current)</span></a>
+							</li>
 						  <li class="nav-item">
 							  <a class="nav-link" onclick="location.href='/index'" onclick="signOut()">logout<span class="sr-only">(current)</span></a>
 						  </li>
