@@ -28,7 +28,6 @@ function signUp(){
         console.log(cred.user);
         const userID = cred.user.uid;
         document.getElementById('uid').value = userID;
-        //form reset
         //clearForm("signUpForm");
 
     })
@@ -44,9 +43,8 @@ function signIn(){
     //sign in the user
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         console.log(cred.user);
-        //form reset
-        clearForm("signInForm");
-        Location.href='/profile';
+        const ID = cred.user.uid;
+        document.getElementById('id').value = ID;
     })
 }
 //sign out

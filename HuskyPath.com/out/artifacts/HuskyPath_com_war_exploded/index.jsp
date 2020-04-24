@@ -113,7 +113,7 @@
 						</div>
 						<div class="modal-body">
 							<p>Welcome back!</p>
-							<form action="views/profile.jsp" id="signInForm">
+							<form action="views/profile.jsp" method="post" id="signInForm">
 								<div class="form-group">
 									<label for="emailInput-signIn">Your email address</label>
 									<input type="email" class="form-control" id="emailInput-signIn" placeholder="example@site.com" required>
@@ -122,11 +122,17 @@
 									<label for="passwordInput-signIn">Your password</label>
 									<input type="password" class="form-control" id="passwordInput-signIn" placeholder="password" required>
 								</div>
+								<input type="hidden" name="id" id="id" value=""/>
 								<button type="submit" class="btn btn-primary" onclick="signIn()">Sign in</button>
 							</form>
 						</div>
 						<div class="modal-footer">
-
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" onclick="signIn()">
+								<label class="form-check-label" for="defaultCheck2">
+									Confirmation
+								</label>
+							</div>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm('signInForm')">Close</button>
 						</div>
 					</div>
