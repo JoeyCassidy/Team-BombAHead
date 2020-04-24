@@ -210,12 +210,19 @@ public class pathfactory {
 		initializeMap(mtumap);
 	}
 	
-	public static String[][] SQLpathing3(String myid) throws SQLException {
+	public static String[][] SQLpathing3(String myid, Boolean[] boolarray) throws SQLException, ClassNotFoundException {
 		pathfactory using = new pathfactory();
 		using.initializeMTUMap();
 		schedule usingsched = new schedule();
 		usingsched.SQLintitschedule(myid);
-		return using.pathing3((place[]) usingsched.listOfListOfPlaces.toArray(), new Boolean[]{true,true,true,true,true});
+		place[] holding = new place[usingsched.listOfListOfPlaces.size()];
+		int i = 0;
+		for (place p: usingsched.listOfListOfPlaces) {
+			holding[i] = p;
+			i++;
+		}
+
+		return using.pathing3(holding, boolarray);
 	}
 
 	/**

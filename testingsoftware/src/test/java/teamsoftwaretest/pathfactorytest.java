@@ -7,6 +7,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.*;
 import java.time.LocalTime;
 import org.junit.Before;
 
@@ -215,6 +216,88 @@ public class pathfactorytest {
 		}
 
 	}
+
+	@Test
+	public void testsql() throws ClassNotFoundException, SQLException {
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String p = " delete from CLASSROOMPOST ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from CLASSROOMREPLY ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from FRIENDS ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from SCHEDULE ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from SETTINGS ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from STUDENT ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from STUDYGROUP ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " delete from STUDYGROUPLOG ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " insert into STUDENT values ('grant walker', 'grantwalker', 'grant at gmail'); ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		p = " insert into SCHEDULE "
+				+ " values "
+				+ " ('grant walker', 'hf', '12:30:30', '12:35:30', 'westmcnair', TRUE, TRUE, TRUE, TRUE, TRUE) " +
+				", ('grant walker', 'cs', '15:30:30', '15:35:30', 'forestry', TRUE, TRUE, TRUE, TRUE, TRUE) ";
+		stmt = conn.prepareStatement(p);
+		stmt.execute();
+		pathfactory p1 = new pathfactory();
+		p1 = new pathfactory();
+		p1.initializeMTUMap();
+		String[][] printing = p1.SQLpathing3("grant walker", new Boolean[]{true, true, true, true, true});
+		String[] v = {"westmcnair_23",
+				"23",
+				"23_21",
+				"21",
+				"21_20",
+				"20",
+				"20_19",
+				"19",
+				"19_18",
+				"18",
+				"18_17",
+				"17",
+				"17_15",
+				"15",
+				"15_14",
+				"14",
+				"14_12",
+				"12",
+				"12_11",
+				"11",
+				"11_10",
+				"10",
+				"10_9",
+				"9",
+				"9_8",
+				"8",
+				"8_forestry",
+				"forestry"};
+		for (int i = 0; i < printing.length; i++) {
+			for (int j = 0; j < printing[i].length; j++) {
+//				System.out.println(printing[i][j]);
+			}
+//			System.out.println("");
+			assertArrayEquals(printing[i],v);
+		}
+	}
+
+
 
 
 }

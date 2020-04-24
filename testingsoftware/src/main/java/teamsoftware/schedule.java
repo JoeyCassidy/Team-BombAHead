@@ -21,8 +21,9 @@ public class schedule {
 	 * @return
 	 * @throws SQLException
 	 */
-	public schedule SQLintitschedule(String myid) throws SQLException {
-		Connection conn = null;
+	public schedule SQLintitschedule(String myid) throws SQLException, ClassNotFoundException {
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:~/test", "sa","");
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String p = " select * " +
@@ -36,18 +37,18 @@ public class schedule {
 			place using = new place(rs.getString(2),rs.getTime(3).toLocalTime(), null, useb, rs.getString(5), rs.getString(2));
 			listOfListOfPlaces.add(listOfListOfPlaces.size(), using);
 		}
-		place[] holdingplace = new place[listOfListOfPlaces.size()];
-		int i = 0;
-		for(place pp : listOfListOfPlaces){
-			holdingplace[i] = pp;
-			i++;
-		}
-		String[][] holdingpaths = new pathfactory().pathing3(holdingplace, new Boolean[] {true, true, true, true, true} );
-		for (int j = 0; j < 5; j++) {
-			for (String sp: holdingpaths[j]) {
-				listOfPaths[j].add(sp);
-			}
-		}
+//		place[] holdingplace = new place[listOfListOfPlaces.size()];
+//		int i = 0;
+//		for(place pp : listOfListOfPlaces){
+//			holdingplace[i] = pp;
+//			i++;
+//		}
+//		String[][] holdingpaths = p1.pathing3(holdingplace, new Boolean[] {true, true, true, true, true} );
+//		for (int j = 0; j < 5; j++) {
+//			for (String sp: holdingpaths[j]) {
+//				listOfPaths[j].add(sp);
+//			}
+//		}
 		return this;
 	}
 	
