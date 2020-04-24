@@ -17,6 +17,8 @@ const auth = firebase.auth();
 function signUp(){
     const tempEmail = document.getElementById("emailInput-signUp");
     const tempPassword = document.getElementById("passwordInput-signUp");
+    const tempName = document.getElementById("studentName");
+    const name = tempName.value;
     const email = tempEmail.value;
     const password = tempPassword.value;
     console.log(email, password);
@@ -24,9 +26,10 @@ function signUp(){
     //sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
         console.log(cred.user);
-        //form reset
-        clearForm("signUpForm");
-        location.href='/profile';
+        const userID = cred.user.uid;
+        document.getElementById('uid').value = userID;
+        //clearForm("signUpForm");
+
     })
 
 }
@@ -40,9 +43,8 @@ function signIn(){
     //sign in the user
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         console.log(cred.user);
-        //form reset
-        clearForm("signInForm");
-        Location.href='/profile';
+        const ID = cred.user.uid;
+        document.getElementById('id').value = ID;
     })
 }
 //sign out
