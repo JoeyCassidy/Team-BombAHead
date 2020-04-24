@@ -111,7 +111,7 @@
 						</div>
 						<div class="modal-body">
 							<p>Welcome back!</p>
-							<form action="views/profile.jsp" method="post" id="signInForm">
+							<form action="/profile" method="post" id="signInForm">
 								<div class="form-group">
 									<label for="emailInput-signIn">Your email address</label>
 									<input type="email" class="form-control" id="emailInput-signIn" placeholder="example@site.com" required>
@@ -120,7 +120,7 @@
 									<label for="passwordInput-signIn">Your password</label>
 									<input type="password" class="form-control" id="passwordInput-signIn" placeholder="password" required>
 								</div>
-								<input type="hidden" name="id" id="id" value=""/>
+								<input type="hidden" name="uid" id="id" value=""/>
 								<button type="submit" class="btn btn-primary" onclick="signIn()">Sign in</button>
 							</form>
 						</div>

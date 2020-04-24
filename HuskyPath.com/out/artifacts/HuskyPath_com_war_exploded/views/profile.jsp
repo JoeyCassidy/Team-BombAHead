@@ -1,4 +1,5 @@
 <%@ page import="teamsoftware.student" %>
+<%@ page import="teamsoftware.schedule" %>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -33,12 +34,17 @@
 	<body class="bbbbb" style="height: 100%;">
 	<%
 		student student = new student();
-		String userID = request.getParameter("uid");
+		//sign up
+		//String userID = request.getParameter("uid");
+		String userID = (String) session.getAttribute("userid");
 		System.out.println(userID);
+		//this one is from sign in
 		String ID = request.getParameter("id");
 		System.out.println(ID);
+		//sign up
 		String name = request.getParameter("studentName");
 		System.out.println(name);
+		//sign up
 		String email = request.getParameter("emailInput-signUp");
 		System.out.println(email);
 		String[] info = {"0","1","2"};
@@ -143,9 +149,13 @@
 				<div class="col-lg-6 thumb">
 				<h3 style="text-align:center;">Schedule</h3>
 					<div class="list-group">
-						<a href="#!" class="list-group-item list-group-item-action">schedule</a>
-						<a href="#!" class="list-group-item list-group-item-action">schedule</a>
-						<a href="#!" class="list-group-item list-group-item-action">schedule</a>
+						<%
+							schedule sched = new schedule();
+							sched.SQLintitschedule(userID);
+							for(int i = 0; i<sched.listOfListOfPlaces.size();i++){
+								out.println("<a class='list-group-item list-group-item-action'>" + sched.listOfListOfPlaces.get(i).getName() +" "+ sched.listOfListOfPlaces.get(i).getLocation() +" Start Time: "+ sched.listOfListOfPlaces.get(i).getTime()+"</a>");
+							}
+						%>
 					</div>
 				</div>
 				<div class="col-lg-2"></div>

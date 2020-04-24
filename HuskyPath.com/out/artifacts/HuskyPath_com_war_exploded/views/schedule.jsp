@@ -63,16 +63,25 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8 thumb">
+            <div style="color: green">
+                <%
+                    if (request.getAttribute("successful") != null) {
+                        out.println("<p>Class added!</p>");
+                    }
+                %>
+            </div>
             <form method="post">
+
             <div class="form-group row">
+
                 <label for="class"> Class Name</label>
                 <input type="text" class="form-control" name="class" id="class">
             </div>
                 <div class="form-group row">
                     <label for="starttime"> Start Time</label>
-                    <input type="datetime-local" class="form-control" name="starttime" id="starttime">
+                    <input type="time" class="form-control" name="starttime" id="starttime">
                     <label for="endtime"> End Time</label>
-                    <input type="datetime-local" class="form-control" name="endtime" id="endtime">
+                    <input type="time" class="form-control" name="endtime" id="endtime">
                     <label for="location"> Location</label>
                     <input type="text" class="form-control" name="location" id="location">
                 </div>
@@ -106,6 +115,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             </form>
+
             </div>
         </div>
         <div class="col-lg-2"></div>

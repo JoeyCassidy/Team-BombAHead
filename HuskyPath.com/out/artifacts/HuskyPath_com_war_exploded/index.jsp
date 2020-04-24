@@ -43,7 +43,7 @@
 						<div class="col-lg-3"></div>
 						<div class="col-lg-6">
 							<div class="jumbotron jumbotron-fluid rounded border border-dark shadow p-3 mb-5 bg-white" style="color: #FFFFFF">
-								<h1 style="color: black">Welcome to Husk Path</h1>
+								<h1 style="color: black">Welcome to Husky Path</h1>
 								<h3 style="color: black">Login to get started</h3>
 								<img src="https://cdn.pixabay.com/photo/2016/03/31/15/34/arrow-1293397_960_720.png" width="100" height="100"> 
 								<h1> </h1>
@@ -51,8 +51,6 @@
 								<div id="firebaseui-auth-container">
 									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signIn">sign in</button>
 									<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signUp">sign up</button>
-
-									<button type="button" onclick="location.href='/result'">this</button>
 								</div>
 							</div>
 						</div>
@@ -113,7 +111,7 @@
 						</div>
 						<div class="modal-body">
 							<p>Welcome back!</p>
-							<form action="views/profile.jsp" method="post" id="signInForm">
+							<form action="/profile" method="post" id="signInForm">
 								<div class="form-group">
 									<label for="emailInput-signIn">Your email address</label>
 									<input type="email" class="form-control" id="emailInput-signIn" placeholder="example@site.com" required>
@@ -122,7 +120,7 @@
 									<label for="passwordInput-signIn">Your password</label>
 									<input type="password" class="form-control" id="passwordInput-signIn" placeholder="password" required>
 								</div>
-								<input type="hidden" name="id" id="id" value=""/>
+								<input type="hidden" name="uid" id="id" value=""/>
 								<button type="submit" class="btn btn-primary" onclick="signIn()">Sign in</button>
 							</form>
 						</div>
