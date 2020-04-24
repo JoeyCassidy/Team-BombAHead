@@ -88,12 +88,12 @@ public class schedule {
 		stmt.setString(2, classname);
 		stmt.setTimestamp(3, starttime);
 		stmt.setTimestamp(4, endtime);
-		stmt.setString(4, location);
-		stmt.setBoolean(4, isday[0]);
-		stmt.setBoolean(4, isday[1]);
-		stmt.setBoolean(4, isday[2]);
-		stmt.setBoolean(4, isday[3]);
-		stmt.setBoolean(4, isday[4]);
+		stmt.setString(5, location);
+		stmt.setBoolean(6, isday[0]);
+		stmt.setBoolean(7, isday[1]);
+		stmt.setBoolean(8, isday[2]);
+		stmt.setBoolean(9, isday[3]);
+		stmt.setBoolean(10, isday[4]);
 		stmt.execute();
 	}
 
