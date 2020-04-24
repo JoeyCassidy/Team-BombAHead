@@ -43,7 +43,7 @@
 						<div class="col-lg-3"></div>
 						<div class="col-lg-6">
 							<div class="jumbotron jumbotron-fluid rounded border border-dark shadow p-3 mb-5 bg-white" style="color: #FFFFFF">
-								<h1 style="color: black">Welcome to Husk Path</h1>
+								<h1 style="color: black">Welcome to Husky Path</h1>
 								<h3 style="color: black">Login to get started</h3>
 								<img src="https://cdn.pixabay.com/photo/2016/03/31/15/34/arrow-1293397_960_720.png" width="100" height="100"> 
 								<h1> </h1>
@@ -51,8 +51,6 @@
 								<div id="firebaseui-auth-container">
 									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signIn">sign in</button>
 									<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signUp">sign up</button>
-
-									<button type="button" onclick="location.href='/result'">this</button>
 								</div>
 							</div>
 						</div>
