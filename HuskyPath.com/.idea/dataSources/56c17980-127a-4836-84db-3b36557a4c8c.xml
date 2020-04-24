@@ -176,15 +176,15 @@
     <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
     <collation id="162" parent="2" name="VIETNAMESE"/>
     <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
-    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_166E79FC_948C_40B3_9B10_AF3E9F83BC33">
-      <ObjectId>25</ObjectId>
+    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_27F47F48_F10E_4BDC_8A7F_2B77C1937B32">
+      <ObjectId>15</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>32</CacheSize>
       <AutoCreated>1</AutoCreated>
     </sequence>
-    <sequence id="165" parent="4" name="SYSTEM_SEQUENCE_1D0A9202_4475_4E96_A2C5_E2AE35BB565E">
-      <ObjectId>15</ObjectId>
+    <sequence id="165" parent="4" name="SYSTEM_SEQUENCE_ABF32DA1_6C9A_4EBF_BEDF_B716F2B77E78">
+      <ObjectId>25</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>32</CacheSize>
@@ -414,7 +414,7 @@
       <Position>7</Position>
       <DataType>BIT|0s</DataType>
     </column>
-    <index id="213" parent="170" name="CONSTRAINT_8_INDEX_1">
+    <index id="213" parent="170" name="CONSTRAINT_8_INDEX_7">
       <ObjectId>13</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>80</SourceTextLength>

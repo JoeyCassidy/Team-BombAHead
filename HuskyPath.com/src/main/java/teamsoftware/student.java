@@ -29,6 +29,7 @@ public class student {
 		stmt.setString(3, studentEmail);
 		stmt.execute();
 
+
 	}
 
 	/**
@@ -72,10 +73,10 @@ public class student {
 		rs = stmt.executeQuery();
 		String[] returning = null;
 		if(rs.next()){
-			returning = new String[]{Integer.toString(rs.getInt(1)),
+			returning = new String[]{rs.getString(1),
 					rs.getString(2),rs.getString(3)};
 			ID = rs.getString(1);
-			Email = rs.getString(2);
+			Email = rs.getString(3);
 		}
 		return returning;
 	}
