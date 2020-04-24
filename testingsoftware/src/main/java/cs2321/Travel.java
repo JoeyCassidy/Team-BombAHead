@@ -209,10 +209,12 @@ public class Travel {
 		HashMap<String,Edge<Integer>> connectionslist = new HashMap<String,Edge<Integer>>();
 //		start the search at the departure point
 		pq.insert(0, new VE(current,null));
+		connectionslist.put(current.data, null);
 //		start a cost counter for each edge
 		int currentcost = 0;
 //		while there are edge to look through keep going
 		while(!pq.isEmpty()) {
+
 //			System.out.print("*.");
 //			get the cost of the edge
 			currentcost = pq.min().getKey();
@@ -221,6 +223,10 @@ public class Travel {
 //			set current vertex we will work on
 			current = (AdjListGraph<String, Integer>.vnode<String, Integer>) currentve.V;
 //			add the to this vertex into the connection list
+			if(connectionslist.get(current.data)!=null) {
+				continue;
+			}
+//			System.out.println("at "+current.data+" cost is "+currentcost);
 			connectionslist.put(current.data, currentve.E);
 //			if we found what we are looking for stop looking
 			if(comp.compare(current.data,destination)==0) {
@@ -229,11 +235,14 @@ public class Travel {
 //			goo through each edge in the vertexs edges
 			for( Edge<Integer> e : sortedOutgoingEdges(current)) {
 //				if a connection to this point has already been made then dont make it
-				if(connectionslist.get(visited.opposite(current, e).getElement())!=null) {
-					continue;
+				if(connectionslist.get(visited.opposite(current, e).getElement())==null) {
+//					System.out.println(current.data + " to " +
+//							visited.opposite(current, e).getElement() + " is " +
+//							(currentcost+e.getElement()));
+					pq.insert(currentcost+e.getElement(), new VE(visited.opposite(current, e),e));
+//					continue;
 				}
 //				insert the edge into the heappq
-				pq.insert(currentcost+e.getElement(), new VE(visited.opposite(current, e),e));
 			}
 		}
 //		goes backwards through the connections and adds them to the list storing the path

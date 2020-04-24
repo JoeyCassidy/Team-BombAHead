@@ -35,11 +35,6 @@ public class pathfactorytest {
 				"C",
 				"C_D",
 				"D"};
-//		System.out.println("**************************");
-		System.out.println("");
-//		for(int i = 0; i < b.length; i++) {
-//			System.out.println(b[i]);
-//		}
 		for(int i = 0; i < b.length; i++) {
 			assertEquals(b[i], c[i]);
 		}
@@ -70,14 +65,6 @@ public class pathfactorytest {
 				};
 		p.initializeMap(routes);
 
-
-//		String[] z = {"1","2","3","4","5","6","7","8","9"};
-//		String[] x = p.makepath(z);
-
-//		for(int i = 0 ; i < x.length; i++) {
-//			System.out.println(x[i]);
-//		}
-
 		place[] q = new place[9];
 		for(int i = 0; i < q.length; i++) {
 			String a = "also a banana";
@@ -94,22 +81,8 @@ public class pathfactorytest {
 			String e = Integer.toString(i+1);
 			q[i] = new place(a, b, c, d, e, null);
 		}
-//
-//		System.out.println("");
-//
-//		for(int i = 0; i < q.length; i++) {
-//			place e = q[i];
-//			System.out.print(e.getLocation() +" _ "+ e.getName() +" _ "+ e.getType());
-//			System.out.print(" _ "+ e.getListOfDays()[0] + " " + e.getListOfDays()[1] + " " + e.getListOfDays()[2] + " " + e.getListOfDays()[3] + " " + e.getListOfDays()[4] +" _ " + e.getTime().getHour());
-//			System.out.println();
-//			System.out.println("");
-//		}
 
 		String[] f = p.MPFUP(q);
-
-//		for(int i = 0 ; i < f.length; i++) {
-//			System.out.println(f[i]);
-//		}
 
 		String[] v = {"1_2",
 				"2",
@@ -178,12 +151,6 @@ public class pathfactorytest {
 
 		String[][] f = p.pathing3(q, new Boolean[] {true,true,true,true,true});
 
-//		for(int i = 0 ; i < f.length; i++) {
-//			for (int j = 0; j < f[i].length; j++) {
-//				System.out.println(f[i][j]);
-//			}
-//		}
-
 		String[] v = {"1_2",
 				"2",
 				"2_3",
@@ -200,19 +167,54 @@ public class pathfactorytest {
 				"8",
 				"8_9",
 				"9"};
-//		for(int d = 0; d < f.length; d++) {
-////			for(int s = 0; s < f[d].length; s++) {
-////				System.out.print(f[d][s] + " * ");
-////			}
-//			assertArrayEquals(f[d], v);
-////			System.out.println("");
-//		}
 
-//
 		for(int i = 0; i < f.length; i++) {
-			assertEquals(f[i], v);
+			assertArrayEquals(f[i], v);
 		}
 
 	}
-	
+
+	@Test
+	public void testINITMAP() {
+		pathfactory p = new pathfactory();
+		p = new pathfactory();
+		p.initializeMTUMap();
+		String[] f = p.makepath(new String[]{"westmcnair","forestry"});
+
+		String[] v = {"westmcnair_23",
+					"23",
+					"23_21",
+					"21",
+					"21_20",
+					"20",
+					"20_19",
+					"19",
+					"19_18",
+					"18",
+					"18_17",
+					"17",
+					"17_15",
+					"15",
+					"15_14",
+					"14",
+					"14_12",
+					"12",
+					"12_11",
+					"11",
+					"11_10",
+					"10",
+					"10_9",
+					"9",
+					"9_8",
+					"8",
+					"8_forestry",
+					"forestry"};
+
+		for(int i = 0; i < f.length; i++) {
+			assertEquals(f[i], v[i]);
+		}
+
+	}
+
+
 }
