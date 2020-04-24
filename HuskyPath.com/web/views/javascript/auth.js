@@ -52,6 +52,7 @@ function signOut(){
     //sign out the user
     auth.signOut().then(() => {
         console.log('signed out');
+
     });
 }
 //clear form with id tag 'id'

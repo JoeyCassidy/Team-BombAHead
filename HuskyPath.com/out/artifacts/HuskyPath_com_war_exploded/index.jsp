@@ -70,7 +70,7 @@
 						</div>
 						<div class="modal-body">
 							<p>Don't forget to make your password secure!</p>
-							<form action="views/profile.jsp" method="post" id="signUpForm">
+							<form action="/profile" method="post" id="signUpForm">
 								<div class="form-group">
 									<label for="studentName">Your name</label>
 									<input type="text" class="form-control" id="studentName" name="studentName" placeholder="name" required>

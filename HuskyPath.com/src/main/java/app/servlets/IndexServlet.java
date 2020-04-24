@@ -16,15 +16,13 @@ import java.sql.SQLException;
 public class IndexServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("do post: "+request.getParameter("uid"));
-        HttpSession session = request.getSession();
-        session.setAttribute("userid", request.getParameter("uid"));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/profile.jsp");
         requestDispatcher.forward(request, response);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("do get: "+request.getParameter("uid"));
+        HttpSession session = request.getSession();
+        session.invalidate();
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(request, response);
     }

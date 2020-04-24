@@ -38,6 +38,7 @@
 		//String userID = request.getParameter("uid");
 		String userID = (String) session.getAttribute("userid");
 		System.out.println(userID);
+		System.out.println(request.getParameter("uid"));
 		//this one is from sign in
 		String ID = request.getParameter("id");
 		System.out.println(ID);
